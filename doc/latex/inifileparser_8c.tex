@@ -1,0 +1,1057 @@
+\hypertarget{inifileparser_8c}{\section{ulppk/inifileparser.c File Reference}
+\label{inifileparser_8c}\index{ulppk/inifileparser.\-c@{ulppk/inifileparser.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdarg.\-h$>$}\\*
+{\ttfamily \#include $<$ifile.\-h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+union \hyperlink{union_y_y_s_t_y_p_e}{Y\-Y\-S\-T\-Y\-P\-E}
+\item 
+union \hyperlink{unionyyalloc}{yyalloc}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{inifileparser_8c_a9f092f5b1dca6a6249fb2c7c8065b031}{Y\-Y\-B\-I\-S\-O\-N}~1
+\item 
+\#define \hyperlink{inifileparser_8c_a72ebd0ca5807efcc6a5ae4fb72dd1553}{Y\-Y\-B\-I\-S\-O\-N\-\_\-\-V\-E\-R\-S\-I\-O\-N}~\char`\"{}2.\-3\char`\"{}
+\item 
+\#define \hyperlink{inifileparser_8c_a50db5aef8c2b6f13961b2480b37f84c0}{Y\-Y\-S\-K\-E\-L\-E\-T\-O\-N\-\_\-\-N\-A\-M\-E}~\char`\"{}yacc.\-c\char`\"{}
+\item 
+\#define \hyperlink{inifileparser_8c_a9fa797a1f3c4fc9b12d1e4d569612767}{Y\-Y\-P\-U\-R\-E}~0
+\item 
+\#define \hyperlink{inifileparser_8c_abb3943553c2b5e911c89a3ea973d3079}{Y\-Y\-L\-S\-P\-\_\-\-N\-E\-E\-D\-E\-D}~0
+\item 
+\#define \hyperlink{inifileparser_8c_a69ca0fbcc6d7aa5e8f47b11fc0048208}{Y\-Y\-T\-O\-K\-E\-N\-T\-Y\-P\-E}
+\item 
+\#define \hyperlink{inifileparser_8c_a16bd295105fa4b35a64f581a1ef6140c}{S\-E\-C\-T\-I\-O\-N\-\_\-\-D\-E\-C\-L}~258
+\item 
+\#define \hyperlink{inifileparser_8c_a45734d64ac1283048289925ad7b30dfe}{I\-D\-E\-N\-T\-I\-F\-I\-E\-R}~259
+\item 
+\#define \hyperlink{inifileparser_8c_a0f4d394a3ab4e09bff60f714c66dc5ee}{S\-T\-R\-I\-N\-G}~260
+\item 
+\#define \hyperlink{inifileparser_8c_abc544a4ed22112e62773c113652c5063}{N\-U\-M\-B\-E\-R}~261
+\item 
+\#define \hyperlink{inifileparser_8c_aded77d26360164522996ef56934fb148}{H\-E\-X\-N\-U\-M\-B\-E\-R}~262
+\item 
+\#define \hyperlink{inifileparser_8c_a8105d440091860d46e066d78940d3e00}{I\-P\-S\-T\-R\-I\-N\-G}~263
+\item 
+\#define \hyperlink{inifileparser_8c_a853b3bfad6d2b2ff693dce81182e0c2e}{Y\-Y\-D\-E\-B\-U\-G}~0
+\item 
+\#define \hyperlink{inifileparser_8c_a0943f558a560b9b5fa0593d7e36496c1}{Y\-Y\-E\-R\-R\-O\-R\-\_\-\-V\-E\-R\-B\-O\-S\-E}~0
+\item 
+\#define \hyperlink{inifileparser_8c_a3499e31aa832edc82b632ae811286a4b}{Y\-Y\-T\-O\-K\-E\-N\-\_\-\-T\-A\-B\-L\-E}~0
+\item 
+\#define \hyperlink{inifileparser_8c_a4ccf5315e8f5c1cec48ec67ca1771e3a}{yystype}~\hyperlink{union_y_y_s_t_y_p_e}{Y\-Y\-S\-T\-Y\-P\-E} /$\ast$ obsolescent; will be withdrawn $\ast$/
+\item 
+\#define \hyperlink{inifileparser_8c_af0232d21120b2cfc5e5f82f0fbadab3c}{Y\-Y\-S\-T\-Y\-P\-E\-\_\-\-I\-S\-\_\-\-D\-E\-C\-L\-A\-R\-E\-D}~1
+\item 
+\#define \hyperlink{inifileparser_8c_a2e3dbf169c5ee24cf6af37c61cf3995d}{Y\-Y\-S\-T\-Y\-P\-E\-\_\-\-I\-S\-\_\-\-T\-R\-I\-V\-I\-A\-L}~1
+\item 
+\#define \hyperlink{inifileparser_8c_a7d535939e93253736c6eeda569d24de5}{Y\-Y\-S\-I\-Z\-E\-\_\-\-T}~unsigned int
+\item 
+\#define \hyperlink{inifileparser_8c_ab4bb7ad82d4a7e2df49ff6a8fb484109}{Y\-Y\-S\-I\-Z\-E\-\_\-\-M\-A\-X\-I\-M\-U\-M}~((\hyperlink{inifileparser_8c_a7d535939e93253736c6eeda569d24de5}{Y\-Y\-S\-I\-Z\-E\-\_\-\-T}) -\/1)
+\item 
+\#define \hyperlink{inifileparser_8c_a86f079016f11f0600f4259f3f03f8d43}{Y\-Y\-\_\-}(msgid)~msgid
+\item 
+\#define \hyperlink{inifileparser_8c_ad7d1ef1bbc6adfe69894bc8221f557e1}{Y\-Y\-U\-S\-E}(e)~((void) (e))
+\item 
+\#define \hyperlink{inifileparser_8c_a0a6ff515042340dd341cf6ca8dd05f2d}{Y\-Y\-I\-D}(n)~(n)
+\item 
+\#define \hyperlink{inifileparser_8c_af45042ce56e04d634420d76caeb2ee73}{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-A\-L\-L\-O\-C}~\hyperlink{inifileparser_8c_a573b05852d8f080c907dfba725773d7a}{Y\-Y\-M\-A\-L\-L\-O\-C}
+\item 
+\#define \hyperlink{inifileparser_8c_a1a9dc526fd390d4808252bd631c4c2f7}{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-F\-R\-E\-E}~\hyperlink{inifileparser_8c_ac8adfd73c006c1926f387feb1eced3ca}{Y\-Y\-F\-R\-E\-E}
+\item 
+\#define \hyperlink{inifileparser_8c_a7e55d995c7458f2f4af94a426d0adde8}{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-A\-L\-L\-O\-C\-\_\-\-M\-A\-X\-I\-M\-U\-M}~\hyperlink{inifileparser_8c_ab4bb7ad82d4a7e2df49ff6a8fb484109}{Y\-Y\-S\-I\-Z\-E\-\_\-\-M\-A\-X\-I\-M\-U\-M}
+\item 
+\#define \hyperlink{inifileparser_8c_a573b05852d8f080c907dfba725773d7a}{Y\-Y\-M\-A\-L\-L\-O\-C}~malloc
+\item 
+\#define \hyperlink{inifileparser_8c_ac8adfd73c006c1926f387feb1eced3ca}{Y\-Y\-F\-R\-E\-E}~free
+\item 
+\#define \hyperlink{inifileparser_8c_afcd15dd0fa87ffba0371c6d6a0cc9631}{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-G\-A\-P\-\_\-\-M\-A\-X\-I\-M\-U\-M}~(sizeof (union \hyperlink{unionyyalloc}{yyalloc}) -\/ 1)
+\item 
+\#define \hyperlink{inifileparser_8c_a40beb355f2cf230a99e2e2bb54909a5a}{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-B\-Y\-T\-E\-S}(N)
+\item 
+\#define \hyperlink{inifileparser_8c_ad6586b145b5cddce4eec46f35d59b1dd}{Y\-Y\-C\-O\-P\-Y}(To, From, Count)
+\item 
+\#define \hyperlink{inifileparser_8c_ac70c64089ec70937293b65ddbd083412}{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-R\-E\-L\-O\-C\-A\-T\-E}(Stack)
+\item 
+\#define \hyperlink{inifileparser_8c_a6419f3fd69ecb6b7e063410fd4e73b2f}{Y\-Y\-F\-I\-N\-A\-L}~5
+\item 
+\#define \hyperlink{inifileparser_8c_ae67923760a28e3b7ed3aa2cfaef7f9a2}{Y\-Y\-L\-A\-S\-T}~9
+\item 
+\#define \hyperlink{inifileparser_8c_a75d260730a6c379a94ea28f63a7b9275}{Y\-Y\-N\-T\-O\-K\-E\-N\-S}~10
+\item 
+\#define \hyperlink{inifileparser_8c_af54ae9e588f0ecc32eabbfdf1959df10}{Y\-Y\-N\-N\-T\-S}~7
+\item 
+\#define \hyperlink{inifileparser_8c_aceaba8997dc3867478ae3b816647eb7c}{Y\-Y\-N\-R\-U\-L\-E\-S}~12
+\item 
+\#define \hyperlink{inifileparser_8c_a2c387ba2caaade8bf8f78ed30023f79f}{Y\-Y\-N\-S\-T\-A\-T\-E\-S}~16
+\item 
+\#define \hyperlink{inifileparser_8c_a926181abd06b6d1df27b6133971c24ce}{Y\-Y\-U\-N\-D\-E\-F\-T\-O\-K}~2
+\item 
+\#define \hyperlink{inifileparser_8c_af3f5ed4bc4517eff0ef1b17541192a58}{Y\-Y\-M\-A\-X\-U\-T\-O\-K}~263
+\item 
+\#define \hyperlink{inifileparser_8c_aad19ee88e33c02c4e720b28f78249bd7}{Y\-Y\-T\-R\-A\-N\-S\-L\-A\-T\-E}(Y\-Y\-X)~((unsigned int) (Y\-Y\-X) $<$= \hyperlink{inifileparser_8c_af3f5ed4bc4517eff0ef1b17541192a58}{Y\-Y\-M\-A\-X\-U\-T\-O\-K} ? yytranslate\mbox{[}Y\-Y\-X\mbox{]} \-: \hyperlink{inifileparser_8c_a926181abd06b6d1df27b6133971c24ce}{Y\-Y\-U\-N\-D\-E\-F\-T\-O\-K})
+\item 
+\#define \hyperlink{inifileparser_8c_a62bf0ed0c4360b077071b5cf3177823b}{Y\-Y\-P\-A\-C\-T\-\_\-\-N\-I\-N\-F}~-\/6
+\item 
+\#define \hyperlink{inifileparser_8c_a504faa93b92f37fcc147f68e8d111a1d}{Y\-Y\-T\-A\-B\-L\-E\-\_\-\-N\-I\-N\-F}~-\/1
+\item 
+\#define \hyperlink{inifileparser_8c_a20bf055e53dc4fd5afddfd752a4d1adb}{yyerrok}~(yyerrstatus = 0)
+\item 
+\#define \hyperlink{inifileparser_8c_a5035d59933b3f5388c44f596145db047}{yyclearin}~(\hyperlink{inifileparser_8c_a9e2c7c7373b818c86b2df7106a92327c}{yychar} = \hyperlink{inifileparser_8c_ae59196b3765411a06cf234cf9bcae2e7}{Y\-Y\-E\-M\-P\-T\-Y})
+\item 
+\#define \hyperlink{inifileparser_8c_ae59196b3765411a06cf234cf9bcae2e7}{Y\-Y\-E\-M\-P\-T\-Y}~(-\/2)
+\item 
+\#define \hyperlink{inifileparser_8c_a3b1e3628411fabac03abe0a337322016}{Y\-Y\-E\-O\-F}~0
+\item 
+\#define \hyperlink{inifileparser_8c_aa6c7a65b580c214b2ea832fd7bdd472e}{Y\-Y\-A\-C\-C\-E\-P\-T}~goto yyacceptlab
+\item 
+\#define \hyperlink{inifileparser_8c_a3bcde0b05b9aa4ec5169092d9d211dbd}{Y\-Y\-A\-B\-O\-R\-T}~goto yyabortlab
+\item 
+\#define \hyperlink{inifileparser_8c_af1eef6197be78122699013d0784acc80}{Y\-Y\-E\-R\-R\-O\-R}~goto yyerrorlab
+\item 
+\#define \hyperlink{inifileparser_8c_a383d9671b1abd97e4c6f3708d1ca32f3}{Y\-Y\-F\-A\-I\-L}~goto yyerrlab
+\item 
+\#define \hyperlink{inifileparser_8c_ad860e18ca4b79fc589895b531bdb7948}{Y\-Y\-R\-E\-C\-O\-V\-E\-R\-I\-N\-G}()~(!!yyerrstatus)
+\item 
+\#define \hyperlink{inifileparser_8c_adfcaf974b837e3efc130377e9837b4fd}{Y\-Y\-B\-A\-C\-K\-U\-P}(Token, Value)
+\item 
+\#define \hyperlink{inifileparser_8c_ad2b58b1851184ddb3b60fede50bc7946}{Y\-Y\-T\-E\-R\-R\-O\-R}~1
+\item 
+\#define \hyperlink{inifileparser_8c_a552f295255821fa7dea11b0237e1d61a}{Y\-Y\-E\-R\-R\-C\-O\-D\-E}~256
+\item 
+\#define \hyperlink{inifileparser_8c_ab2b4f027a2b092ac14ca4464e7b3db60}{Y\-Y\-R\-H\-S\-L\-O\-C}(Rhs, K)~((Rhs)\mbox{[}K\mbox{]})
+\item 
+\#define \hyperlink{inifileparser_8c_a485d38f93de30679900c9cad6e7f3446}{Y\-Y\-L\-L\-O\-C\-\_\-\-D\-E\-F\-A\-U\-L\-T}(Current, Rhs, N)
+\item 
+\#define \hyperlink{inifileparser_8c_a52c7d936ca7e6c34687ff71f29b8cfd1}{Y\-Y\-\_\-\-L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-P\-R\-I\-N\-T}(File, Loc)~((void) 0)
+\item 
+\#define \hyperlink{inifileparser_8c_a0ea34e09602d1ede033f16ba669ef24b}{Y\-Y\-L\-E\-X}~yylex ()
+\item 
+\#define \hyperlink{inifileparser_8c_af6d6ca80e87922f90264f1a4a802ea04}{Y\-Y\-D\-P\-R\-I\-N\-T\-F}(Args)
+\item 
+\#define \hyperlink{inifileparser_8c_a1c510d33cb388afc9411141ba3076a36}{Y\-Y\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-P\-R\-I\-N\-T}(Title, Type, Value, Location)
+\item 
+\#define \hyperlink{inifileparser_8c_a7a52157fbe194e3a347afc4ef750af77}{Y\-Y\-\_\-\-S\-T\-A\-C\-K\-\_\-\-P\-R\-I\-N\-T}(Bottom, Top)
+\item 
+\#define \hyperlink{inifileparser_8c_a49ad456240785266cadae498ddae9310}{Y\-Y\-\_\-\-R\-E\-D\-U\-C\-E\-\_\-\-P\-R\-I\-N\-T}(Rule)
+\item 
+\#define \hyperlink{inifileparser_8c_aeb1508a3a38ec5d64c27e8eca25330b5}{Y\-Y\-I\-N\-I\-T\-D\-E\-P\-T\-H}~200
+\item 
+\#define \hyperlink{inifileparser_8c_a14ba2b263c446ffed1c888c4b42ae40c}{Y\-Y\-M\-A\-X\-D\-E\-P\-T\-H}~10000
+\item 
+\#define \hyperlink{inifileparser_8c_ad2f9773cd9c031026b2ef4c1ee7be1be}{Y\-Y\-P\-O\-P\-S\-T\-A\-C\-K}(N)~(yyvsp -\/= (N), yyssp -\/= (N))
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef union \hyperlink{union_y_y_s_t_y_p_e}{Y\-Y\-S\-T\-Y\-P\-E} \hyperlink{inifileparser_8c_af2bb2348b7b2379f06e8c6aea49cb742}{Y\-Y\-S\-T\-Y\-P\-E}
+\item 
+typedef unsigned char \hyperlink{inifileparser_8c_a79c09f9dcfd0f7a32f598ea3910d2206}{yytype\-\_\-uint8}
+\item 
+typedef short int \hyperlink{inifileparser_8c_afd56a33ef7e59189deccc83706e0becd}{yytype\-\_\-int8}
+\item 
+typedef unsigned short int \hyperlink{inifileparser_8c_a00c27c9da5ed06a830b216c8934e6b28}{yytype\-\_\-uint16}
+\item 
+typedef short int \hyperlink{inifileparser_8c_ade5b97f0021a4f6c5922ead3744ab297}{yytype\-\_\-int16}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9}{yytokentype} \{ \\*
+\hyperlink{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9a11f3d352949196b7b1ed1f4c09ee0103}{S\-E\-C\-T\-I\-O\-N\-\_\-\-D\-E\-C\-L} = 258, 
+\hyperlink{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9a84f8ae2490f9e4bd2321fd21f4b0e807}{I\-D\-E\-N\-T\-I\-F\-I\-E\-R} = 259, 
+\hyperlink{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9aee847e634a4297b274316de8a8ca9921}{S\-T\-R\-I\-N\-G} = 260, 
+\hyperlink{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9a12a90dfe20486bbe3e075afcd19ef2d0}{N\-U\-M\-B\-E\-R} = 261, 
+\\*
+\hyperlink{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9ab41295c7909ca312a97caf0738fb98bb}{H\-E\-X\-N\-U\-M\-B\-E\-R} = 262, 
+\hyperlink{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9ad5e295dd7c66967c6bac08d8e8cbc5a3}{I\-P\-S\-T\-R\-I\-N\-G} = 263, 
+\hyperlink{inifileparser_8h_a15c9f7bd2f0e9686df5d9df4f3314aa9a11f3d352949196b7b1ed1f4c09ee0103}{S\-E\-C\-T\-I\-O\-N\-\_\-\-D\-E\-C\-L} = 258, 
+\hyperlink{inifileparser_8h_a15c9f7bd2f0e9686df5d9df4f3314aa9a84f8ae2490f9e4bd2321fd21f4b0e807}{I\-D\-E\-N\-T\-I\-F\-I\-E\-R} = 259, 
+\\*
+\hyperlink{inifileparser_8h_a15c9f7bd2f0e9686df5d9df4f3314aa9aee847e634a4297b274316de8a8ca9921}{S\-T\-R\-I\-N\-G} = 260, 
+\hyperlink{inifileparser_8h_a15c9f7bd2f0e9686df5d9df4f3314aa9a12a90dfe20486bbe3e075afcd19ef2d0}{N\-U\-M\-B\-E\-R} = 261, 
+\hyperlink{inifileparser_8h_a15c9f7bd2f0e9686df5d9df4f3314aa9ab41295c7909ca312a97caf0738fb98bb}{H\-E\-X\-N\-U\-M\-B\-E\-R} = 262, 
+\hyperlink{inifileparser_8h_a15c9f7bd2f0e9686df5d9df4f3314aa9ad5e295dd7c66967c6bac08d8e8cbc5a3}{I\-P\-S\-T\-R\-I\-N\-G} = 263
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{inifileparser_8c_aaf2440435272e392a2fe0c6b181b53f3}{debug\-\_\-print} (char $\ast$fmtp,...)
+\item 
+int \hyperlink{inifileparser_8c_acd8617a8f2ac0de8bc1cc032cf449e19}{yyparse} ()
+\item 
+int \hyperlink{inifileparser_8c_ad4ba096d540e84dff2de60a484cb121d}{if\-\_\-parse\-\_\-inifile} (F\-I\-L\-E $\ast$fp, char $\ast$fpath)
+\item 
+int \hyperlink{inifileparser_8c_a10a065c8abf4cd4bedd6e307acc5ebf7}{yyerror} (char $\ast$msg)
+\item 
+\hyperlink{struct_i_n_i_f_i_l_e___n_o_d_e}{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E} $\ast$ \hyperlink{inifileparser_8c_ab33a1feb018e621b88ca4715b0d1a7ff}{if\-\_\-get\-\_\-root} ()
+\item 
+void \hyperlink{inifileparser_8c_aad504a25b051912377b4103b8cb37660}{if\-\_\-set\-\_\-err\-\_\-file} (F\-I\-L\-E $\ast$fp)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{inifileparser_8c_a5e36364965360da7b7cdfc2188e0af84}{yylineno}
+\item 
+char $\ast$ \hyperlink{inifileparser_8c_ad9264b77d56b6971f29739e2bda77f51}{yytext}
+\item 
+\hyperlink{ifile_8h_aa33acc5a78166e20ede739b43311bc56}{I\-F\-\_\-\-N\-O\-D\-E\-\_\-\-T\-Y\-P\-E} \hyperlink{inifileparser_8c_a34ffe3d3db8e7b7cece8b906af93eabc}{node\-\_\-type}
+\item 
+\hyperlink{ifile_8h_a6d7d0c4867b985eb267b77615087d37a}{I\-F\-\_\-\-D\-A\-T\-A\-\_\-\-T\-Y\-P\-E} \hyperlink{inifileparser_8c_ae27efc82f81963f04c22dcfcc70c8766}{data\-\_\-type}
+\item 
+\hyperlink{struct_i_n_i_f_i_l_e___n_o_d_e}{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E} $\ast$ \hyperlink{inifileparser_8c_afb00ee063532a19b8920bb53679b8be7}{nodep} = N\-U\-L\-L
+\item 
+\hyperlink{struct_i_n_i_f_i_l_e___n_o_d_e}{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E} $\ast$ \hyperlink{inifileparser_8c_a04608f6f481fdd9f7794d4561e500acd}{current\-\_\-sectionp} = N\-U\-L\-L
+\item 
+\hyperlink{struct_i_n_i_f_i_l_e___n_o_d_e}{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E} $\ast$ \hyperlink{inifileparser_8c_ae0b1e43aff99baf8ca6e1773128f4b8f}{inifilerootp} = N\-U\-L\-L
+\item 
+F\-I\-L\-E $\ast$ \hyperlink{inifileparser_8c_a1dda981b073bf6aec5c3a9be59f0031e}{ferr} = N\-U\-L\-L
+\item 
+int \hyperlink{inifileparser_8c_a9e2c7c7373b818c86b2df7106a92327c}{yychar}
+\item 
+\hyperlink{union_y_y_s_t_y_p_e}{Y\-Y\-S\-T\-Y\-P\-E} \hyperlink{inifileparser_8c_a539b86ee4bb46824a194f22eb69903d9}{yylval}
+\item 
+int \hyperlink{inifileparser_8c_a0ea9e3b522e448ac462274fe70e1be82}{yynerrs}
+\item 
+F\-I\-L\-E $\ast$ \hyperlink{inifileparser_8c_a46af646807e0797e72b6e8945e7ea88b}{yyin}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{inifileparser_8c_aded77d26360164522996ef56934fb148}{\index{inifileparser.\-c@{inifileparser.\-c}!H\-E\-X\-N\-U\-M\-B\-E\-R@{H\-E\-X\-N\-U\-M\-B\-E\-R}}
+\index{H\-E\-X\-N\-U\-M\-B\-E\-R@{H\-E\-X\-N\-U\-M\-B\-E\-R}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{H\-E\-X\-N\-U\-M\-B\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-E\-X\-N\-U\-M\-B\-E\-R~262}}\label{inifileparser_8c_aded77d26360164522996ef56934fb148}
+
+
+Definition at line 82 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a45734d64ac1283048289925ad7b30dfe}{\index{inifileparser.\-c@{inifileparser.\-c}!I\-D\-E\-N\-T\-I\-F\-I\-E\-R@{I\-D\-E\-N\-T\-I\-F\-I\-E\-R}}
+\index{I\-D\-E\-N\-T\-I\-F\-I\-E\-R@{I\-D\-E\-N\-T\-I\-F\-I\-E\-R}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{I\-D\-E\-N\-T\-I\-F\-I\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-D\-E\-N\-T\-I\-F\-I\-E\-R~259}}\label{inifileparser_8c_a45734d64ac1283048289925ad7b30dfe}
+
+
+Definition at line 79 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a8105d440091860d46e066d78940d3e00}{\index{inifileparser.\-c@{inifileparser.\-c}!I\-P\-S\-T\-R\-I\-N\-G@{I\-P\-S\-T\-R\-I\-N\-G}}
+\index{I\-P\-S\-T\-R\-I\-N\-G@{I\-P\-S\-T\-R\-I\-N\-G}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{I\-P\-S\-T\-R\-I\-N\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-P\-S\-T\-R\-I\-N\-G~263}}\label{inifileparser_8c_a8105d440091860d46e066d78940d3e00}
+
+
+Definition at line 83 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_abc544a4ed22112e62773c113652c5063}{\index{inifileparser.\-c@{inifileparser.\-c}!N\-U\-M\-B\-E\-R@{N\-U\-M\-B\-E\-R}}
+\index{N\-U\-M\-B\-E\-R@{N\-U\-M\-B\-E\-R}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{N\-U\-M\-B\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-M\-B\-E\-R~261}}\label{inifileparser_8c_abc544a4ed22112e62773c113652c5063}
+
+
+Definition at line 81 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a16bd295105fa4b35a64f581a1ef6140c}{\index{inifileparser.\-c@{inifileparser.\-c}!S\-E\-C\-T\-I\-O\-N\-\_\-\-D\-E\-C\-L@{S\-E\-C\-T\-I\-O\-N\-\_\-\-D\-E\-C\-L}}
+\index{S\-E\-C\-T\-I\-O\-N\-\_\-\-D\-E\-C\-L@{S\-E\-C\-T\-I\-O\-N\-\_\-\-D\-E\-C\-L}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{S\-E\-C\-T\-I\-O\-N\-\_\-\-D\-E\-C\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-C\-T\-I\-O\-N\-\_\-\-D\-E\-C\-L~258}}\label{inifileparser_8c_a16bd295105fa4b35a64f581a1ef6140c}
+
+
+Definition at line 78 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a0f4d394a3ab4e09bff60f714c66dc5ee}{\index{inifileparser.\-c@{inifileparser.\-c}!S\-T\-R\-I\-N\-G@{S\-T\-R\-I\-N\-G}}
+\index{S\-T\-R\-I\-N\-G@{S\-T\-R\-I\-N\-G}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{S\-T\-R\-I\-N\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-T\-R\-I\-N\-G~260}}\label{inifileparser_8c_a0f4d394a3ab4e09bff60f714c66dc5ee}
+
+
+Definition at line 80 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a86f079016f11f0600f4259f3f03f8d43}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-\_\-@{Y\-Y\-\_\-}}
+\index{Y\-Y\-\_\-@{Y\-Y\-\_\-}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-\_\-(
+\begin{DoxyParamCaption}
+\item[{}]{msgid}
+\end{DoxyParamCaption}
+)~msgid}}\label{inifileparser_8c_a86f079016f11f0600f4259f3f03f8d43}
+
+
+Definition at line 220 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a52c7d936ca7e6c34687ff71f29b8cfd1}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-\_\-\-L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-P\-R\-I\-N\-T@{Y\-Y\-\_\-\-L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-P\-R\-I\-N\-T}}
+\index{Y\-Y\-\_\-\-L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-P\-R\-I\-N\-T@{Y\-Y\-\_\-\-L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-P\-R\-I\-N\-T}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-\_\-\-L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-P\-R\-I\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-\_\-\-L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-P\-R\-I\-N\-T(
+\begin{DoxyParamCaption}
+\item[{}]{File, }
+\item[{}]{Loc}
+\end{DoxyParamCaption}
+)~((void) 0)}}\label{inifileparser_8c_a52c7d936ca7e6c34687ff71f29b8cfd1}
+
+
+Definition at line 617 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a49ad456240785266cadae498ddae9310}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-\_\-\-R\-E\-D\-U\-C\-E\-\_\-\-P\-R\-I\-N\-T@{Y\-Y\-\_\-\-R\-E\-D\-U\-C\-E\-\_\-\-P\-R\-I\-N\-T}}
+\index{Y\-Y\-\_\-\-R\-E\-D\-U\-C\-E\-\_\-\-P\-R\-I\-N\-T@{Y\-Y\-\_\-\-R\-E\-D\-U\-C\-E\-\_\-\-P\-R\-I\-N\-T}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-\_\-\-R\-E\-D\-U\-C\-E\-\_\-\-P\-R\-I\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-\_\-\-R\-E\-D\-U\-C\-E\-\_\-\-P\-R\-I\-N\-T(
+\begin{DoxyParamCaption}
+\item[{}]{Rule}
+\end{DoxyParamCaption}
+)}}\label{inifileparser_8c_a49ad456240785266cadae498ddae9310}
+
+
+Definition at line 787 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a7a52157fbe194e3a347afc4ef750af77}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-\_\-\-S\-T\-A\-C\-K\-\_\-\-P\-R\-I\-N\-T@{Y\-Y\-\_\-\-S\-T\-A\-C\-K\-\_\-\-P\-R\-I\-N\-T}}
+\index{Y\-Y\-\_\-\-S\-T\-A\-C\-K\-\_\-\-P\-R\-I\-N\-T@{Y\-Y\-\_\-\-S\-T\-A\-C\-K\-\_\-\-P\-R\-I\-N\-T}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-\_\-\-S\-T\-A\-C\-K\-\_\-\-P\-R\-I\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-\_\-\-S\-T\-A\-C\-K\-\_\-\-P\-R\-I\-N\-T(
+\begin{DoxyParamCaption}
+\item[{}]{Bottom, }
+\item[{}]{Top}
+\end{DoxyParamCaption}
+)}}\label{inifileparser_8c_a7a52157fbe194e3a347afc4ef750af77}
+
+
+Definition at line 786 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a1c510d33cb388afc9411141ba3076a36}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-P\-R\-I\-N\-T@{Y\-Y\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-P\-R\-I\-N\-T}}
+\index{Y\-Y\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-P\-R\-I\-N\-T@{Y\-Y\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-P\-R\-I\-N\-T}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-P\-R\-I\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-\_\-\-S\-Y\-M\-B\-O\-L\-\_\-\-P\-R\-I\-N\-T(
+\begin{DoxyParamCaption}
+\item[{}]{Title, }
+\item[{}]{Type, }
+\item[{}]{Value, }
+\item[{}]{Location}
+\end{DoxyParamCaption}
+)}}\label{inifileparser_8c_a1c510d33cb388afc9411141ba3076a36}
+
+
+Definition at line 785 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a3bcde0b05b9aa4ec5169092d9d211dbd}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-A\-B\-O\-R\-T@{Y\-Y\-A\-B\-O\-R\-T}}
+\index{Y\-Y\-A\-B\-O\-R\-T@{Y\-Y\-A\-B\-O\-R\-T}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-A\-B\-O\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-A\-B\-O\-R\-T~goto yyabortlab}}\label{inifileparser_8c_a3bcde0b05b9aa4ec5169092d9d211dbd}
+
+
+Definition at line 546 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_aa6c7a65b580c214b2ea832fd7bdd472e}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-A\-C\-C\-E\-P\-T@{Y\-Y\-A\-C\-C\-E\-P\-T}}
+\index{Y\-Y\-A\-C\-C\-E\-P\-T@{Y\-Y\-A\-C\-C\-E\-P\-T}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-A\-C\-C\-E\-P\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-A\-C\-C\-E\-P\-T~goto yyacceptlab}}\label{inifileparser_8c_aa6c7a65b580c214b2ea832fd7bdd472e}
+
+
+Definition at line 545 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_adfcaf974b837e3efc130377e9837b4fd}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-B\-A\-C\-K\-U\-P@{Y\-Y\-B\-A\-C\-K\-U\-P}}
+\index{Y\-Y\-B\-A\-C\-K\-U\-P@{Y\-Y\-B\-A\-C\-K\-U\-P}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-B\-A\-C\-K\-U\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-B\-A\-C\-K\-U\-P(
+\begin{DoxyParamCaption}
+\item[{}]{Token, }
+\item[{}]{Value}
+\end{DoxyParamCaption}
+)}}\label{inifileparser_8c_adfcaf974b837e3efc130377e9837b4fd}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\hyperlink{inifile_8c_a709183e322e370a05cfdd3bb79f9ae79}{do                                                              \(\backslash\)}
+\hyperlink{inifile_8c_a709183e322e370a05cfdd3bb79f9ae79}{  if} (\hyperlink{inifileparser_8c_a9e2c7c7373b818c86b2df7106a92327c}{yychar} == \hyperlink{inifileparser_8c_ae59196b3765411a06cf234cf9bcae2e7}{YYEMPTY} && yylen == 1)                         \(\backslash\)
+    \{                                                           \hyperlink{inifileparser_8c_a9e2c7c7373b818c86b2df7106a92327c}{\(\backslash\)}
+\hyperlink{inifileparser_8c_a9e2c7c7373b818c86b2df7106a92327c}{      yychar} = (Token);                                             
+      \hyperlink{inifileparser_8c_a539b86ee4bb46824a194f22eb69903d9}{\(\backslash\)}
+\hyperlink{inifileparser_8c_a539b86ee4bb46824a194f22eb69903d9}{      yylval} = (Value);                                             \(\backslash\)
+      yytoken = \hyperlink{inifileparser_8c_aad19ee88e33c02c4e720b28f78249bd7}{YYTRANSLATE} (\hyperlink{inifileparser_8c_a9e2c7c7373b818c86b2df7106a92327c}{yychar});                          
+      \hyperlink{inifileparser_8c_ad2f9773cd9c031026b2ef4c1ee7be1be}{\(\backslash\)}
+\hyperlink{inifileparser_8c_ad2f9773cd9c031026b2ef4c1ee7be1be}{      YYPOPSTACK} (1);                                           \(\backslash\)
+      goto yybackup;                                            \(\backslash\)
+    \}                                                           \(\backslash\)
+  else                                                          \(\backslash\)
+    \{                                                           \hyperlink{inifileparser_8c_a10a065c8abf4cd4bedd6e307acc5ebf7}{\(\backslash\)}
+\hyperlink{inifileparser_8c_a10a065c8abf4cd4bedd6e307acc5ebf7}{      yyerror} (\hyperlink{inifileparser_8c_a86f079016f11f0600f4259f3f03f8d43}{YY\_}(\textcolor{stringliteral}{"syntax error: cannot back up"})); \hyperlink{inifileparser_8c_af1eef6197be78122699013d0784acc80}{\(\backslash\)}
+\hyperlink{inifileparser_8c_af1eef6197be78122699013d0784acc80}{      YYERROR};                                                     \(\backslash\)
+    \}                                                           \hyperlink{inifile_8c_a8fdafe3be7e00ce3d4f0cb50a9a5eb39}{\(\backslash\)}
+\hyperlink{inifile_8c_a8fdafe3be7e00ce3d4f0cb50a9a5eb39}{while} (\hyperlink{inifileparser_8c_a0a6ff515042340dd341cf6ca8dd05f2d}{YYID} (0))
+\end{DoxyCode}
+
+
+Definition at line 558 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a9f092f5b1dca6a6249fb2c7c8065b031}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-B\-I\-S\-O\-N@{Y\-Y\-B\-I\-S\-O\-N}}
+\index{Y\-Y\-B\-I\-S\-O\-N@{Y\-Y\-B\-I\-S\-O\-N}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-B\-I\-S\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-B\-I\-S\-O\-N~1}}\label{inifileparser_8c_a9f092f5b1dca6a6249fb2c7c8065b031}
+
+
+Definition at line 47 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a72ebd0ca5807efcc6a5ae4fb72dd1553}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-B\-I\-S\-O\-N\-\_\-\-V\-E\-R\-S\-I\-O\-N@{Y\-Y\-B\-I\-S\-O\-N\-\_\-\-V\-E\-R\-S\-I\-O\-N}}
+\index{Y\-Y\-B\-I\-S\-O\-N\-\_\-\-V\-E\-R\-S\-I\-O\-N@{Y\-Y\-B\-I\-S\-O\-N\-\_\-\-V\-E\-R\-S\-I\-O\-N}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-B\-I\-S\-O\-N\-\_\-\-V\-E\-R\-S\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-B\-I\-S\-O\-N\-\_\-\-V\-E\-R\-S\-I\-O\-N~\char`\"{}2.\-3\char`\"{}}}\label{inifileparser_8c_a72ebd0ca5807efcc6a5ae4fb72dd1553}
+
+
+Definition at line 50 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a5035d59933b3f5388c44f596145db047}{\index{inifileparser.\-c@{inifileparser.\-c}!yyclearin@{yyclearin}}
+\index{yyclearin@{yyclearin}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{yyclearin}]{\setlength{\rightskip}{0pt plus 5cm}\#define yyclearin~({\bf yychar} = {\bf Y\-Y\-E\-M\-P\-T\-Y})}}\label{inifileparser_8c_a5035d59933b3f5388c44f596145db047}
+
+
+Definition at line 541 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_ad6586b145b5cddce4eec46f35d59b1dd}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-C\-O\-P\-Y@{Y\-Y\-C\-O\-P\-Y}}
+\index{Y\-Y\-C\-O\-P\-Y@{Y\-Y\-C\-O\-P\-Y}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-C\-O\-P\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-C\-O\-P\-Y(
+\begin{DoxyParamCaption}
+\item[{}]{To, }
+\item[{}]{From, }
+\item[{}]{Count}
+\end{DoxyParamCaption}
+)}}\label{inifileparser_8c_ad6586b145b5cddce4eec46f35d59b1dd}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do}                                      \(\backslash\)
+        \{                                       \hyperlink{inifileparser_8c_a7d535939e93253736c6eeda569d24de5}{\(\backslash\)}
+\hyperlink{inifileparser_8c_a7d535939e93253736c6eeda569d24de5}{          YYSIZE\_T} yyi;                              \(\backslash\)
+          for (yyi = 0; yyi < (Count); yyi++)   \(\backslash\)
+            (To)[yyi] = (From)[yyi];            \(\backslash\)
+        \}                                       \hyperlink{inifile_8c_a8fdafe3be7e00ce3d4f0cb50a9a5eb39}{\(\backslash\)}
+\hyperlink{inifile_8c_a8fdafe3be7e00ce3d4f0cb50a9a5eb39}{      while} (\hyperlink{inifileparser_8c_a0a6ff515042340dd341cf6ca8dd05f2d}{YYID} (0))
+\end{DoxyCode}
+
+
+Definition at line 346 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a853b3bfad6d2b2ff693dce81182e0c2e}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-D\-E\-B\-U\-G@{Y\-Y\-D\-E\-B\-U\-G}}
+\index{Y\-Y\-D\-E\-B\-U\-G@{Y\-Y\-D\-E\-B\-U\-G}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-D\-E\-B\-U\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-D\-E\-B\-U\-G~0}}\label{inifileparser_8c_a853b3bfad6d2b2ff693dce81182e0c2e}
+
+
+Definition at line 125 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_af6d6ca80e87922f90264f1a4a802ea04}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-D\-P\-R\-I\-N\-T\-F@{Y\-Y\-D\-P\-R\-I\-N\-T\-F}}
+\index{Y\-Y\-D\-P\-R\-I\-N\-T\-F@{Y\-Y\-D\-P\-R\-I\-N\-T\-F}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-D\-P\-R\-I\-N\-T\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-D\-P\-R\-I\-N\-T\-F(
+\begin{DoxyParamCaption}
+\item[{}]{Args}
+\end{DoxyParamCaption}
+)}}\label{inifileparser_8c_af6d6ca80e87922f90264f1a4a802ea04}
+
+
+Definition at line 784 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_ae59196b3765411a06cf234cf9bcae2e7}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-E\-M\-P\-T\-Y@{Y\-Y\-E\-M\-P\-T\-Y}}
+\index{Y\-Y\-E\-M\-P\-T\-Y@{Y\-Y\-E\-M\-P\-T\-Y}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-E\-M\-P\-T\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-E\-M\-P\-T\-Y~(-\/2)}}\label{inifileparser_8c_ae59196b3765411a06cf234cf9bcae2e7}
+
+
+Definition at line 542 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a3b1e3628411fabac03abe0a337322016}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-E\-O\-F@{Y\-Y\-E\-O\-F}}
+\index{Y\-Y\-E\-O\-F@{Y\-Y\-E\-O\-F}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-E\-O\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-E\-O\-F~0}}\label{inifileparser_8c_a3b1e3628411fabac03abe0a337322016}
+
+
+Definition at line 543 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a552f295255821fa7dea11b0237e1d61a}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-E\-R\-R\-C\-O\-D\-E@{Y\-Y\-E\-R\-R\-C\-O\-D\-E}}
+\index{Y\-Y\-E\-R\-R\-C\-O\-D\-E@{Y\-Y\-E\-R\-R\-C\-O\-D\-E}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-E\-R\-R\-C\-O\-D\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-E\-R\-R\-C\-O\-D\-E~256}}\label{inifileparser_8c_a552f295255821fa7dea11b0237e1d61a}
+
+
+Definition at line 577 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a20bf055e53dc4fd5afddfd752a4d1adb}{\index{inifileparser.\-c@{inifileparser.\-c}!yyerrok@{yyerrok}}
+\index{yyerrok@{yyerrok}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{yyerrok}]{\setlength{\rightskip}{0pt plus 5cm}\#define yyerrok~(yyerrstatus = 0)}}\label{inifileparser_8c_a20bf055e53dc4fd5afddfd752a4d1adb}
+
+
+Definition at line 540 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_af1eef6197be78122699013d0784acc80}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-E\-R\-R\-O\-R@{Y\-Y\-E\-R\-R\-O\-R}}
+\index{Y\-Y\-E\-R\-R\-O\-R@{Y\-Y\-E\-R\-R\-O\-R}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-E\-R\-R\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-E\-R\-R\-O\-R~goto yyerrorlab}}\label{inifileparser_8c_af1eef6197be78122699013d0784acc80}
+
+
+Definition at line 547 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a0943f558a560b9b5fa0593d7e36496c1}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-E\-R\-R\-O\-R\-\_\-\-V\-E\-R\-B\-O\-S\-E@{Y\-Y\-E\-R\-R\-O\-R\-\_\-\-V\-E\-R\-B\-O\-S\-E}}
+\index{Y\-Y\-E\-R\-R\-O\-R\-\_\-\-V\-E\-R\-B\-O\-S\-E@{Y\-Y\-E\-R\-R\-O\-R\-\_\-\-V\-E\-R\-B\-O\-S\-E}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-E\-R\-R\-O\-R\-\_\-\-V\-E\-R\-B\-O\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-E\-R\-R\-O\-R\-\_\-\-V\-E\-R\-B\-O\-S\-E~0}}\label{inifileparser_8c_a0943f558a560b9b5fa0593d7e36496c1}
+
+
+Definition at line 133 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a383d9671b1abd97e4c6f3708d1ca32f3}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-F\-A\-I\-L@{Y\-Y\-F\-A\-I\-L}}
+\index{Y\-Y\-F\-A\-I\-L@{Y\-Y\-F\-A\-I\-L}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-F\-A\-I\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-F\-A\-I\-L~goto yyerrlab}}\label{inifileparser_8c_a383d9671b1abd97e4c6f3708d1ca32f3}
+
+
+Definition at line 554 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a6419f3fd69ecb6b7e063410fd4e73b2f}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-F\-I\-N\-A\-L@{Y\-Y\-F\-I\-N\-A\-L}}
+\index{Y\-Y\-F\-I\-N\-A\-L@{Y\-Y\-F\-I\-N\-A\-L}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-F\-I\-N\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-F\-I\-N\-A\-L~5}}\label{inifileparser_8c_a6419f3fd69ecb6b7e063410fd4e73b2f}
+
+
+Definition at line 376 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_ac8adfd73c006c1926f387feb1eced3ca}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-F\-R\-E\-E@{Y\-Y\-F\-R\-E\-E}}
+\index{Y\-Y\-F\-R\-E\-E@{Y\-Y\-F\-R\-E\-E}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-F\-R\-E\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-F\-R\-E\-E~free}}\label{inifileparser_8c_ac8adfd73c006c1926f387feb1eced3ca}
+
+
+Definition at line 309 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a0a6ff515042340dd341cf6ca8dd05f2d}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-I\-D@{Y\-Y\-I\-D}}
+\index{Y\-Y\-I\-D@{Y\-Y\-I\-D}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-I\-D(
+\begin{DoxyParamCaption}
+\item[{}]{n}
+\end{DoxyParamCaption}
+)~(n)}}\label{inifileparser_8c_a0a6ff515042340dd341cf6ca8dd05f2d}
+
+
+Definition at line 233 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_aeb1508a3a38ec5d64c27e8eca25330b5}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-I\-N\-I\-T\-D\-E\-P\-T\-H@{Y\-Y\-I\-N\-I\-T\-D\-E\-P\-T\-H}}
+\index{Y\-Y\-I\-N\-I\-T\-D\-E\-P\-T\-H@{Y\-Y\-I\-N\-I\-T\-D\-E\-P\-T\-H}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-I\-N\-I\-T\-D\-E\-P\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-I\-N\-I\-T\-D\-E\-P\-T\-H~200}}\label{inifileparser_8c_aeb1508a3a38ec5d64c27e8eca25330b5}
+
+
+Definition at line 793 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_ae67923760a28e3b7ed3aa2cfaef7f9a2}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-L\-A\-S\-T@{Y\-Y\-L\-A\-S\-T}}
+\index{Y\-Y\-L\-A\-S\-T@{Y\-Y\-L\-A\-S\-T}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-L\-A\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-L\-A\-S\-T~9}}\label{inifileparser_8c_ae67923760a28e3b7ed3aa2cfaef7f9a2}
+
+
+Definition at line 378 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a0ea34e09602d1ede033f16ba669ef24b}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-L\-E\-X@{Y\-Y\-L\-E\-X}}
+\index{Y\-Y\-L\-E\-X@{Y\-Y\-L\-E\-X}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-L\-E\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-L\-E\-X~yylex ()}}\label{inifileparser_8c_a0ea34e09602d1ede033f16ba669ef24b}
+
+
+Definition at line 627 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a485d38f93de30679900c9cad6e7f3446}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-L\-L\-O\-C\-\_\-\-D\-E\-F\-A\-U\-L\-T@{Y\-Y\-L\-L\-O\-C\-\_\-\-D\-E\-F\-A\-U\-L\-T}}
+\index{Y\-Y\-L\-L\-O\-C\-\_\-\-D\-E\-F\-A\-U\-L\-T@{Y\-Y\-L\-L\-O\-C\-\_\-\-D\-E\-F\-A\-U\-L\-T}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-L\-L\-O\-C\-\_\-\-D\-E\-F\-A\-U\-L\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-L\-L\-O\-C\-\_\-\-D\-E\-F\-A\-U\-L\-T(
+\begin{DoxyParamCaption}
+\item[{}]{Current, }
+\item[{}]{Rhs, }
+\item[{}]{N}
+\end{DoxyParamCaption}
+)}}\label{inifileparser_8c_a485d38f93de30679900c9cad6e7f3446}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\hyperlink{inifile_8c_a709183e322e370a05cfdd3bb79f9ae79}{do                                                                      \(\backslash\)}
+\hyperlink{inifile_8c_a709183e322e370a05cfdd3bb79f9ae79}{      if} (\hyperlink{inifileparser_8c_a0a6ff515042340dd341cf6ca8dd05f2d}{YYID} (N))                                                    \(\backslash\)
+        \{                                                               \(\backslash\)
+          (Current).first\_line   = \hyperlink{inifileparser_8c_ab2b4f027a2b092ac14ca4464e7b3db60}{YYRHSLOC} (Rhs, 1).first\_line;        \(\backslash\)
+          (Current).first\_column = \hyperlink{inifileparser_8c_ab2b4f027a2b092ac14ca4464e7b3db60}{YYRHSLOC} (Rhs, 1).first\_column;      \(\backslash\)
+          (Current).last\_line    = \hyperlink{inifileparser_8c_ab2b4f027a2b092ac14ca4464e7b3db60}{YYRHSLOC} (Rhs, N).last\_line;         \(\backslash\)
+          (Current).last\_column  = \hyperlink{inifileparser_8c_ab2b4f027a2b092ac14ca4464e7b3db60}{YYRHSLOC} (Rhs, N).last\_column;       \(\backslash\)
+        \}                                                               \(\backslash\)
+      else                                                              \(\backslash\)
+        \{                                                               \(\backslash\)
+          (Current).first\_line   = (Current).last\_line   =              \hyperlink{inifileparser_8c_ab2b4f027a2b092ac14ca4464e7b3db60}{\(\backslash\)}
+\hyperlink{inifileparser_8c_ab2b4f027a2b092ac14ca4464e7b3db60}{            YYRHSLOC} (Rhs, 0).last\_line;                           \(\backslash\)
+          (Current).first\_column = (Current).last\_column =              \hyperlink{inifileparser_8c_ab2b4f027a2b092ac14ca4464e7b3db60}{\(\backslash\)}
+\hyperlink{inifileparser_8c_ab2b4f027a2b092ac14ca4464e7b3db60}{            YYRHSLOC} (Rhs, 0).last\_column;                         \(\backslash\)
+        \}                                                               \hyperlink{inifile_8c_a8fdafe3be7e00ce3d4f0cb50a9a5eb39}{\(\backslash\)}
+\hyperlink{inifile_8c_a8fdafe3be7e00ce3d4f0cb50a9a5eb39}{    while} (\hyperlink{inifileparser_8c_a0a6ff515042340dd341cf6ca8dd05f2d}{YYID} (0))
+\end{DoxyCode}
+
+
+Definition at line 586 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_abb3943553c2b5e911c89a3ea973d3079}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-L\-S\-P\-\_\-\-N\-E\-E\-D\-E\-D@{Y\-Y\-L\-S\-P\-\_\-\-N\-E\-E\-D\-E\-D}}
+\index{Y\-Y\-L\-S\-P\-\_\-\-N\-E\-E\-D\-E\-D@{Y\-Y\-L\-S\-P\-\_\-\-N\-E\-E\-D\-E\-D}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-L\-S\-P\-\_\-\-N\-E\-E\-D\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-L\-S\-P\-\_\-\-N\-E\-E\-D\-E\-D~0}}\label{inifileparser_8c_abb3943553c2b5e911c89a3ea973d3079}
+
+
+Definition at line 59 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a573b05852d8f080c907dfba725773d7a}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-M\-A\-L\-L\-O\-C@{Y\-Y\-M\-A\-L\-L\-O\-C}}
+\index{Y\-Y\-M\-A\-L\-L\-O\-C@{Y\-Y\-M\-A\-L\-L\-O\-C}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-M\-A\-L\-L\-O\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-M\-A\-L\-L\-O\-C~malloc}}\label{inifileparser_8c_a573b05852d8f080c907dfba725773d7a}
+
+
+Definition at line 302 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a14ba2b263c446ffed1c888c4b42ae40c}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-M\-A\-X\-D\-E\-P\-T\-H@{Y\-Y\-M\-A\-X\-D\-E\-P\-T\-H}}
+\index{Y\-Y\-M\-A\-X\-D\-E\-P\-T\-H@{Y\-Y\-M\-A\-X\-D\-E\-P\-T\-H}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-M\-A\-X\-D\-E\-P\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-M\-A\-X\-D\-E\-P\-T\-H~10000}}\label{inifileparser_8c_a14ba2b263c446ffed1c888c4b42ae40c}
+
+
+Definition at line 804 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_af3f5ed4bc4517eff0ef1b17541192a58}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-M\-A\-X\-U\-T\-O\-K@{Y\-Y\-M\-A\-X\-U\-T\-O\-K}}
+\index{Y\-Y\-M\-A\-X\-U\-T\-O\-K@{Y\-Y\-M\-A\-X\-U\-T\-O\-K}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-M\-A\-X\-U\-T\-O\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-M\-A\-X\-U\-T\-O\-K~263}}\label{inifileparser_8c_af3f5ed4bc4517eff0ef1b17541192a58}
+
+
+Definition at line 391 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_af54ae9e588f0ecc32eabbfdf1959df10}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-N\-N\-T\-S@{Y\-Y\-N\-N\-T\-S}}
+\index{Y\-Y\-N\-N\-T\-S@{Y\-Y\-N\-N\-T\-S}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-N\-N\-T\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-N\-N\-T\-S~7}}\label{inifileparser_8c_af54ae9e588f0ecc32eabbfdf1959df10}
+
+
+Definition at line 383 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_aceaba8997dc3867478ae3b816647eb7c}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-N\-R\-U\-L\-E\-S@{Y\-Y\-N\-R\-U\-L\-E\-S}}
+\index{Y\-Y\-N\-R\-U\-L\-E\-S@{Y\-Y\-N\-R\-U\-L\-E\-S}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-N\-R\-U\-L\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-N\-R\-U\-L\-E\-S~12}}\label{inifileparser_8c_aceaba8997dc3867478ae3b816647eb7c}
+
+
+Definition at line 385 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a2c387ba2caaade8bf8f78ed30023f79f}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-N\-S\-T\-A\-T\-E\-S@{Y\-Y\-N\-S\-T\-A\-T\-E\-S}}
+\index{Y\-Y\-N\-S\-T\-A\-T\-E\-S@{Y\-Y\-N\-S\-T\-A\-T\-E\-S}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-N\-S\-T\-A\-T\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-N\-S\-T\-A\-T\-E\-S~16}}\label{inifileparser_8c_a2c387ba2caaade8bf8f78ed30023f79f}
+
+
+Definition at line 387 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a75d260730a6c379a94ea28f63a7b9275}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-N\-T\-O\-K\-E\-N\-S@{Y\-Y\-N\-T\-O\-K\-E\-N\-S}}
+\index{Y\-Y\-N\-T\-O\-K\-E\-N\-S@{Y\-Y\-N\-T\-O\-K\-E\-N\-S}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-N\-T\-O\-K\-E\-N\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-N\-T\-O\-K\-E\-N\-S~10}}\label{inifileparser_8c_a75d260730a6c379a94ea28f63a7b9275}
+
+
+Definition at line 381 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a62bf0ed0c4360b077071b5cf3177823b}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-P\-A\-C\-T\-\_\-\-N\-I\-N\-F@{Y\-Y\-P\-A\-C\-T\-\_\-\-N\-I\-N\-F}}
+\index{Y\-Y\-P\-A\-C\-T\-\_\-\-N\-I\-N\-F@{Y\-Y\-P\-A\-C\-T\-\_\-\-N\-I\-N\-F}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-P\-A\-C\-T\-\_\-\-N\-I\-N\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-P\-A\-C\-T\-\_\-\-N\-I\-N\-F~-\/6}}\label{inifileparser_8c_a62bf0ed0c4360b077071b5cf3177823b}
+
+
+Definition at line 504 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_ad2f9773cd9c031026b2ef4c1ee7be1be}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-P\-O\-P\-S\-T\-A\-C\-K@{Y\-Y\-P\-O\-P\-S\-T\-A\-C\-K}}
+\index{Y\-Y\-P\-O\-P\-S\-T\-A\-C\-K@{Y\-Y\-P\-O\-P\-S\-T\-A\-C\-K}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-P\-O\-P\-S\-T\-A\-C\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-P\-O\-P\-S\-T\-A\-C\-K(
+\begin{DoxyParamCaption}
+\item[{}]{N}
+\end{DoxyParamCaption}
+)~(yyvsp -\/= (N), yyssp -\/= (N))}}\label{inifileparser_8c_ad2f9773cd9c031026b2ef4c1ee7be1be}
+\hypertarget{inifileparser_8c_a9fa797a1f3c4fc9b12d1e4d569612767}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-P\-U\-R\-E@{Y\-Y\-P\-U\-R\-E}}
+\index{Y\-Y\-P\-U\-R\-E@{Y\-Y\-P\-U\-R\-E}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-P\-U\-R\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-P\-U\-R\-E~0}}\label{inifileparser_8c_a9fa797a1f3c4fc9b12d1e4d569612767}
+
+
+Definition at line 56 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_ad860e18ca4b79fc589895b531bdb7948}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-R\-E\-C\-O\-V\-E\-R\-I\-N\-G@{Y\-Y\-R\-E\-C\-O\-V\-E\-R\-I\-N\-G}}
+\index{Y\-Y\-R\-E\-C\-O\-V\-E\-R\-I\-N\-G@{Y\-Y\-R\-E\-C\-O\-V\-E\-R\-I\-N\-G}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-R\-E\-C\-O\-V\-E\-R\-I\-N\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-R\-E\-C\-O\-V\-E\-R\-I\-N\-G(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~(!!yyerrstatus)}}\label{inifileparser_8c_ad860e18ca4b79fc589895b531bdb7948}
+
+
+Definition at line 556 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_ab2b4f027a2b092ac14ca4464e7b3db60}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-R\-H\-S\-L\-O\-C@{Y\-Y\-R\-H\-S\-L\-O\-C}}
+\index{Y\-Y\-R\-H\-S\-L\-O\-C@{Y\-Y\-R\-H\-S\-L\-O\-C}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-R\-H\-S\-L\-O\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-R\-H\-S\-L\-O\-C(
+\begin{DoxyParamCaption}
+\item[{}]{Rhs, }
+\item[{}]{K}
+\end{DoxyParamCaption}
+)~((Rhs)\mbox{[}K\mbox{]})}}\label{inifileparser_8c_ab2b4f027a2b092ac14ca4464e7b3db60}
+
+
+Definition at line 584 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_ab4bb7ad82d4a7e2df49ff6a8fb484109}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-S\-I\-Z\-E\-\_\-\-M\-A\-X\-I\-M\-U\-M@{Y\-Y\-S\-I\-Z\-E\-\_\-\-M\-A\-X\-I\-M\-U\-M}}
+\index{Y\-Y\-S\-I\-Z\-E\-\_\-\-M\-A\-X\-I\-M\-U\-M@{Y\-Y\-S\-I\-Z\-E\-\_\-\-M\-A\-X\-I\-M\-U\-M}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-S\-I\-Z\-E\-\_\-\-M\-A\-X\-I\-M\-U\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-S\-I\-Z\-E\-\_\-\-M\-A\-X\-I\-M\-U\-M~(({\bf Y\-Y\-S\-I\-Z\-E\-\_\-\-T}) -\/1)}}\label{inifileparser_8c_ab4bb7ad82d4a7e2df49ff6a8fb484109}
+
+
+Definition at line 210 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a7d535939e93253736c6eeda569d24de5}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-S\-I\-Z\-E\-\_\-\-T@{Y\-Y\-S\-I\-Z\-E\-\_\-\-T}}
+\index{Y\-Y\-S\-I\-Z\-E\-\_\-\-T@{Y\-Y\-S\-I\-Z\-E\-\_\-\-T}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-S\-I\-Z\-E\-\_\-\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-S\-I\-Z\-E\-\_\-\-T~unsigned int}}\label{inifileparser_8c_a7d535939e93253736c6eeda569d24de5}
+
+
+Definition at line 206 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a50db5aef8c2b6f13961b2480b37f84c0}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-S\-K\-E\-L\-E\-T\-O\-N\-\_\-\-N\-A\-M\-E@{Y\-Y\-S\-K\-E\-L\-E\-T\-O\-N\-\_\-\-N\-A\-M\-E}}
+\index{Y\-Y\-S\-K\-E\-L\-E\-T\-O\-N\-\_\-\-N\-A\-M\-E@{Y\-Y\-S\-K\-E\-L\-E\-T\-O\-N\-\_\-\-N\-A\-M\-E}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-S\-K\-E\-L\-E\-T\-O\-N\-\_\-\-N\-A\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-S\-K\-E\-L\-E\-T\-O\-N\-\_\-\-N\-A\-M\-E~\char`\"{}yacc.\-c\char`\"{}}}\label{inifileparser_8c_a50db5aef8c2b6f13961b2480b37f84c0}
+
+
+Definition at line 53 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_af45042ce56e04d634420d76caeb2ee73}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-S\-T\-A\-C\-K\-\_\-\-A\-L\-L\-O\-C@{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-A\-L\-L\-O\-C}}
+\index{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-A\-L\-L\-O\-C@{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-A\-L\-L\-O\-C}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-A\-L\-L\-O\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-S\-T\-A\-C\-K\-\_\-\-A\-L\-L\-O\-C~{\bf Y\-Y\-M\-A\-L\-L\-O\-C}}}\label{inifileparser_8c_af45042ce56e04d634420d76caeb2ee73}
+
+
+Definition at line 288 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a7e55d995c7458f2f4af94a426d0adde8}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-S\-T\-A\-C\-K\-\_\-\-A\-L\-L\-O\-C\-\_\-\-M\-A\-X\-I\-M\-U\-M@{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-A\-L\-L\-O\-C\-\_\-\-M\-A\-X\-I\-M\-U\-M}}
+\index{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-A\-L\-L\-O\-C\-\_\-\-M\-A\-X\-I\-M\-U\-M@{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-A\-L\-L\-O\-C\-\_\-\-M\-A\-X\-I\-M\-U\-M}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-A\-L\-L\-O\-C\-\_\-\-M\-A\-X\-I\-M\-U\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-S\-T\-A\-C\-K\-\_\-\-A\-L\-L\-O\-C\-\_\-\-M\-A\-X\-I\-M\-U\-M~{\bf Y\-Y\-S\-I\-Z\-E\-\_\-\-M\-A\-X\-I\-M\-U\-M}}}\label{inifileparser_8c_a7e55d995c7458f2f4af94a426d0adde8}
+
+
+Definition at line 291 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a40beb355f2cf230a99e2e2bb54909a5a}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-S\-T\-A\-C\-K\-\_\-\-B\-Y\-T\-E\-S@{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-B\-Y\-T\-E\-S}}
+\index{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-B\-Y\-T\-E\-S@{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-B\-Y\-T\-E\-S}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-B\-Y\-T\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-S\-T\-A\-C\-K\-\_\-\-B\-Y\-T\-E\-S(
+\begin{DoxyParamCaption}
+\item[{}]{N}
+\end{DoxyParamCaption}
+)}}\label{inifileparser_8c_a40beb355f2cf230a99e2e2bb54909a5a}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+((N) * (\textcolor{keyword}{sizeof} (\hyperlink{inifileparser_8c_ade5b97f0021a4f6c5922ead3744ab297}{yytype\_int16}) + \textcolor{keyword}{sizeof} (\hyperlink{inifileparser_8c_af2bb2348b7b2379f06e8c6aea49cb742}{YYSTYPE})) \(\backslash\)
+      + \hyperlink{inifileparser_8c_afcd15dd0fa87ffba0371c6d6a0cc9631}{YYSTACK\_GAP\_MAXIMUM})
+\end{DoxyCode}
+
+
+Definition at line 335 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a1a9dc526fd390d4808252bd631c4c2f7}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-S\-T\-A\-C\-K\-\_\-\-F\-R\-E\-E@{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-F\-R\-E\-E}}
+\index{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-F\-R\-E\-E@{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-F\-R\-E\-E}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-F\-R\-E\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-S\-T\-A\-C\-K\-\_\-\-F\-R\-E\-E~{\bf Y\-Y\-F\-R\-E\-E}}}\label{inifileparser_8c_a1a9dc526fd390d4808252bd631c4c2f7}
+
+
+Definition at line 289 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_afcd15dd0fa87ffba0371c6d6a0cc9631}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-S\-T\-A\-C\-K\-\_\-\-G\-A\-P\-\_\-\-M\-A\-X\-I\-M\-U\-M@{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-G\-A\-P\-\_\-\-M\-A\-X\-I\-M\-U\-M}}
+\index{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-G\-A\-P\-\_\-\-M\-A\-X\-I\-M\-U\-M@{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-G\-A\-P\-\_\-\-M\-A\-X\-I\-M\-U\-M}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-G\-A\-P\-\_\-\-M\-A\-X\-I\-M\-U\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-S\-T\-A\-C\-K\-\_\-\-G\-A\-P\-\_\-\-M\-A\-X\-I\-M\-U\-M~(sizeof (union {\bf yyalloc}) -\/ 1)}}\label{inifileparser_8c_afcd15dd0fa87ffba0371c6d6a0cc9631}
+
+
+Definition at line 331 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_ac70c64089ec70937293b65ddbd083412}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-S\-T\-A\-C\-K\-\_\-\-R\-E\-L\-O\-C\-A\-T\-E@{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-R\-E\-L\-O\-C\-A\-T\-E}}
+\index{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-R\-E\-L\-O\-C\-A\-T\-E@{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-R\-E\-L\-O\-C\-A\-T\-E}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-S\-T\-A\-C\-K\-\_\-\-R\-E\-L\-O\-C\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-S\-T\-A\-C\-K\-\_\-\-R\-E\-L\-O\-C\-A\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{Stack}
+\end{DoxyParamCaption}
+)}}\label{inifileparser_8c_ac70c64089ec70937293b65ddbd083412}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do}                                                                      \(\backslash\)
+      \{                                                                 \hyperlink{inifileparser_8c_a7d535939e93253736c6eeda569d24de5}{\(\backslash\)}
+\hyperlink{inifileparser_8c_a7d535939e93253736c6eeda569d24de5}{        YYSIZE\_T} yynewbytes;                                           
+      \hyperlink{inifileparser_8c_ad6586b145b5cddce4eec46f35d59b1dd}{\(\backslash\)}
+\hyperlink{inifileparser_8c_ad6586b145b5cddce4eec46f35d59b1dd}{        YYCOPY} (&yyptr->Stack, Stack, yysize);                           \(\backslash\)
+        Stack = &yyptr->Stack;                                          \(\backslash\)
+        yynewbytes = yystacksize * \textcolor{keyword}{sizeof} (*Stack) + \hyperlink{inifileparser_8c_afcd15dd0fa87ffba0371c6d6a0cc9631}{YYSTACK\_GAP\_MAXIMUM}; \(\backslash\)
+        yyptr += yynewbytes / \textcolor{keyword}{sizeof} (*yyptr);                          \(\backslash\)
+      \}                                                                 \hyperlink{inifile_8c_a8fdafe3be7e00ce3d4f0cb50a9a5eb39}{\(\backslash\)}
+\hyperlink{inifile_8c_a8fdafe3be7e00ce3d4f0cb50a9a5eb39}{    while} (\hyperlink{inifileparser_8c_a0a6ff515042340dd341cf6ca8dd05f2d}{YYID} (0))
+\end{DoxyCode}
+
+
+Definition at line 362 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a4ccf5315e8f5c1cec48ec67ca1771e3a}{\index{inifileparser.\-c@{inifileparser.\-c}!yystype@{yystype}}
+\index{yystype@{yystype}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{yystype}]{\setlength{\rightskip}{0pt plus 5cm}\#define yystype~{\bf Y\-Y\-S\-T\-Y\-P\-E} /$\ast$ obsolescent; will be withdrawn $\ast$/}}\label{inifileparser_8c_a4ccf5315e8f5c1cec48ec67ca1771e3a}
+
+
+Definition at line 152 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_af0232d21120b2cfc5e5f82f0fbadab3c}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-S\-T\-Y\-P\-E\-\_\-\-I\-S\-\_\-\-D\-E\-C\-L\-A\-R\-E\-D@{Y\-Y\-S\-T\-Y\-P\-E\-\_\-\-I\-S\-\_\-\-D\-E\-C\-L\-A\-R\-E\-D}}
+\index{Y\-Y\-S\-T\-Y\-P\-E\-\_\-\-I\-S\-\_\-\-D\-E\-C\-L\-A\-R\-E\-D@{Y\-Y\-S\-T\-Y\-P\-E\-\_\-\-I\-S\-\_\-\-D\-E\-C\-L\-A\-R\-E\-D}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-S\-T\-Y\-P\-E\-\_\-\-I\-S\-\_\-\-D\-E\-C\-L\-A\-R\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-S\-T\-Y\-P\-E\-\_\-\-I\-S\-\_\-\-D\-E\-C\-L\-A\-R\-E\-D~1}}\label{inifileparser_8c_af0232d21120b2cfc5e5f82f0fbadab3c}
+
+
+Definition at line 153 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a2e3dbf169c5ee24cf6af37c61cf3995d}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-S\-T\-Y\-P\-E\-\_\-\-I\-S\-\_\-\-T\-R\-I\-V\-I\-A\-L@{Y\-Y\-S\-T\-Y\-P\-E\-\_\-\-I\-S\-\_\-\-T\-R\-I\-V\-I\-A\-L}}
+\index{Y\-Y\-S\-T\-Y\-P\-E\-\_\-\-I\-S\-\_\-\-T\-R\-I\-V\-I\-A\-L@{Y\-Y\-S\-T\-Y\-P\-E\-\_\-\-I\-S\-\_\-\-T\-R\-I\-V\-I\-A\-L}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-S\-T\-Y\-P\-E\-\_\-\-I\-S\-\_\-\-T\-R\-I\-V\-I\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-S\-T\-Y\-P\-E\-\_\-\-I\-S\-\_\-\-T\-R\-I\-V\-I\-A\-L~1}}\label{inifileparser_8c_a2e3dbf169c5ee24cf6af37c61cf3995d}
+
+
+Definition at line 154 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a504faa93b92f37fcc147f68e8d111a1d}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-T\-A\-B\-L\-E\-\_\-\-N\-I\-N\-F@{Y\-Y\-T\-A\-B\-L\-E\-\_\-\-N\-I\-N\-F}}
+\index{Y\-Y\-T\-A\-B\-L\-E\-\_\-\-N\-I\-N\-F@{Y\-Y\-T\-A\-B\-L\-E\-\_\-\-N\-I\-N\-F}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-T\-A\-B\-L\-E\-\_\-\-N\-I\-N\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-T\-A\-B\-L\-E\-\_\-\-N\-I\-N\-F~-\/1}}\label{inifileparser_8c_a504faa93b92f37fcc147f68e8d111a1d}
+
+
+Definition at line 521 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_ad2b58b1851184ddb3b60fede50bc7946}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-T\-E\-R\-R\-O\-R@{Y\-Y\-T\-E\-R\-R\-O\-R}}
+\index{Y\-Y\-T\-E\-R\-R\-O\-R@{Y\-Y\-T\-E\-R\-R\-O\-R}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-T\-E\-R\-R\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-T\-E\-R\-R\-O\-R~1}}\label{inifileparser_8c_ad2b58b1851184ddb3b60fede50bc7946}
+
+
+Definition at line 576 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a3499e31aa832edc82b632ae811286a4b}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-T\-O\-K\-E\-N\-\_\-\-T\-A\-B\-L\-E@{Y\-Y\-T\-O\-K\-E\-N\-\_\-\-T\-A\-B\-L\-E}}
+\index{Y\-Y\-T\-O\-K\-E\-N\-\_\-\-T\-A\-B\-L\-E@{Y\-Y\-T\-O\-K\-E\-N\-\_\-\-T\-A\-B\-L\-E}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-T\-O\-K\-E\-N\-\_\-\-T\-A\-B\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-T\-O\-K\-E\-N\-\_\-\-T\-A\-B\-L\-E~0}}\label{inifileparser_8c_a3499e31aa832edc82b632ae811286a4b}
+
+
+Definition at line 138 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a69ca0fbcc6d7aa5e8f47b11fc0048208}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-T\-O\-K\-E\-N\-T\-Y\-P\-E@{Y\-Y\-T\-O\-K\-E\-N\-T\-Y\-P\-E}}
+\index{Y\-Y\-T\-O\-K\-E\-N\-T\-Y\-P\-E@{Y\-Y\-T\-O\-K\-E\-N\-T\-Y\-P\-E}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-T\-O\-K\-E\-N\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-T\-O\-K\-E\-N\-T\-Y\-P\-E}}\label{inifileparser_8c_a69ca0fbcc6d7aa5e8f47b11fc0048208}
+
+
+Definition at line 65 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_aad19ee88e33c02c4e720b28f78249bd7}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-T\-R\-A\-N\-S\-L\-A\-T\-E@{Y\-Y\-T\-R\-A\-N\-S\-L\-A\-T\-E}}
+\index{Y\-Y\-T\-R\-A\-N\-S\-L\-A\-T\-E@{Y\-Y\-T\-R\-A\-N\-S\-L\-A\-T\-E}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-T\-R\-A\-N\-S\-L\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-T\-R\-A\-N\-S\-L\-A\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{Y\-Y\-X}
+\end{DoxyParamCaption}
+)~((unsigned int) (Y\-Y\-X) $<$= {\bf Y\-Y\-M\-A\-X\-U\-T\-O\-K} ? yytranslate\mbox{[}Y\-Y\-X\mbox{]} \-: {\bf Y\-Y\-U\-N\-D\-E\-F\-T\-O\-K})}}\label{inifileparser_8c_aad19ee88e33c02c4e720b28f78249bd7}
+
+
+Definition at line 393 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a926181abd06b6d1df27b6133971c24ce}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-U\-N\-D\-E\-F\-T\-O\-K@{Y\-Y\-U\-N\-D\-E\-F\-T\-O\-K}}
+\index{Y\-Y\-U\-N\-D\-E\-F\-T\-O\-K@{Y\-Y\-U\-N\-D\-E\-F\-T\-O\-K}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-U\-N\-D\-E\-F\-T\-O\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-U\-N\-D\-E\-F\-T\-O\-K~2}}\label{inifileparser_8c_a926181abd06b6d1df27b6133971c24ce}
+
+
+Definition at line 390 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_ad7d1ef1bbc6adfe69894bc8221f557e1}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-U\-S\-E@{Y\-Y\-U\-S\-E}}
+\index{Y\-Y\-U\-S\-E@{Y\-Y\-U\-S\-E}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-U\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-U\-S\-E(
+\begin{DoxyParamCaption}
+\item[{}]{e}
+\end{DoxyParamCaption}
+)~((void) (e))}}\label{inifileparser_8c_ad7d1ef1bbc6adfe69894bc8221f557e1}
+
+
+Definition at line 226 of file inifileparser.\-c.
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{inifileparser_8c_af2bb2348b7b2379f06e8c6aea49cb742}{\index{inifileparser.\-c@{inifileparser.\-c}!Y\-Y\-S\-T\-Y\-P\-E@{Y\-Y\-S\-T\-Y\-P\-E}}
+\index{Y\-Y\-S\-T\-Y\-P\-E@{Y\-Y\-S\-T\-Y\-P\-E}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{Y\-Y\-S\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}typedef union {\bf Y\-Y\-S\-T\-Y\-P\-E}
+
+	 {\bf Y\-Y\-S\-T\-Y\-P\-E}}}\label{inifileparser_8c_af2bb2348b7b2379f06e8c6aea49cb742}
+\hypertarget{inifileparser_8c_ade5b97f0021a4f6c5922ead3744ab297}{\index{inifileparser.\-c@{inifileparser.\-c}!yytype\-\_\-int16@{yytype\-\_\-int16}}
+\index{yytype\-\_\-int16@{yytype\-\_\-int16}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{yytype\-\_\-int16}]{\setlength{\rightskip}{0pt plus 5cm}typedef short int {\bf yytype\-\_\-int16}}}\label{inifileparser_8c_ade5b97f0021a4f6c5922ead3744ab297}
+
+
+Definition at line 193 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_afd56a33ef7e59189deccc83706e0becd}{\index{inifileparser.\-c@{inifileparser.\-c}!yytype\-\_\-int8@{yytype\-\_\-int8}}
+\index{yytype\-\_\-int8@{yytype\-\_\-int8}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{yytype\-\_\-int8}]{\setlength{\rightskip}{0pt plus 5cm}typedef short int {\bf yytype\-\_\-int8}}}\label{inifileparser_8c_afd56a33ef7e59189deccc83706e0becd}
+
+
+Definition at line 181 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a00c27c9da5ed06a830b216c8934e6b28}{\index{inifileparser.\-c@{inifileparser.\-c}!yytype\-\_\-uint16@{yytype\-\_\-uint16}}
+\index{yytype\-\_\-uint16@{yytype\-\_\-uint16}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{yytype\-\_\-uint16}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned short int {\bf yytype\-\_\-uint16}}}\label{inifileparser_8c_a00c27c9da5ed06a830b216c8934e6b28}
+
+
+Definition at line 187 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a79c09f9dcfd0f7a32f598ea3910d2206}{\index{inifileparser.\-c@{inifileparser.\-c}!yytype\-\_\-uint8@{yytype\-\_\-uint8}}
+\index{yytype\-\_\-uint8@{yytype\-\_\-uint8}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{yytype\-\_\-uint8}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned char {\bf yytype\-\_\-uint8}}}\label{inifileparser_8c_a79c09f9dcfd0f7a32f598ea3910d2206}
+
+
+Definition at line 172 of file inifileparser.\-c.
+
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9}{\index{inifileparser.\-c@{inifileparser.\-c}!yytokentype@{yytokentype}}
+\index{yytokentype@{yytokentype}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{yytokentype}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf yytokentype}}}\label{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{S\-E\-C\-T\-I\-O\-N\-\_\-\-D\-E\-C\-L@{S\-E\-C\-T\-I\-O\-N\-\_\-\-D\-E\-C\-L}!inifileparser.\-c@{inifileparser.\-c}}\index{inifileparser.\-c@{inifileparser.\-c}!S\-E\-C\-T\-I\-O\-N\-\_\-\-D\-E\-C\-L@{S\-E\-C\-T\-I\-O\-N\-\_\-\-D\-E\-C\-L}}\item[{\em 
+\hypertarget{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9a11f3d352949196b7b1ed1f4c09ee0103}{S\-E\-C\-T\-I\-O\-N\-\_\-\-D\-E\-C\-L}\label{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9a11f3d352949196b7b1ed1f4c09ee0103}
+}]\index{I\-D\-E\-N\-T\-I\-F\-I\-E\-R@{I\-D\-E\-N\-T\-I\-F\-I\-E\-R}!inifileparser.\-c@{inifileparser.\-c}}\index{inifileparser.\-c@{inifileparser.\-c}!I\-D\-E\-N\-T\-I\-F\-I\-E\-R@{I\-D\-E\-N\-T\-I\-F\-I\-E\-R}}\item[{\em 
+\hypertarget{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9a84f8ae2490f9e4bd2321fd21f4b0e807}{I\-D\-E\-N\-T\-I\-F\-I\-E\-R}\label{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9a84f8ae2490f9e4bd2321fd21f4b0e807}
+}]\index{S\-T\-R\-I\-N\-G@{S\-T\-R\-I\-N\-G}!inifileparser.\-c@{inifileparser.\-c}}\index{inifileparser.\-c@{inifileparser.\-c}!S\-T\-R\-I\-N\-G@{S\-T\-R\-I\-N\-G}}\item[{\em 
+\hypertarget{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9aee847e634a4297b274316de8a8ca9921}{S\-T\-R\-I\-N\-G}\label{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9aee847e634a4297b274316de8a8ca9921}
+}]\index{N\-U\-M\-B\-E\-R@{N\-U\-M\-B\-E\-R}!inifileparser.\-c@{inifileparser.\-c}}\index{inifileparser.\-c@{inifileparser.\-c}!N\-U\-M\-B\-E\-R@{N\-U\-M\-B\-E\-R}}\item[{\em 
+\hypertarget{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9a12a90dfe20486bbe3e075afcd19ef2d0}{N\-U\-M\-B\-E\-R}\label{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9a12a90dfe20486bbe3e075afcd19ef2d0}
+}]\index{H\-E\-X\-N\-U\-M\-B\-E\-R@{H\-E\-X\-N\-U\-M\-B\-E\-R}!inifileparser.\-c@{inifileparser.\-c}}\index{inifileparser.\-c@{inifileparser.\-c}!H\-E\-X\-N\-U\-M\-B\-E\-R@{H\-E\-X\-N\-U\-M\-B\-E\-R}}\item[{\em 
+\hypertarget{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9ab41295c7909ca312a97caf0738fb98bb}{H\-E\-X\-N\-U\-M\-B\-E\-R}\label{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9ab41295c7909ca312a97caf0738fb98bb}
+}]\index{I\-P\-S\-T\-R\-I\-N\-G@{I\-P\-S\-T\-R\-I\-N\-G}!inifileparser.\-c@{inifileparser.\-c}}\index{inifileparser.\-c@{inifileparser.\-c}!I\-P\-S\-T\-R\-I\-N\-G@{I\-P\-S\-T\-R\-I\-N\-G}}\item[{\em 
+\hypertarget{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9ad5e295dd7c66967c6bac08d8e8cbc5a3}{I\-P\-S\-T\-R\-I\-N\-G}\label{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9ad5e295dd7c66967c6bac08d8e8cbc5a3}
+}]\index{S\-E\-C\-T\-I\-O\-N\-\_\-\-D\-E\-C\-L@{S\-E\-C\-T\-I\-O\-N\-\_\-\-D\-E\-C\-L}!inifileparser.\-c@{inifileparser.\-c}}\index{inifileparser.\-c@{inifileparser.\-c}!S\-E\-C\-T\-I\-O\-N\-\_\-\-D\-E\-C\-L@{S\-E\-C\-T\-I\-O\-N\-\_\-\-D\-E\-C\-L}}\item[{\em 
+\hypertarget{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9a11f3d352949196b7b1ed1f4c09ee0103}{S\-E\-C\-T\-I\-O\-N\-\_\-\-D\-E\-C\-L}\label{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9a11f3d352949196b7b1ed1f4c09ee0103}
+}]\index{I\-D\-E\-N\-T\-I\-F\-I\-E\-R@{I\-D\-E\-N\-T\-I\-F\-I\-E\-R}!inifileparser.\-c@{inifileparser.\-c}}\index{inifileparser.\-c@{inifileparser.\-c}!I\-D\-E\-N\-T\-I\-F\-I\-E\-R@{I\-D\-E\-N\-T\-I\-F\-I\-E\-R}}\item[{\em 
+\hypertarget{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9a84f8ae2490f9e4bd2321fd21f4b0e807}{I\-D\-E\-N\-T\-I\-F\-I\-E\-R}\label{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9a84f8ae2490f9e4bd2321fd21f4b0e807}
+}]\index{S\-T\-R\-I\-N\-G@{S\-T\-R\-I\-N\-G}!inifileparser.\-c@{inifileparser.\-c}}\index{inifileparser.\-c@{inifileparser.\-c}!S\-T\-R\-I\-N\-G@{S\-T\-R\-I\-N\-G}}\item[{\em 
+\hypertarget{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9aee847e634a4297b274316de8a8ca9921}{S\-T\-R\-I\-N\-G}\label{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9aee847e634a4297b274316de8a8ca9921}
+}]\index{N\-U\-M\-B\-E\-R@{N\-U\-M\-B\-E\-R}!inifileparser.\-c@{inifileparser.\-c}}\index{inifileparser.\-c@{inifileparser.\-c}!N\-U\-M\-B\-E\-R@{N\-U\-M\-B\-E\-R}}\item[{\em 
+\hypertarget{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9a12a90dfe20486bbe3e075afcd19ef2d0}{N\-U\-M\-B\-E\-R}\label{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9a12a90dfe20486bbe3e075afcd19ef2d0}
+}]\index{H\-E\-X\-N\-U\-M\-B\-E\-R@{H\-E\-X\-N\-U\-M\-B\-E\-R}!inifileparser.\-c@{inifileparser.\-c}}\index{inifileparser.\-c@{inifileparser.\-c}!H\-E\-X\-N\-U\-M\-B\-E\-R@{H\-E\-X\-N\-U\-M\-B\-E\-R}}\item[{\em 
+\hypertarget{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9ab41295c7909ca312a97caf0738fb98bb}{H\-E\-X\-N\-U\-M\-B\-E\-R}\label{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9ab41295c7909ca312a97caf0738fb98bb}
+}]\index{I\-P\-S\-T\-R\-I\-N\-G@{I\-P\-S\-T\-R\-I\-N\-G}!inifileparser.\-c@{inifileparser.\-c}}\index{inifileparser.\-c@{inifileparser.\-c}!I\-P\-S\-T\-R\-I\-N\-G@{I\-P\-S\-T\-R\-I\-N\-G}}\item[{\em 
+\hypertarget{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9ad5e295dd7c66967c6bac08d8e8cbc5a3}{I\-P\-S\-T\-R\-I\-N\-G}\label{inifileparser_8c_a15c9f7bd2f0e9686df5d9df4f3314aa9ad5e295dd7c66967c6bac08d8e8cbc5a3}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 68 of file inifileparser.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{inifileparser_8c_aaf2440435272e392a2fe0c6b181b53f3}{\index{inifileparser.\-c@{inifileparser.\-c}!debug\-\_\-print@{debug\-\_\-print}}
+\index{debug\-\_\-print@{debug\-\_\-print}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{debug\-\_\-print}]{\setlength{\rightskip}{0pt plus 5cm}int debug\-\_\-print (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{fmtp, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}}\label{inifileparser_8c_aaf2440435272e392a2fe0c6b181b53f3}
+
+
+Definition at line 111 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_ab33a1feb018e621b88ca4715b0d1a7ff}{\index{inifileparser.\-c@{inifileparser.\-c}!if\-\_\-get\-\_\-root@{if\-\_\-get\-\_\-root}}
+\index{if\-\_\-get\-\_\-root@{if\-\_\-get\-\_\-root}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{if\-\_\-get\-\_\-root}]{\setlength{\rightskip}{0pt plus 5cm}{\bf I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E}$\ast$ if\-\_\-get\-\_\-root (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{inifileparser_8c_ab33a1feb018e621b88ca4715b0d1a7ff}
+
+
+Definition at line 1695 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_ad4ba096d540e84dff2de60a484cb121d}{\index{inifileparser.\-c@{inifileparser.\-c}!if\-\_\-parse\-\_\-inifile@{if\-\_\-parse\-\_\-inifile}}
+\index{if\-\_\-parse\-\_\-inifile@{if\-\_\-parse\-\_\-inifile}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{if\-\_\-parse\-\_\-inifile}]{\setlength{\rightskip}{0pt plus 5cm}int if\-\_\-parse\-\_\-inifile (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp, }
+\item[{char $\ast$}]{fpath}
+\end{DoxyParamCaption}
+)}}\label{inifileparser_8c_ad4ba096d540e84dff2de60a484cb121d}
+
+
+Definition at line 1665 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_aad504a25b051912377b4103b8cb37660}{\index{inifileparser.\-c@{inifileparser.\-c}!if\-\_\-set\-\_\-err\-\_\-file@{if\-\_\-set\-\_\-err\-\_\-file}}
+\index{if\-\_\-set\-\_\-err\-\_\-file@{if\-\_\-set\-\_\-err\-\_\-file}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{if\-\_\-set\-\_\-err\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}void if\-\_\-set\-\_\-err\-\_\-file (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fp}
+\end{DoxyParamCaption}
+)}}\label{inifileparser_8c_aad504a25b051912377b4103b8cb37660}
+
+
+Definition at line 1699 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a10a065c8abf4cd4bedd6e307acc5ebf7}{\index{inifileparser.\-c@{inifileparser.\-c}!yyerror@{yyerror}}
+\index{yyerror@{yyerror}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{yyerror}]{\setlength{\rightskip}{0pt plus 5cm}int yyerror (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{msg}
+\end{DoxyParamCaption}
+)}}\label{inifileparser_8c_a10a065c8abf4cd4bedd6e307acc5ebf7}
+
+
+Definition at line 1690 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_acd8617a8f2ac0de8bc1cc032cf449e19}{\index{inifileparser.\-c@{inifileparser.\-c}!yyparse@{yyparse}}
+\index{yyparse@{yyparse}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{yyparse}]{\setlength{\rightskip}{0pt plus 5cm}int yyparse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{inifileparser_8c_acd8617a8f2ac0de8bc1cc032cf449e19}
+
+
+Definition at line 1102 of file inifileparser.\-c.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{inifileparser_8c_a04608f6f481fdd9f7794d4561e500acd}{\index{inifileparser.\-c@{inifileparser.\-c}!current\-\_\-sectionp@{current\-\_\-sectionp}}
+\index{current\-\_\-sectionp@{current\-\_\-sectionp}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{current\-\_\-sectionp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E}$\ast$ current\-\_\-sectionp = N\-U\-L\-L}}\label{inifileparser_8c_a04608f6f481fdd9f7794d4561e500acd}
+
+
+Definition at line 106 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_ae27efc82f81963f04c22dcfcc70c8766}{\index{inifileparser.\-c@{inifileparser.\-c}!data\-\_\-type@{data\-\_\-type}}
+\index{data\-\_\-type@{data\-\_\-type}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{data\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf I\-F\-\_\-\-D\-A\-T\-A\-\_\-\-T\-Y\-P\-E} data\-\_\-type}}\label{inifileparser_8c_ae27efc82f81963f04c22dcfcc70c8766}
+
+
+Definition at line 104 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a1dda981b073bf6aec5c3a9be59f0031e}{\index{inifileparser.\-c@{inifileparser.\-c}!ferr@{ferr}}
+\index{ferr@{ferr}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{ferr}]{\setlength{\rightskip}{0pt plus 5cm}F\-I\-L\-E$\ast$ ferr = N\-U\-L\-L}}\label{inifileparser_8c_a1dda981b073bf6aec5c3a9be59f0031e}
+
+
+Definition at line 109 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_ae0b1e43aff99baf8ca6e1773128f4b8f}{\index{inifileparser.\-c@{inifileparser.\-c}!inifilerootp@{inifilerootp}}
+\index{inifilerootp@{inifilerootp}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{inifilerootp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E}$\ast$ inifilerootp = N\-U\-L\-L}}\label{inifileparser_8c_ae0b1e43aff99baf8ca6e1773128f4b8f}
+
+
+Definition at line 107 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a34ffe3d3db8e7b7cece8b906af93eabc}{\index{inifileparser.\-c@{inifileparser.\-c}!node\-\_\-type@{node\-\_\-type}}
+\index{node\-\_\-type@{node\-\_\-type}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{node\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf I\-F\-\_\-\-N\-O\-D\-E\-\_\-\-T\-Y\-P\-E} node\-\_\-type}}\label{inifileparser_8c_a34ffe3d3db8e7b7cece8b906af93eabc}
+
+
+Definition at line 103 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_afb00ee063532a19b8920bb53679b8be7}{\index{inifileparser.\-c@{inifileparser.\-c}!nodep@{nodep}}
+\index{nodep@{nodep}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{nodep}]{\setlength{\rightskip}{0pt plus 5cm}{\bf I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E}$\ast$ nodep = N\-U\-L\-L}}\label{inifileparser_8c_afb00ee063532a19b8920bb53679b8be7}
+
+
+Definition at line 105 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a9e2c7c7373b818c86b2df7106a92327c}{\index{inifileparser.\-c@{inifileparser.\-c}!yychar@{yychar}}
+\index{yychar@{yychar}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{yychar}]{\setlength{\rightskip}{0pt plus 5cm}int yychar}}\label{inifileparser_8c_a9e2c7c7373b818c86b2df7106a92327c}
+
+
+Definition at line 1071 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a46af646807e0797e72b6e8945e7ea88b}{\index{inifileparser.\-c@{inifileparser.\-c}!yyin@{yyin}}
+\index{yyin@{yyin}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{yyin}]{\setlength{\rightskip}{0pt plus 5cm}F\-I\-L\-E$\ast$ yyin}}\label{inifileparser_8c_a46af646807e0797e72b6e8945e7ea88b}
+\hypertarget{inifileparser_8c_a5e36364965360da7b7cdfc2188e0af84}{\index{inifileparser.\-c@{inifileparser.\-c}!yylineno@{yylineno}}
+\index{yylineno@{yylineno}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{yylineno}]{\setlength{\rightskip}{0pt plus 5cm}int yylineno}}\label{inifileparser_8c_a5e36364965360da7b7cdfc2188e0af84}
+\hypertarget{inifileparser_8c_a539b86ee4bb46824a194f22eb69903d9}{\index{inifileparser.\-c@{inifileparser.\-c}!yylval@{yylval}}
+\index{yylval@{yylval}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{yylval}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Y\-Y\-S\-T\-Y\-P\-E} yylval}}\label{inifileparser_8c_a539b86ee4bb46824a194f22eb69903d9}
+
+
+Definition at line 1074 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_a0ea9e3b522e448ac462274fe70e1be82}{\index{inifileparser.\-c@{inifileparser.\-c}!yynerrs@{yynerrs}}
+\index{yynerrs@{yynerrs}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{yynerrs}]{\setlength{\rightskip}{0pt plus 5cm}int yynerrs}}\label{inifileparser_8c_a0ea9e3b522e448ac462274fe70e1be82}
+
+
+Definition at line 1077 of file inifileparser.\-c.
+
+\hypertarget{inifileparser_8c_ad9264b77d56b6971f29739e2bda77f51}{\index{inifileparser.\-c@{inifileparser.\-c}!yytext@{yytext}}
+\index{yytext@{yytext}!inifileparser.c@{inifileparser.\-c}}
+\subsubsection[{yytext}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ yytext}}\label{inifileparser_8c_ad9264b77d56b6971f29739e2bda77f51}
+
+
+Definition at line 523 of file inifile.\-c.
+

@@ -1,0 +1,77 @@
+\hypertarget{struct__bpcf__buffer}{\section{\-\_\-bpcf\-\_\-buffer Struct Reference}
+\label{struct__bpcf__buffer}\index{\-\_\-bpcf\-\_\-buffer@{\-\_\-bpcf\-\_\-buffer}}
+}
+
+
+{\ttfamily \#include $<$mmpool.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{struct__bpcf__buffer_a3eba3ce7c4d0575db2fdc15293233b18}{sync\-\_\-word} \mbox{[}2\mbox{]}
+\begin{DoxyCompactList}\small\item\em 2 Byte sync word always contains 0x\-A4\-A4 (10100101) \end{DoxyCompactList}\item 
+unsigned short \hyperlink{struct__bpcf__buffer_ae67b46be019334905e0dccdf8415174d}{bp\-\_\-id}
+\begin{DoxyCompactList}\small\item\em Buffer pool id. Which pool does this buffer belong to? \end{DoxyCompactList}\item 
+\hyperlink{mmpool_8h_af9c89c63e54c678d57572603a97df34d}{B\-P\-O\-O\-L\-\_\-\-I\-N\-D\-E\-X} \hyperlink{struct__bpcf__buffer_a91e58d5ff6c3d739d694d1516619f9cc}{bpindex}
+\begin{DoxyCompactList}\small\item\em index into the buf byte array of start of buffer. \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{struct__bpcf__buffer_a0a22f05ad0836231e9b3b8db6da29d0f}{buff\-\_\-len}
+\begin{DoxyCompactList}\small\item\em length is size of user data + header \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Buffer Pool Contents File Reference structure 
+
+Definition at line 112 of file mmpool.\-h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{struct__bpcf__buffer_ae67b46be019334905e0dccdf8415174d}{\index{\-\_\-bpcf\-\_\-buffer@{\-\_\-bpcf\-\_\-buffer}!bp\-\_\-id@{bp\-\_\-id}}
+\index{bp\-\_\-id@{bp\-\_\-id}!_bpcf_buffer@{\-\_\-bpcf\-\_\-buffer}}
+\subsubsection[{bp\-\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}unsigned short bp\-\_\-id}}\label{struct__bpcf__buffer_ae67b46be019334905e0dccdf8415174d}
+
+
+Buffer pool id. Which pool does this buffer belong to? 
+
+
+
+Definition at line 114 of file mmpool.\-h.
+
+\hypertarget{struct__bpcf__buffer_a91e58d5ff6c3d739d694d1516619f9cc}{\index{\-\_\-bpcf\-\_\-buffer@{\-\_\-bpcf\-\_\-buffer}!bpindex@{bpindex}}
+\index{bpindex@{bpindex}!_bpcf_buffer@{\-\_\-bpcf\-\_\-buffer}}
+\subsubsection[{bpindex}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-P\-O\-O\-L\-\_\-\-I\-N\-D\-E\-X} bpindex}}\label{struct__bpcf__buffer_a91e58d5ff6c3d739d694d1516619f9cc}
+
+
+index into the buf byte array of start of buffer. 
+
+
+
+Definition at line 115 of file mmpool.\-h.
+
+\hypertarget{struct__bpcf__buffer_a0a22f05ad0836231e9b3b8db6da29d0f}{\index{\-\_\-bpcf\-\_\-buffer@{\-\_\-bpcf\-\_\-buffer}!buff\-\_\-len@{buff\-\_\-len}}
+\index{buff\-\_\-len@{buff\-\_\-len}!_bpcf_buffer@{\-\_\-bpcf\-\_\-buffer}}
+\subsubsection[{buff\-\_\-len}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t buff\-\_\-len}}\label{struct__bpcf__buffer_a0a22f05ad0836231e9b3b8db6da29d0f}
+
+
+length is size of user data + header 
+
+
+
+Definition at line 116 of file mmpool.\-h.
+
+\hypertarget{struct__bpcf__buffer_a3eba3ce7c4d0575db2fdc15293233b18}{\index{\-\_\-bpcf\-\_\-buffer@{\-\_\-bpcf\-\_\-buffer}!sync\-\_\-word@{sync\-\_\-word}}
+\index{sync\-\_\-word@{sync\-\_\-word}!_bpcf_buffer@{\-\_\-bpcf\-\_\-buffer}}
+\subsubsection[{sync\-\_\-word}]{\setlength{\rightskip}{0pt plus 5cm}char sync\-\_\-word\mbox{[}2\mbox{]}}}\label{struct__bpcf__buffer_a3eba3ce7c4d0575db2fdc15293233b18}
+
+
+2 Byte sync word always contains 0x\-A4\-A4 (10100101) 
+
+
+
+Definition at line 113 of file mmpool.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+ulppk/\hyperlink{mmpool_8h}{mmpool.\-h}\end{DoxyCompactItemize}

@@ -1,0 +1,22 @@
+
+AM_CFLAGS = -I$(top_srcdir) -I$(top_srcdir)/ulppk
+ulppklib = $(top_srcdir)/ulppk/.libs
+testbindir = $(top_srcdir)/../testbin
+AM_LDFLAGS = -L$(ulppklib) -Wl,--rpath -Wl,$(ulppklib) -pthread -lulppk
+check_PROGRAMS = hello test-datastruct test-cmdargs test-diagnostics test-memmapio printinfo test-urlencoder test-pathinfo
+TESTS = hello test-datastruct test-cmdargs test-diagnostics test-dequetool.sh test-memmapio.sh test-urlencoder test-pathinfo
+#TESTS = $(check_PROGRAMS)
+XFAIL_TESTS = test-diagnostics
+hello_SOURCES = hello.c
+test_datastruct_SOURCES = test-datastruct.c
+test_cmdargs_SOURCES = test-cmdargs.c
+test_diagnostics_SOURCES = test-diagnostics.c
+test_memmapio_SOURCES = test-memmapio.c
+printinfo_SOURCES = printinfo.c
+test_urlencoder_SOURCES = test-urlencoder.c
+test_pathinfo_SOURCES = test-pathinfo.c
+bin_PROGRAMS = dequetool mmatomx mmbuffpool ulppk-doc
+dequetool_SOURCE = dequetool.c
+mmatomx_SOURCES = mmatomx.c
+mmbuffpool_SOURCES = mmbuffpool.c
+ulppk_doc_SOURCES = ulppk-doc.c

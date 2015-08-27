@@ -1,0 +1,320 @@
+\hypertarget{socketserver_8h}{\section{ulppk/socketserver.h File Reference}
+\label{socketserver_8h}\index{ulppk/socketserver.\-h@{ulppk/socketserver.\-h}}
+}
+
+
+A skeletal socket server framework.  
+
+
+{\ttfamily \#include \char`\"{}signalkit.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_s_s_r_v_r___h_a_n_d_l_e}{S\-S\-R\-V\-R\-\_\-\-H\-A\-N\-D\-L\-E}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef int \hyperlink{socketserver_8h_a93d8d401108d91cfcd784619941ac535}{S\-S\-R\-V\-R\-\_\-\-I\-P\-F} (void $\ast$p\-Data)
+\item 
+typedef int \hyperlink{socketserver_8h_ae54a889b2c55c9138d924abef8f51d3b}{S\-S\-R\-V\-R\-\_\-\-C\-L\-P\-F} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]}, void $\ast$p\-Data)
+\item 
+typedef int \hyperlink{socketserver_8h_a4439dfce658b2313b3a6352eeb6f7e9c}{S\-S\-R\-V\-R\-\_\-\-M\-P\-F} (int connfd, void $\ast$p\-Data)
+\item 
+typedef int \hyperlink{socketserver_8h_a54951c949426b1745d6345943b763cf1}{S\-S\-R\-V\-R\-\_\-\-C\-T\-P\-F} (int connfd, void $\ast$p\-Data)
+\item 
+typedef int \hyperlink{socketserver_8h_aba79a85fcc6b3f7f9e9a2a668309042d}{S\-S\-R\-V\-R\-\_\-\-P\-T\-P\-F} (void $\ast$p\-Data)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_s_s_r_v_r___h_a_n_d_l_e}{S\-S\-R\-V\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$ \hyperlink{socketserver_8h_a24a7df39baa92f201cc4b3363c9269b9}{ssrvr\-\_\-new} ()
+\begin{DoxyCompactList}\small\item\em This function constructs a new socket server handle structure. Personality functions are initialize to stubs. \end{DoxyCompactList}\item 
+void \hyperlink{socketserver_8h_ab662215cc86e0aa72c4bd66fc7124e4e}{ssrvr\-\_\-register\-\_\-ipf} (\hyperlink{struct_s_s_r_v_r___h_a_n_d_l_e}{S\-S\-R\-V\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$p\-Handle, \hyperlink{socketserver_8h_a93d8d401108d91cfcd784619941ac535}{S\-S\-R\-V\-R\-\_\-\-I\-P\-F} $\ast$ipf)
+\begin{DoxyCompactList}\small\item\em Register an Initialization Personality Function (I\-P\-F) \end{DoxyCompactList}\item 
+void \hyperlink{socketserver_8h_a55037243928240d88775a206f501da6b}{ssrvr\-\_\-register\-\_\-clpf} (\hyperlink{struct_s_s_r_v_r___h_a_n_d_l_e}{S\-S\-R\-V\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$p\-Handle, \hyperlink{socketserver_8h_ae54a889b2c55c9138d924abef8f51d3b}{S\-S\-R\-V\-R\-\_\-\-C\-L\-P\-F} $\ast$clpf)
+\begin{DoxyCompactList}\small\item\em Register a Command Line Personality Function (C\-L\-P\-F) \end{DoxyCompactList}\item 
+void \hyperlink{socketserver_8h_ab4efe2c9a4d2757d674f19b6b80b748f}{ssrvr\-\_\-register\-\_\-mpf} (\hyperlink{struct_s_s_r_v_r___h_a_n_d_l_e}{S\-S\-R\-V\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$p\-Handle, \hyperlink{socketserver_8h_a4439dfce658b2313b3a6352eeb6f7e9c}{S\-S\-R\-V\-R\-\_\-\-M\-P\-F} $\ast$mpf)
+\begin{DoxyCompactList}\small\item\em Register a Main Personality Function (M\-P\-F) \end{DoxyCompactList}\item 
+void \hyperlink{socketserver_8h_a28fff67c7dc41d2f10d5878656446e7a}{ssrvr\-\_\-register\-\_\-ctpf} (\hyperlink{struct_s_s_r_v_r___h_a_n_d_l_e}{S\-S\-R\-V\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$p\-Handle, \hyperlink{socketserver_8h_a54951c949426b1745d6345943b763cf1}{S\-S\-R\-V\-R\-\_\-\-C\-T\-P\-F} $\ast$ctpf)
+\begin{DoxyCompactList}\small\item\em Register a Child Termination Personality Function (C\-T\-P\-F) \end{DoxyCompactList}\item 
+void \hyperlink{socketserver_8h_a097c24caa6a3ba22e3422bfc55b31cb0}{ssrvr\-\_\-register\-\_\-ptpf} (\hyperlink{struct_s_s_r_v_r___h_a_n_d_l_e}{S\-S\-R\-V\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$p\-Handle, \hyperlink{socketserver_8h_aba79a85fcc6b3f7f9e9a2a668309042d}{S\-S\-R\-V\-R\-\_\-\-P\-T\-P\-F} $\ast$ptpf)
+\begin{DoxyCompactList}\small\item\em Register a Parent Termination Personality Function (P\-T\-P\-F) \end{DoxyCompactList}\item 
+int \hyperlink{socketserver_8h_ade7bf3f71c25aca640f42d5669ce2347}{ssrvr\-\_\-start} (\hyperlink{struct_s_s_r_v_r___h_a_n_d_l_e}{S\-S\-R\-V\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$p\-Handle, void $\ast$datap, int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Start the socket server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A skeletal socket server framework. \subsubsection*{Overview}
+
+A generalized socket server. This model provides a skeletal framework for the classic concurrent socket server. In that model, a client connects to the listening server, which accepts the connection request and forks a child to service the request.
+
+Applications code must provide the following \char`\"{}personality functions\char`\"{}. 
+\begin{DoxyEnumerate}
+\item a command line processing personality function (C\-L\-P\-F) to parse and handle application specific command line arguments. 
+\item an initialization personality function (I\-P\-F) to handle initialization requirements 
+\item a main personality function (M\-P\-F) . This is the function that provides the applications logic performed by the child 
+\item a child termination personality function (C\-T\-P\-F) 
+\item a parent termination personality function 
+\end{DoxyEnumerate}
+
+Any of these can be \char`\"{}stubbed out\char`\"{} by providing a null function pointer.
+
+\subsubsection*{C\-O\-M\-M\-A\-N\-D L\-I\-N\-E A\-R\-G\-U\-M\-E\-N\-T\-S}
+
+\begin{DoxyVerb} Any executable program that implements a socket server is presumed to
+ require the following command line arguments:
+
+    -p [listen port number] -b [listen queue backlog]
+
+ The -b option is optional ... if not provided a backlog of 5 is presumed.
+
+ Other command line arguments may be optionally provided. Parsing of those
+    arguments is the function of the CLPF. The skeleton will handle parsing of
+    the required arguments.
+\end{DoxyVerb}
+
+
+\subsubsection*{Using the skeletal socket server}
+
+First, allocate a new socket server handle (structure) using ssrvr\-\_\-new. This returns returns a \hyperlink{struct_s_s_r_v_r___h_a_n_d_l_e}{S\-S\-R\-V\-R\-\_\-\-H\-A\-N\-D\-L\-E} which must be retained. Then, write and register the personality functions using the registration functions provided. When this is complete, call the function ssrvr\-\_\-start. ssrvr\-\_\-start will call the C\-L\-P\-F, the I\-P\-F, and then set up the listen port. It will then block an accept call. When a connection is made, the parent forks a child and blocks on another accept. The child executes the M\-P\-F. When the (child) M\-P\-F completes, the skeleton calls the C\-T\-P\-F (Child termination function). The parent termiantion personality function is called when the parent terminates its main loop priot to exit.
+
+The socket server must accept the following command line arguments (and these are handled by the skeleton)\-:
+
+
+\begin{DoxyItemize}
+\item h -- command line help switch 
+\item b (--backlog) -- accept queue backlog limit (default is 5) 
+\item m (--maxconns) -- max open connections (default is 64) 
+\item p (--port) -- listen port (default is 49152) 
+\end{DoxyItemize}
+
+The calling program should register it's application specific command line arguments by implementing a Command Line Personality Function (clpf).
+
+ssrvr\-\_\-start will call the clpf in the appropriate sequence. The calling app must not call cmdarg\-\_\-init or cmdarg\-\_\-parse. Again, this will be managed by ssrvr\-\_\-start. 
+
+Definition in file \hyperlink{socketserver_8h_source}{socketserver.\-h}.
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{socketserver_8h_ae54a889b2c55c9138d924abef8f51d3b}{\index{socketserver.\-h@{socketserver.\-h}!S\-S\-R\-V\-R\-\_\-\-C\-L\-P\-F@{S\-S\-R\-V\-R\-\_\-\-C\-L\-P\-F}}
+\index{S\-S\-R\-V\-R\-\_\-\-C\-L\-P\-F@{S\-S\-R\-V\-R\-\_\-\-C\-L\-P\-F}!socketserver.h@{socketserver.\-h}}
+\subsubsection[{S\-S\-R\-V\-R\-\_\-\-C\-L\-P\-F}]{\setlength{\rightskip}{0pt plus 5cm}typedef int S\-S\-R\-V\-R\-\_\-\-C\-L\-P\-F(int argc, char $\ast$argv\mbox{[}$\,$\mbox{]}, void $\ast$p\-Data)}}\label{socketserver_8h_ae54a889b2c55c9138d924abef8f51d3b}
+Command Line Processing Personality function (C\-L\-P\-F). 
+
+Definition at line 110 of file socketserver.\-h.
+
+\hypertarget{socketserver_8h_a54951c949426b1745d6345943b763cf1}{\index{socketserver.\-h@{socketserver.\-h}!S\-S\-R\-V\-R\-\_\-\-C\-T\-P\-F@{S\-S\-R\-V\-R\-\_\-\-C\-T\-P\-F}}
+\index{S\-S\-R\-V\-R\-\_\-\-C\-T\-P\-F@{S\-S\-R\-V\-R\-\_\-\-C\-T\-P\-F}!socketserver.h@{socketserver.\-h}}
+\subsubsection[{S\-S\-R\-V\-R\-\_\-\-C\-T\-P\-F}]{\setlength{\rightskip}{0pt plus 5cm}typedef int S\-S\-R\-V\-R\-\_\-\-C\-T\-P\-F(int connfd, void $\ast$p\-Data)}}\label{socketserver_8h_a54951c949426b1745d6345943b763cf1}
+Child termination personality function 
+
+Definition at line 120 of file socketserver.\-h.
+
+\hypertarget{socketserver_8h_a93d8d401108d91cfcd784619941ac535}{\index{socketserver.\-h@{socketserver.\-h}!S\-S\-R\-V\-R\-\_\-\-I\-P\-F@{S\-S\-R\-V\-R\-\_\-\-I\-P\-F}}
+\index{S\-S\-R\-V\-R\-\_\-\-I\-P\-F@{S\-S\-R\-V\-R\-\_\-\-I\-P\-F}!socketserver.h@{socketserver.\-h}}
+\subsubsection[{S\-S\-R\-V\-R\-\_\-\-I\-P\-F}]{\setlength{\rightskip}{0pt plus 5cm}typedef int S\-S\-R\-V\-R\-\_\-\-I\-P\-F(void $\ast$p\-Data)}}\label{socketserver_8h_a93d8d401108d91cfcd784619941ac535}
+Init personality function (I\-P\-F) 
+
+Definition at line 105 of file socketserver.\-h.
+
+\hypertarget{socketserver_8h_a4439dfce658b2313b3a6352eeb6f7e9c}{\index{socketserver.\-h@{socketserver.\-h}!S\-S\-R\-V\-R\-\_\-\-M\-P\-F@{S\-S\-R\-V\-R\-\_\-\-M\-P\-F}}
+\index{S\-S\-R\-V\-R\-\_\-\-M\-P\-F@{S\-S\-R\-V\-R\-\_\-\-M\-P\-F}!socketserver.h@{socketserver.\-h}}
+\subsubsection[{S\-S\-R\-V\-R\-\_\-\-M\-P\-F}]{\setlength{\rightskip}{0pt plus 5cm}typedef int S\-S\-R\-V\-R\-\_\-\-M\-P\-F(int connfd, void $\ast$p\-Data)}}\label{socketserver_8h_a4439dfce658b2313b3a6352eeb6f7e9c}
+Main Personality Function (M\-P\-F) 
+
+Definition at line 115 of file socketserver.\-h.
+
+\hypertarget{socketserver_8h_aba79a85fcc6b3f7f9e9a2a668309042d}{\index{socketserver.\-h@{socketserver.\-h}!S\-S\-R\-V\-R\-\_\-\-P\-T\-P\-F@{S\-S\-R\-V\-R\-\_\-\-P\-T\-P\-F}}
+\index{S\-S\-R\-V\-R\-\_\-\-P\-T\-P\-F@{S\-S\-R\-V\-R\-\_\-\-P\-T\-P\-F}!socketserver.h@{socketserver.\-h}}
+\subsubsection[{S\-S\-R\-V\-R\-\_\-\-P\-T\-P\-F}]{\setlength{\rightskip}{0pt plus 5cm}typedef int S\-S\-R\-V\-R\-\_\-\-P\-T\-P\-F(void $\ast$p\-Data)}}\label{socketserver_8h_aba79a85fcc6b3f7f9e9a2a668309042d}
+Parent termination personality function 
+
+Definition at line 125 of file socketserver.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{socketserver_8h_a24a7df39baa92f201cc4b3363c9269b9}{\index{socketserver.\-h@{socketserver.\-h}!ssrvr\-\_\-new@{ssrvr\-\_\-new}}
+\index{ssrvr\-\_\-new@{ssrvr\-\_\-new}!socketserver.h@{socketserver.\-h}}
+\subsubsection[{ssrvr\-\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\-S\-R\-V\-R\-\_\-\-H\-A\-N\-D\-L\-E}$\ast$ ssrvr\-\_\-new (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{socketserver_8h_a24a7df39baa92f201cc4b3363c9269b9}
+
+
+This function constructs a new socket server handle structure. Personality functions are initialize to stubs. 
+
+\begin{DoxyReturn}{Returns}
+pointer to a socket server handle structure. 
+\end{DoxyReturn}
+
+
+Definition at line 207 of file socketserver.\-c.
+
+\hypertarget{socketserver_8h_a55037243928240d88775a206f501da6b}{\index{socketserver.\-h@{socketserver.\-h}!ssrvr\-\_\-register\-\_\-clpf@{ssrvr\-\_\-register\-\_\-clpf}}
+\index{ssrvr\-\_\-register\-\_\-clpf@{ssrvr\-\_\-register\-\_\-clpf}!socketserver.h@{socketserver.\-h}}
+\subsubsection[{ssrvr\-\_\-register\-\_\-clpf}]{\setlength{\rightskip}{0pt plus 5cm}void ssrvr\-\_\-register\-\_\-clpf (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-S\-R\-V\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{p\-Handle, }
+\item[{{\bf S\-S\-R\-V\-R\-\_\-\-C\-L\-P\-F} $\ast$}]{clpf}
+\end{DoxyParamCaption}
+)}}\label{socketserver_8h_a55037243928240d88775a206f501da6b}
+
+
+Register a Command Line Personality Function (C\-L\-P\-F) 
+
+Once a handle is created, personality functions may be registered.
+
+If there are custom command line arguments to add (in addition to the stock command line options ever socket server skeleton must handle), then a C\-L\-P\-F should be implemented and registered by calling this function. The C\-L\-P\-F should simply call the cmdarg\-\_\-register\-\_\-option function to register these custom arguments.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\-Handle} & Pointer to \hyperlink{struct_s_s_r_v_r___h_a_n_d_l_e}{S\-S\-R\-V\-R\-\_\-\-H\-A\-N\-D\-L\-E} returned by ssrvr\-\_\-new \\
+\hline
+{\em clpf} & Pointer to Command Line Personality Function \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 231 of file socketserver.\-c.
+
+\hypertarget{socketserver_8h_a28fff67c7dc41d2f10d5878656446e7a}{\index{socketserver.\-h@{socketserver.\-h}!ssrvr\-\_\-register\-\_\-ctpf@{ssrvr\-\_\-register\-\_\-ctpf}}
+\index{ssrvr\-\_\-register\-\_\-ctpf@{ssrvr\-\_\-register\-\_\-ctpf}!socketserver.h@{socketserver.\-h}}
+\subsubsection[{ssrvr\-\_\-register\-\_\-ctpf}]{\setlength{\rightskip}{0pt plus 5cm}void ssrvr\-\_\-register\-\_\-ctpf (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-S\-R\-V\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{p\-Handle, }
+\item[{{\bf S\-S\-R\-V\-R\-\_\-\-C\-T\-P\-F} $\ast$}]{ctpf}
+\end{DoxyParamCaption}
+)}}\label{socketserver_8h_a28fff67c7dc41d2f10d5878656446e7a}
+
+
+Register a Child Termination Personality Function (C\-T\-P\-F) 
+
+Once a handle is created, personality functions may be registered.
+
+The C\-T\-P\-F is called by ssrvr\-\_\-start after the M\-P\-F has returned to the child skeleton. A C\-T\-P\-F should be implemented to perform any \char`\"{}must do\char`\"{} clean up after the M\-P\-F has completed processing.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\-Handle} & Pointer to \hyperlink{struct_s_s_r_v_r___h_a_n_d_l_e}{S\-S\-R\-V\-R\-\_\-\-H\-A\-N\-D\-L\-E} returned by ssrvr\-\_\-new \\
+\hline
+{\em ctpf} & Pointer to Child Termination Personality Function \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 279 of file socketserver.\-c.
+
+\hypertarget{socketserver_8h_ab662215cc86e0aa72c4bd66fc7124e4e}{\index{socketserver.\-h@{socketserver.\-h}!ssrvr\-\_\-register\-\_\-ipf@{ssrvr\-\_\-register\-\_\-ipf}}
+\index{ssrvr\-\_\-register\-\_\-ipf@{ssrvr\-\_\-register\-\_\-ipf}!socketserver.h@{socketserver.\-h}}
+\subsubsection[{ssrvr\-\_\-register\-\_\-ipf}]{\setlength{\rightskip}{0pt plus 5cm}void ssrvr\-\_\-register\-\_\-ipf (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-S\-R\-V\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{p\-Handle, }
+\item[{{\bf S\-S\-R\-V\-R\-\_\-\-I\-P\-F} $\ast$}]{ipf}
+\end{DoxyParamCaption}
+)}}\label{socketserver_8h_ab662215cc86e0aa72c4bd66fc7124e4e}
+
+
+Register an Initialization Personality Function (I\-P\-F) 
+
+The I\-P\-F is called by ssrvr\-\_\-start after the C\-L\-P\-F (Command Line Personality Function) has been called to register any special command line options, and the command line options have been parsed. The C\-L\-P\-F should register those options O\-N\-L\-Y. The I\-P\-F can read the option values.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\-Handle} & Pointer to \hyperlink{struct_s_s_r_v_r___h_a_n_d_l_e}{S\-S\-R\-V\-R\-\_\-\-H\-A\-N\-D\-L\-E} returned by ssrvr\-\_\-new \\
+\hline
+{\em ipf} & Pointer to Initialization Personality Function \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 247 of file socketserver.\-c.
+
+\hypertarget{socketserver_8h_ab4efe2c9a4d2757d674f19b6b80b748f}{\index{socketserver.\-h@{socketserver.\-h}!ssrvr\-\_\-register\-\_\-mpf@{ssrvr\-\_\-register\-\_\-mpf}}
+\index{ssrvr\-\_\-register\-\_\-mpf@{ssrvr\-\_\-register\-\_\-mpf}!socketserver.h@{socketserver.\-h}}
+\subsubsection[{ssrvr\-\_\-register\-\_\-mpf}]{\setlength{\rightskip}{0pt plus 5cm}void ssrvr\-\_\-register\-\_\-mpf (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-S\-R\-V\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{p\-Handle, }
+\item[{{\bf S\-S\-R\-V\-R\-\_\-\-M\-P\-F} $\ast$}]{mpf}
+\end{DoxyParamCaption}
+)}}\label{socketserver_8h_ab4efe2c9a4d2757d674f19b6b80b748f}
+
+
+Register a Main Personality Function (M\-P\-F) 
+
+Once a handle is created, personality functions may be registered.
+
+The M\-P\-F is called by ssrvr\-\_\-start after a socket connection has been accepted. The M\-P\-F runs under a child process. The parent process loops to accept a new connection.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\-Handle} & Pointer to \hyperlink{struct_s_s_r_v_r___h_a_n_d_l_e}{S\-S\-R\-V\-R\-\_\-\-H\-A\-N\-D\-L\-E} returned by ssrvr\-\_\-new \\
+\hline
+{\em mpf} & Pointer to Main Personality Function \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 263 of file socketserver.\-c.
+
+\hypertarget{socketserver_8h_a097c24caa6a3ba22e3422bfc55b31cb0}{\index{socketserver.\-h@{socketserver.\-h}!ssrvr\-\_\-register\-\_\-ptpf@{ssrvr\-\_\-register\-\_\-ptpf}}
+\index{ssrvr\-\_\-register\-\_\-ptpf@{ssrvr\-\_\-register\-\_\-ptpf}!socketserver.h@{socketserver.\-h}}
+\subsubsection[{ssrvr\-\_\-register\-\_\-ptpf}]{\setlength{\rightskip}{0pt plus 5cm}void ssrvr\-\_\-register\-\_\-ptpf (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-S\-R\-V\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{p\-Handle, }
+\item[{{\bf S\-S\-R\-V\-R\-\_\-\-P\-T\-P\-F} $\ast$}]{ptpf}
+\end{DoxyParamCaption}
+)}}\label{socketserver_8h_a097c24caa6a3ba22e3422bfc55b31cb0}
+
+
+Register a Parent Termination Personality Function (P\-T\-P\-F) 
+
+Once a handle is created, personality functions may be registered.
+
+The P\-T\-P\-F is called by ssrvr\-\_\-start after main accept loop has been terminated. Loop termination (loop abort) will occur when a S\-I\-G\-T\-E\-R\-M is sent to the parent. A P\-T\-P\-F should be implemented to perform any\char`\"{}must do\char`\"{} clean up after the accept loop has been aborted.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\-Handle} & Pointer to \hyperlink{struct_s_s_r_v_r___h_a_n_d_l_e}{S\-S\-R\-V\-R\-\_\-\-H\-A\-N\-D\-L\-E} returned by ssrvr\-\_\-new \\
+\hline
+{\em ptpf} & Pointer to Parent Termination Personality Function \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 297 of file socketserver.\-c.
+
+\hypertarget{socketserver_8h_ade7bf3f71c25aca640f42d5669ce2347}{\index{socketserver.\-h@{socketserver.\-h}!ssrvr\-\_\-start@{ssrvr\-\_\-start}}
+\index{ssrvr\-\_\-start@{ssrvr\-\_\-start}!socketserver.h@{socketserver.\-h}}
+\subsubsection[{ssrvr\-\_\-start}]{\setlength{\rightskip}{0pt plus 5cm}int ssrvr\-\_\-start (
+\begin{DoxyParamCaption}
+\item[{{\bf S\-S\-R\-V\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{p\-Handle, }
+\item[{void $\ast$}]{datap, }
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{socketserver_8h_ade7bf3f71c25aca640f42d5669ce2347}
+
+
+Start the socket server. 
+
+Once the required personality functions have been registered, the socket server can be started by calling this function. This function parses command line arguments, drives the calls to the registered personality functions, handles listen socket setup, and accepts connections. To terminate the accept loop, send a S\-I\-G\-T\-E\-R\-M to the parent process.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\-Handle} & Pointer to \hyperlink{struct_s_s_r_v_r___h_a_n_d_l_e}{S\-S\-R\-V\-R\-\_\-\-H\-A\-N\-D\-L\-E} returned by ssrvr\-\_\-new \\
+\hline
+{\em datap} & Pointer to application data. All personality functions will have access to this pointer. \\
+\hline
+{\em argc} & Program argument count, as passed to the \hyperlink{dequetool_8c_a0ddf1224851353fc92bfbff6f499fa97}{main()} funtion \\
+\hline
+{\em argv} & Array of program argument strings, as passed to the \hyperlink{dequetool_8c_a0ddf1224851353fc92bfbff6f499fa97}{main()} funciton. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 317 of file socketserver.\-c.
+

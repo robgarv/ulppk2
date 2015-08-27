@@ -1,0 +1,128 @@
+\begin{DoxyAuthor}{Author}
+Rob Garvey
+\end{DoxyAuthor}
+The Unix/\-Linux Process Programming Kit (U\-L\-P\-P\-K --- hey I had to call it something) is implemented as a shared library of C functions. These functions provide in memory and memory mapped (persistent) data structure support, logging and diagnostics, process control, socket communications, and other tools.
+
+ulppk is a packaging of a collection of re-\/used functions developed by the author (moi) beginning in 1989. These functions were written to solve programming problems which were recurring in systems development. Many of these functions were originally developed for use in real time embedded applications and later ported to $\ast$nix systems.
+
+Over the years, a rather large but fairly disorganized \char`\"{}bag of tricks\char`\"{} had been developed and carried from job to job. Extending and polishing the collection became something of a hobby.
+
+ulppk packages the best and most frequently used items in this bag of tricks in what is hopefully a coherent form. There are some rough edges ... particularly with logging and certain aspects of ini file (program settings file) handling. \hyperlink{ulppk__log_8c}{ulppk\-\_\-log.\-c} is useful but applications might well prefer to use other logging applications which are more robust. Unfortunately, in its current state the library itself has to use \hyperlink{ulppk__log_8c}{ulppk\-\_\-log.\-c} for logging. (I'm working on a \char`\"{}log provider\char`\"{} suite to insulate the library code from the details of logging mechanisms but that is still in the early stages of design.)
+
+Probably the most useful components of the library are the memory mapped I/\-O modules and the state machine module. The state machine module offers a very light weight facility for defining event driven processes modeled with Ward/\-Mellor state transition diagrams. For many applications, this is rather much like swatting a fly with a howitzer ... but if your analysis winds up defining more than a dozen states and multiple transitions between states, this offers an implementation that is far more manageable than the typical nested switch statement approach.
+
+Anyone who has read \char`\"{}\-Advanced Programming in the U\-N\-I\-X Environment\char`\"{} will recognize the influence of the late W. Richard Stevens on this code. But then, almost everyone who has programmed in the Unix/\-Linux environment remains indebted to Stevens. He influenced us all.
+
+ulppk provides functions that support the following broad feature categories\-:
+
+
+\begin{DoxyItemize}
+\item In memory data structure support 
+\begin{DoxyItemize}
+\item linked lists \begin{DoxySeeAlso}{See Also}
+\hyperlink{llacc_8c}{llacc.\-c} 
+\end{DoxySeeAlso}
+
+\item Double ended queues (stack/fifo) \begin{DoxySeeAlso}{See Also}
+\hyperlink{dqacc_8c}{dqacc.\-c} 
+\end{DoxySeeAlso}
+
+\item Simple binary tree support \begin{DoxySeeAlso}{See Also}
+\hyperlink{btacc_8c}{btacc.\-c} 
+\end{DoxySeeAlso}
+
+\end{DoxyItemize}
+\item Application support 
+\begin{DoxyItemize}
+\item Command line argument handling \begin{DoxySeeAlso}{See Also}
+\hyperlink{cmdargs_8c}{cmdargs.\-c} 
+\end{DoxySeeAlso}
+
+\item Debug output and diagnostics support \begin{DoxySeeAlso}{See Also}
+\hyperlink{diagnostics_8c}{diagnostics.\-c} 
+\end{DoxySeeAlso}
+
+\item Environment varible handling support \begin{DoxySeeAlso}{See Also}
+\hyperlink{appenv_8c}{appenv.\-c} 
+\end{DoxySeeAlso}
+
+\item Program settings (ini) file support \begin{DoxySeeAlso}{See Also}
+\hyperlink{ifile_8c}{ifile.\-c} 
+\end{DoxySeeAlso}
+
+\item Logging support \begin{DoxySeeAlso}{See Also}
+\hyperlink{ulppk__log_8h_ab358e7f087f43f579d63f5c45de1d203}{ulppk\-\_\-log} 
+\end{DoxySeeAlso}
+
+\item System configuration handling support \begin{DoxySeeAlso}{See Also}
+\hyperlink{sysconfig_8c}{sysconfig.\-c} 
+\end{DoxySeeAlso}
+
+\item File and path parsing/handling support \begin{DoxySeeAlso}{See Also}
+\hyperlink{pathinfo_8c}{pathinfo.\-c} 
+\end{DoxySeeAlso}
+
+\item I/\-O Utilities \begin{DoxySeeAlso}{See Also}
+\hyperlink{ioutils_8c}{ioutils.\-c} 
+\end{DoxySeeAlso}
+
+\end{DoxyItemize}
+\item Unix/\-Linux Memory Mapped Datastructuring 
+\begin{DoxyItemize}
+\item Memory Mapped File support \begin{DoxySeeAlso}{See Also}
+\hyperlink{mmatom_8c}{mmatom.\-c} 
+\end{DoxySeeAlso}
+
+\item Memory Mapped File of Records support \begin{DoxySeeAlso}{See Also}
+\hyperlink{mmfor_8c}{mmfor.\-c} 
+\end{DoxySeeAlso}
+
+\item Memory Mapped Linear Lists \begin{DoxySeeAlso}{See Also}
+\hyperlink{linearlist_8c}{linearlist.\-c} 
+\end{DoxySeeAlso}
+
+\item Memory Mapped Double Ended Queue Support \begin{DoxySeeAlso}{See Also}
+\hyperlink{mmdeque_8c}{mmdeque.\-c} 
+\end{DoxySeeAlso}
+
+\item Memory Mapped Buffer Pool Support \begin{DoxySeeAlso}{See Also}
+
+\end{DoxySeeAlso}
+
+\end{DoxyItemize}
+\item Process Management and Communications Support 
+\begin{DoxyItemize}
+\item Socket support \begin{DoxySeeAlso}{See Also}
+\hyperlink{socketio_8c}{socketio.\-c} 
+\end{DoxySeeAlso}
+
+\item Socket Server Skeleton \begin{DoxySeeAlso}{See Also}
+\hyperlink{socketserver_8c}{socketserver.\-c} 
+\end{DoxySeeAlso}
+
+\item Signal Handling Support \begin{DoxySeeAlso}{See Also}
+\hyperlink{signalkit_8c}{signalkit.\-c} 
+\end{DoxySeeAlso}
+
+\item 16 bit C\-R\-C support \begin{DoxySeeAlso}{See Also}
+\hyperlink{crc16ccitt_8c}{crc16ccitt.\-c}  
+\end{DoxySeeAlso}
+
+\item Process forking with throttle support \begin{DoxySeeAlso}{See Also}
+\hyperlink{process__control_8c}{process\-\_\-control.\-c} 
+\end{DoxySeeAlso}
+
+\item State machine for event driven code \begin{DoxySeeAlso}{See Also}
+\hyperlink{statemachine_8c}{statemachine.\-c} 
+\end{DoxySeeAlso}
+
+\item Process synchronization support \begin{DoxySeeAlso}{See Also}
+\hyperlink{msgcell_8c}{msgcell.\-c} 
+\end{DoxySeeAlso}
+
+\item Process-\/to-\/process queing support \begin{DoxySeeAlso}{See Also}
+\hyperlink{msgdeque_8c}{msgdeque.\-c} 
+\end{DoxySeeAlso}
+
+\end{DoxyItemize}
+\end{DoxyItemize}

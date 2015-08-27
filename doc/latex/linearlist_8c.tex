@@ -1,0 +1,320 @@
+\hypertarget{linearlist_8c}{\section{ulppk/linearlist.c File Reference}
+\label{linearlist_8c}\index{ulppk/linearlist.\-c@{ulppk/linearlist.\-c}}
+}
+
+
+Implementation of a linear list of memory mapped records.  
+
+
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$linearlist.\-h$>$}\\*
+{\ttfamily \#include $<$ulppk\-\_\-log.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{mmfor_8h_a6afc6b250952ab4716a5655a6705d2bc}{M\-M\-F\-O\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$ \hyperlink{linearlist_8c_ad4f38665e8a29859803cfcef28cce0c2}{linlist\-\_\-create} (char $\ast$filepath, \hyperlink{mmatom_8h_accd6d884f022e3962f0b0544cfbc9720}{M\-M\-A\-\_\-\-A\-C\-C\-E\-S\-S\-\_\-\-M\-O\-D\-E\-S} mode, \hyperlink{mmatom_8h_a380e40a5d76cd22ec2ffc236efcc5c59}{M\-M\-A\-\_\-\-M\-A\-P\-\_\-\-F\-L\-A\-G\-S} flags, int permissions, size\-\_\-t rec\-\_\-size, size\-\_\-t nrecs)
+\item 
+\hyperlink{mmfor_8h_a6afc6b250952ab4716a5655a6705d2bc}{M\-M\-F\-O\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$ \hyperlink{linearlist_8c_a831bad4db4bb556355c02e412bf9d693}{linlist\-\_\-open} (char $\ast$filepath, \hyperlink{mmatom_8h_accd6d884f022e3962f0b0544cfbc9720}{M\-M\-A\-\_\-\-A\-C\-C\-E\-S\-S\-\_\-\-M\-O\-D\-E\-S} mode, \hyperlink{mmatom_8h_a380e40a5d76cd22ec2ffc236efcc5c59}{M\-M\-A\-\_\-\-M\-A\-P\-\_\-\-F\-L\-A\-G\-S} flags)
+\item 
+int \hyperlink{linearlist_8c_acc81fef435d8a41434315af1e4d6ea3e}{linlist\-\_\-close} (\hyperlink{mmfor_8h_a6afc6b250952ab4716a5655a6705d2bc}{M\-M\-F\-O\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$mmforhp)
+\item 
+void $\ast$ \hyperlink{linearlist_8c_aba2d17532a33de844c51d5314c8909c5}{linlist\-\_\-x2p} (\hyperlink{mmfor_8h_a6afc6b250952ab4716a5655a6705d2bc}{M\-M\-F\-O\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$mmforhp, size\-\_\-t x)
+\item 
+size\-\_\-t \hyperlink{linearlist_8c_a40e1c4b6c1c86c2fd5465ee81f6f7193}{linlist\-\_\-p2x} (\hyperlink{mmfor_8h_a6afc6b250952ab4716a5655a6705d2bc}{M\-M\-F\-O\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$mmforhp, void $\ast$p)
+\item 
+size\-\_\-t \hyperlink{linearlist_8c_a8a9297a91b49c9c4e919094b7d9505a2}{linlist\-\_\-capacity} (\hyperlink{mmfor_8h_a6afc6b250952ab4716a5655a6705d2bc}{M\-M\-F\-O\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$mmforhp)
+\item 
+size\-\_\-t \hyperlink{linearlist_8c_aed0a53625539db362dba8acee8663924}{linlist\-\_\-length} (\hyperlink{mmfor_8h_a6afc6b250952ab4716a5655a6705d2bc}{M\-M\-F\-O\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$mmforhp)
+\item 
+void $\ast$ \hyperlink{linearlist_8c_a18e774c961ef667f0528e9e288ac3792}{linlist\-\_\-add\-\_\-record} (\hyperlink{mmfor_8h_a6afc6b250952ab4716a5655a6705d2bc}{M\-M\-F\-O\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$mmforhp, void $\ast$userp)
+\item 
+int \hyperlink{linearlist_8c_af77ace444efafa13b909c65f07dec2d5}{linlist\-\_\-delete\-\_\-recordp} (\hyperlink{mmfor_8h_a6afc6b250952ab4716a5655a6705d2bc}{M\-M\-F\-O\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$mmforhp, void $\ast$p)
+\item 
+int \hyperlink{linearlist_8c_acaaa7ac5ec8a066d49f46298f2e33cdf}{linlist\-\_\-delete\-\_\-recordx} (\hyperlink{mmfor_8h_a6afc6b250952ab4716a5655a6705d2bc}{M\-M\-F\-O\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$mmforhp, size\-\_\-t x)
+\item 
+int \hyperlink{linearlist_8c_af0978f841d76714f3bc4b013b2863c17}{linlist\-\_\-list\-\_\-lock} (\hyperlink{mmfor_8h_a6afc6b250952ab4716a5655a6705d2bc}{M\-M\-F\-O\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$mmforhp)
+\item 
+int \hyperlink{linearlist_8c_ab0defc0a598e785eb7dff0d274ac7753}{linlist\-\_\-list\-\_\-unlock} (\hyperlink{mmfor_8h_a6afc6b250952ab4716a5655a6705d2bc}{M\-M\-F\-O\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$mmforhp)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementation of a linear list of memory mapped records. A linear list has a fixed capacity determined at creation time. Active records begin at index 0 and are kept contiguous. Inactive records are maintained at high indices.
+
+See \hyperlink{linearlist_8h}{linearlist.\-h} for some general comments. 
+
+Definition in file \hyperlink{linearlist_8c_source}{linearlist.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{linearlist_8c_a18e774c961ef667f0528e9e288ac3792}{\index{linearlist.\-c@{linearlist.\-c}!linlist\-\_\-add\-\_\-record@{linlist\-\_\-add\-\_\-record}}
+\index{linlist\-\_\-add\-\_\-record@{linlist\-\_\-add\-\_\-record}!linearlist.c@{linearlist.\-c}}
+\subsubsection[{linlist\-\_\-add\-\_\-record}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ linlist\-\_\-add\-\_\-record (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-M\-F\-O\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{mmforhp, }
+\item[{void $\ast$}]{userp}
+\end{DoxyParamCaption}
+)}}\label{linearlist_8c_a18e774c961ef667f0528e9e288ac3792}
+Given data at userp, add a new record to the linear list that contains the user data. userp does N\-O\-T usually point to the memory mapped linear list file region. It is a buffer provided by the calling application and may or may not itself be a memory mapped object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mmforhp} & Pointer to a memory mapped file of records (M\-M\-F\-O\-R) handle \\
+\hline
+{\em userp} & Pointer to data to be added (copied) to the next available linear list record. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the memory mapped record on success, N\-U\-L\-L if the list is full. 
+\end{DoxyReturn}
+
+
+Definition at line 175 of file linearlist.\-c.
+
+\hypertarget{linearlist_8c_a8a9297a91b49c9c4e919094b7d9505a2}{\index{linearlist.\-c@{linearlist.\-c}!linlist\-\_\-capacity@{linlist\-\_\-capacity}}
+\index{linlist\-\_\-capacity@{linlist\-\_\-capacity}!linearlist.c@{linearlist.\-c}}
+\subsubsection[{linlist\-\_\-capacity}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t linlist\-\_\-capacity (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-M\-F\-O\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{mmforhp}
+\end{DoxyParamCaption}
+)}}\label{linearlist_8c_a8a9297a91b49c9c4e919094b7d9505a2}
+Return a count of user records. (Does not count the header record.) This count is the number of records the file can contain, or its capacity. 
+
+Definition at line 137 of file linearlist.\-c.
+
+\hypertarget{linearlist_8c_acc81fef435d8a41434315af1e4d6ea3e}{\index{linearlist.\-c@{linearlist.\-c}!linlist\-\_\-close@{linlist\-\_\-close}}
+\index{linlist\-\_\-close@{linlist\-\_\-close}!linearlist.c@{linearlist.\-c}}
+\subsubsection[{linlist\-\_\-close}]{\setlength{\rightskip}{0pt plus 5cm}int linlist\-\_\-close (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-M\-F\-O\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{mmforhp}
+\end{DoxyParamCaption}
+)}}\label{linearlist_8c_acc81fef435d8a41434315af1e4d6ea3e}
+Close a previously opened liner list. 
+\begin{DoxyParams}{Parameters}
+{\em mmforhp} & Pointer to a memory mapped file of records (M\-M\-F\-O\-R) handle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, non-\/zero on failure 
+\end{DoxyReturn}
+
+
+Definition at line 97 of file linearlist.\-c.
+
+\hypertarget{linearlist_8c_ad4f38665e8a29859803cfcef28cce0c2}{\index{linearlist.\-c@{linearlist.\-c}!linlist\-\_\-create@{linlist\-\_\-create}}
+\index{linlist\-\_\-create@{linlist\-\_\-create}!linearlist.c@{linearlist.\-c}}
+\subsubsection[{linlist\-\_\-create}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-M\-F\-O\-R\-\_\-\-H\-A\-N\-D\-L\-E}$\ast$ linlist\-\_\-create (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filepath, }
+\item[{{\bf M\-M\-A\-\_\-\-A\-C\-C\-E\-S\-S\-\_\-\-M\-O\-D\-E\-S}}]{mode, }
+\item[{{\bf M\-M\-A\-\_\-\-M\-A\-P\-\_\-\-F\-L\-A\-G\-S}}]{flags, }
+\item[{int}]{permissions, }
+\item[{size\-\_\-t}]{rec\-\_\-size, }
+\item[{size\-\_\-t}]{nrecs}
+\end{DoxyParamCaption}
+)}}\label{linearlist_8c_ad4f38665e8a29859803cfcef28cce0c2}
+Create a linear list file. Set up the header record at mmfor record index 0. 
+\begin{DoxyParams}{Parameters}
+{\em filepath} & Path to the memory mapped I/\-O file \\
+\hline
+{\em mode} & see \hyperlink{mmatom_8h}{mmatom.\-h} for a description of M\-M\-A\-\_\-\-A\-C\-C\-E\-S\-S\-\_\-\-M\-O\-D\-E\-S \\
+\hline
+{\em flags} & see \hyperlink{mmatom_8h}{mmatom.\-h} for a description of M\-M\-A\-\_\-\-M\-A\-P\-\_\-\-F\-L\-A\-G\-S \\
+\hline
+{\em permissions} & see man page open(2) \\
+\hline
+{\em rec\-\_\-size} & Size of the records. \\
+\hline
+{\em nrecs} & Record capacity of the linear list. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to a M\-M\-F\-O\-R\-\_\-\-H\-A\-N\-D\-L\-E 
+\end{DoxyReturn}
+
+
+Definition at line 60 of file linearlist.\-c.
+
+\hypertarget{linearlist_8c_af77ace444efafa13b909c65f07dec2d5}{\index{linearlist.\-c@{linearlist.\-c}!linlist\-\_\-delete\-\_\-recordp@{linlist\-\_\-delete\-\_\-recordp}}
+\index{linlist\-\_\-delete\-\_\-recordp@{linlist\-\_\-delete\-\_\-recordp}!linearlist.c@{linearlist.\-c}}
+\subsubsection[{linlist\-\_\-delete\-\_\-recordp}]{\setlength{\rightskip}{0pt plus 5cm}int linlist\-\_\-delete\-\_\-recordp (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-M\-F\-O\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{mmforhp, }
+\item[{void $\ast$}]{p}
+\end{DoxyParamCaption}
+)}}\label{linearlist_8c_af77ace444efafa13b909c65f07dec2d5}
+Delete the record pointed to by p from the linear list file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mmforhp} & Pointer to a memory mapped file of records (M\-M\-F\-O\-R) handle \\
+\hline
+{\em p} & Pointer to the record to delete. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure 
+\end{DoxyReturn}
+
+
+Definition at line 205 of file linearlist.\-c.
+
+\hypertarget{linearlist_8c_acaaa7ac5ec8a066d49f46298f2e33cdf}{\index{linearlist.\-c@{linearlist.\-c}!linlist\-\_\-delete\-\_\-recordx@{linlist\-\_\-delete\-\_\-recordx}}
+\index{linlist\-\_\-delete\-\_\-recordx@{linlist\-\_\-delete\-\_\-recordx}!linearlist.c@{linearlist.\-c}}
+\subsubsection[{linlist\-\_\-delete\-\_\-recordx}]{\setlength{\rightskip}{0pt plus 5cm}int linlist\-\_\-delete\-\_\-recordx (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-M\-F\-O\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{mmforhp, }
+\item[{size\-\_\-t}]{x}
+\end{DoxyParamCaption}
+)}}\label{linearlist_8c_acaaa7ac5ec8a066d49f46298f2e33cdf}
+Delete the record at file index x. 
+\begin{DoxyParams}{Parameters}
+{\em mmforhp} & Pointer to a memory mapped file of records (M\-M\-F\-O\-R) handle \\
+\hline
+{\em x} & Index of the record to delete. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure 
+\end{DoxyReturn}
+
+
+Definition at line 218 of file linearlist.\-c.
+
+\hypertarget{linearlist_8c_aed0a53625539db362dba8acee8663924}{\index{linearlist.\-c@{linearlist.\-c}!linlist\-\_\-length@{linlist\-\_\-length}}
+\index{linlist\-\_\-length@{linlist\-\_\-length}!linearlist.c@{linearlist.\-c}}
+\subsubsection[{linlist\-\_\-length}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t linlist\-\_\-length (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-M\-F\-O\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{mmforhp}
+\end{DoxyParamCaption}
+)}}\label{linearlist_8c_aed0a53625539db362dba8acee8663924}
+This function returns the count of records actually active in the file. The file can accept
+
+linlist\-\_\-capacity(mmforhp) -\/ linlist\-\_\-length(mmforhp)
+
+additional records. Reflects current size of list.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mmforhp} & Pointer to a memory mapped file of records (M\-M\-F\-O\-R) handle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of active records in the linear list file. 
+\end{DoxyReturn}
+
+
+Definition at line 156 of file linearlist.\-c.
+
+\hypertarget{linearlist_8c_af0978f841d76714f3bc4b013b2863c17}{\index{linearlist.\-c@{linearlist.\-c}!linlist\-\_\-list\-\_\-lock@{linlist\-\_\-list\-\_\-lock}}
+\index{linlist\-\_\-list\-\_\-lock@{linlist\-\_\-list\-\_\-lock}!linearlist.c@{linearlist.\-c}}
+\subsubsection[{linlist\-\_\-list\-\_\-lock}]{\setlength{\rightskip}{0pt plus 5cm}int linlist\-\_\-list\-\_\-lock (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-M\-F\-O\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{mmforhp}
+\end{DoxyParamCaption}
+)}}\label{linearlist_8c_af0978f841d76714f3bc4b013b2863c17}
+Lock access to the list.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mmforhp} & Pointer to a memory mapped file of records (M\-M\-F\-O\-R) handle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, non-\/zero on failure 
+\end{DoxyReturn}
+
+
+Definition at line 263 of file linearlist.\-c.
+
+\hypertarget{linearlist_8c_ab0defc0a598e785eb7dff0d274ac7753}{\index{linearlist.\-c@{linearlist.\-c}!linlist\-\_\-list\-\_\-unlock@{linlist\-\_\-list\-\_\-unlock}}
+\index{linlist\-\_\-list\-\_\-unlock@{linlist\-\_\-list\-\_\-unlock}!linearlist.c@{linearlist.\-c}}
+\subsubsection[{linlist\-\_\-list\-\_\-unlock}]{\setlength{\rightskip}{0pt plus 5cm}int linlist\-\_\-list\-\_\-unlock (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-M\-F\-O\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{mmforhp}
+\end{DoxyParamCaption}
+)}}\label{linearlist_8c_ab0defc0a598e785eb7dff0d274ac7753}
+Unlock access to the list. 
+\begin{DoxyParams}{Parameters}
+{\em mmforhp} & Pointer to a memory mapped file of records (M\-M\-F\-O\-R) handle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, non-\/zero on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 276 of file linearlist.\-c.
+
+\hypertarget{linearlist_8c_a831bad4db4bb556355c02e412bf9d693}{\index{linearlist.\-c@{linearlist.\-c}!linlist\-\_\-open@{linlist\-\_\-open}}
+\index{linlist\-\_\-open@{linlist\-\_\-open}!linearlist.c@{linearlist.\-c}}
+\subsubsection[{linlist\-\_\-open}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-M\-F\-O\-R\-\_\-\-H\-A\-N\-D\-L\-E}$\ast$ linlist\-\_\-open (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filepath, }
+\item[{{\bf M\-M\-A\-\_\-\-A\-C\-C\-E\-S\-S\-\_\-\-M\-O\-D\-E\-S}}]{mode, }
+\item[{{\bf M\-M\-A\-\_\-\-M\-A\-P\-\_\-\-F\-L\-A\-G\-S}}]{flags}
+\end{DoxyParamCaption}
+)}}\label{linearlist_8c_a831bad4db4bb556355c02e412bf9d693}
+Open a previously created linear list file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filepath} & Path to the memory mapped I/\-O file \\
+\hline
+{\em mode} & see \hyperlink{mmatom_8h}{mmatom.\-h} for a description of M\-M\-A\-\_\-\-A\-C\-C\-E\-S\-S\-\_\-\-M\-O\-D\-E\-S \\
+\hline
+{\em flags} & see \hyperlink{mmatom_8h}{mmatom.\-h} for a description of M\-M\-A\-\_\-\-M\-A\-P\-\_\-\-F\-L\-A\-G\-S \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mmforhp Pointer to a memory mapped file of records (M\-M\-F\-O\-R) handle 
+\end{DoxyReturn}
+
+
+Definition at line 88 of file linearlist.\-c.
+
+\hypertarget{linearlist_8c_a40e1c4b6c1c86c2fd5465ee81f6f7193}{\index{linearlist.\-c@{linearlist.\-c}!linlist\-\_\-p2x@{linlist\-\_\-p2x}}
+\index{linlist\-\_\-p2x@{linlist\-\_\-p2x}!linearlist.c@{linearlist.\-c}}
+\subsubsection[{linlist\-\_\-p2x}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t linlist\-\_\-p2x (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-M\-F\-O\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{mmforhp, }
+\item[{void $\ast$}]{p}
+\end{DoxyParamCaption}
+)}}\label{linearlist_8c_a40e1c4b6c1c86c2fd5465ee81f6f7193}
+Translate an address to a memory mapped file record to a zero based record index. 
+\begin{DoxyParams}{Parameters}
+{\em mmforhp} & Pointer to a memory mapped file of records (M\-M\-F\-O\-R) handle \\
+\hline
+{\em p} & Pointer to translate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of memory mapped record. 
+\end{DoxyReturn}
+
+
+Definition at line 123 of file linearlist.\-c.
+
+\hypertarget{linearlist_8c_aba2d17532a33de844c51d5314c8909c5}{\index{linearlist.\-c@{linearlist.\-c}!linlist\-\_\-x2p@{linlist\-\_\-x2p}}
+\index{linlist\-\_\-x2p@{linlist\-\_\-x2p}!linearlist.c@{linearlist.\-c}}
+\subsubsection[{linlist\-\_\-x2p}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ linlist\-\_\-x2p (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-M\-F\-O\-R\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{mmforhp, }
+\item[{size\-\_\-t}]{x}
+\end{DoxyParamCaption}
+)}}\label{linearlist_8c_aba2d17532a33de844c51d5314c8909c5}
+Translate a zero based user record index to a pointer into the memory mapped file region. 
+\begin{DoxyParams}{Parameters}
+{\em mmforhp} & Pointer to a memory mapped file of records (M\-M\-F\-O\-R) handle \\
+\hline
+{\em x} & Index to translate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to memory mapped record. 
+\end{DoxyReturn}
+
+
+Definition at line 108 of file linearlist.\-c.
+

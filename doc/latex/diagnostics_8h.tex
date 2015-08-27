@@ -1,0 +1,252 @@
+\hypertarget{diagnostics_8h}{\section{ulppk/diagnostics.h File Reference}
+\label{diagnostics_8h}\index{ulppk/diagnostics.\-h@{ulppk/diagnostics.\-h}}
+}
+
+
+Utilities for handling diagnostic error output.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdarg.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{diagnostics_8h_afd59dfdb38e7de09dc95e1b4e6c3aefc}{U\-L\-P\-P\-K\-\_\-\-D\-E\-B\-U\-G\-\_\-\-F\-L\-A\-G}~0
+\item 
+\#define \hyperlink{diagnostics_8h_a27f860237208f6498d71d9af5ae5bf5a}{E\-R\-R\-\_\-\-M\-S\-G}(buffer,...)~\hyperlink{diagnostics_8h_a05611ae6dcdc1c6ade9c973b648e73e8}{err\-\_\-msg}(buffer, \-\_\-\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N\-\_\-\-\_\-,\-\_\-\-\_\-\-F\-I\-L\-E\-\_\-\-\_\-, \-\_\-\-\_\-\-L\-I\-N\-E\-\_\-\-\_\-,  \-\_\-\-\_\-\-V\-A\-\_\-\-A\-R\-G\-S\-\_\-\-\_\-)
+\item 
+\#define \hyperlink{diagnostics_8h_a54960f9982448c334f22c4baab73dcbf}{C\-R\-A\-S\-H}(msg)~\hyperlink{diagnostics_8h_af2ace46aa510654d322db0974186cb1a}{crash}(\-\_\-\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N\-\_\-\-\_\-, \-\_\-\-\_\-\-F\-I\-L\-E\-\_\-\-\_\-, \-\_\-\-\_\-\-L\-I\-N\-E\-\_\-\-\_\-, msg);
+\item 
+\#define \hyperlink{diagnostics_8h_a66a04dc045cf395161e4ef8d9e2a02f8}{A\-P\-P\-\_\-\-E\-R\-R}(f,...)~\hyperlink{diagnostics_8h_a235767ea56d89957d51d5d2eb0201f62}{app\-\_\-error}(f, \-\_\-\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N\-\_\-\-\_\-,\-\_\-\-\_\-\-F\-I\-L\-E\-\_\-\-\_\-, \-\_\-\-\_\-\-L\-I\-N\-E\-\_\-\-\_\-, \-\_\-\-\_\-\-V\-A\-\_\-\-A\-R\-G\-S\-\_\-\-\_\-)
+\item 
+\#define \hyperlink{diagnostics_8h_a175ab623900262364c013aeb7d8f6de9}{D\-B\-G\-\_\-\-T\-R\-A\-C\-E}(f,...)~\hyperlink{diagnostics_8h_aa2a7f8ba578a3cb05093f20883e2f123}{dbg\-\_\-trace}(f, \hyperlink{diagnostics_8h_afd59dfdb38e7de09dc95e1b4e6c3aefc}{U\-L\-P\-P\-K\-\_\-\-D\-E\-B\-U\-G\-\_\-\-F\-L\-A\-G},  \-\_\-\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N\-\_\-\-\_\-,\-\_\-\-\_\-\-F\-I\-L\-E\-\_\-\-\_\-, \-\_\-\-\_\-\-L\-I\-N\-E\-\_\-\-\_\-, \-\_\-\-\_\-\-V\-A\-\_\-\-A\-R\-G\-S\-\_\-\-\_\-)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{diagnostics_8h_a05611ae6dcdc1c6ade9c973b648e73e8}{err\-\_\-msg} (char $\ast$buffp, const char $\ast$func, const char $\ast$file, int line, const char $\ast$fmtp,...)
+\item 
+void \hyperlink{diagnostics_8h_af2ace46aa510654d322db0974186cb1a}{crash} (const char $\ast$func, const char $\ast$file, int line, const char $\ast$msg)
+\item 
+void \hyperlink{diagnostics_8h_a235767ea56d89957d51d5d2eb0201f62}{app\-\_\-error} (F\-I\-L\-E $\ast$f, const char $\ast$func, const char $\ast$file, int line, const char $\ast$fmtp,...)
+\item 
+void \hyperlink{diagnostics_8h_aa2a7f8ba578a3cb05093f20883e2f123}{dbg\-\_\-trace} (F\-I\-L\-E $\ast$f, int debug\-\_\-flag, const char $\ast$func, const char $\ast$file, int line, const char $\ast$fmtp,...)
+\item 
+char $\ast$ \hyperlink{diagnostics_8h_a44c5456e4b1ffd3627ef2292c7e7de9f}{verr\-\_\-msg} (char $\ast$buffp, const char $\ast$label, const char $\ast$func, const char $\ast$file, int line, const char $\ast$fmtp, va\-\_\-list ap)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Utilities for handling diagnostic error output. To enable debug trace output, compile with -\/\-D\-U\-L\-P\-P\-K\-\_\-\-D\-E\-B\-U\-G. 
+
+Definition in file \hyperlink{diagnostics_8h_source}{diagnostics.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{diagnostics_8h_a66a04dc045cf395161e4ef8d9e2a02f8}{\index{diagnostics.\-h@{diagnostics.\-h}!A\-P\-P\-\_\-\-E\-R\-R@{A\-P\-P\-\_\-\-E\-R\-R}}
+\index{A\-P\-P\-\_\-\-E\-R\-R@{A\-P\-P\-\_\-\-E\-R\-R}!diagnostics.h@{diagnostics.\-h}}
+\subsubsection[{A\-P\-P\-\_\-\-E\-R\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-P\-P\-\_\-\-E\-R\-R(
+\begin{DoxyParamCaption}
+\item[{}]{f, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)~{\bf app\-\_\-error}(f, \-\_\-\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N\-\_\-\-\_\-,\-\_\-\-\_\-\-F\-I\-L\-E\-\_\-\-\_\-, \-\_\-\-\_\-\-L\-I\-N\-E\-\_\-\-\_\-, \-\_\-\-\_\-\-V\-A\-\_\-\-A\-R\-G\-S\-\_\-\-\_\-)}}\label{diagnostics_8h_a66a04dc045cf395161e4ef8d9e2a02f8}
+
+
+Definition at line 52 of file diagnostics.\-h.
+
+\hypertarget{diagnostics_8h_a54960f9982448c334f22c4baab73dcbf}{\index{diagnostics.\-h@{diagnostics.\-h}!C\-R\-A\-S\-H@{C\-R\-A\-S\-H}}
+\index{C\-R\-A\-S\-H@{C\-R\-A\-S\-H}!diagnostics.h@{diagnostics.\-h}}
+\subsubsection[{C\-R\-A\-S\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-R\-A\-S\-H(
+\begin{DoxyParamCaption}
+\item[{}]{msg}
+\end{DoxyParamCaption}
+)~{\bf crash}(\-\_\-\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N\-\_\-\-\_\-, \-\_\-\-\_\-\-F\-I\-L\-E\-\_\-\-\_\-, \-\_\-\-\_\-\-L\-I\-N\-E\-\_\-\-\_\-, msg);}}\label{diagnostics_8h_a54960f9982448c334f22c4baab73dcbf}
+
+
+Definition at line 51 of file diagnostics.\-h.
+
+\hypertarget{diagnostics_8h_a175ab623900262364c013aeb7d8f6de9}{\index{diagnostics.\-h@{diagnostics.\-h}!D\-B\-G\-\_\-\-T\-R\-A\-C\-E@{D\-B\-G\-\_\-\-T\-R\-A\-C\-E}}
+\index{D\-B\-G\-\_\-\-T\-R\-A\-C\-E@{D\-B\-G\-\_\-\-T\-R\-A\-C\-E}!diagnostics.h@{diagnostics.\-h}}
+\subsubsection[{D\-B\-G\-\_\-\-T\-R\-A\-C\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-B\-G\-\_\-\-T\-R\-A\-C\-E(
+\begin{DoxyParamCaption}
+\item[{}]{f, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)~{\bf dbg\-\_\-trace}(f, {\bf U\-L\-P\-P\-K\-\_\-\-D\-E\-B\-U\-G\-\_\-\-F\-L\-A\-G},  \-\_\-\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N\-\_\-\-\_\-,\-\_\-\-\_\-\-F\-I\-L\-E\-\_\-\-\_\-, \-\_\-\-\_\-\-L\-I\-N\-E\-\_\-\-\_\-, \-\_\-\-\_\-\-V\-A\-\_\-\-A\-R\-G\-S\-\_\-\-\_\-)}}\label{diagnostics_8h_a175ab623900262364c013aeb7d8f6de9}
+
+
+Definition at line 53 of file diagnostics.\-h.
+
+\hypertarget{diagnostics_8h_a27f860237208f6498d71d9af5ae5bf5a}{\index{diagnostics.\-h@{diagnostics.\-h}!E\-R\-R\-\_\-\-M\-S\-G@{E\-R\-R\-\_\-\-M\-S\-G}}
+\index{E\-R\-R\-\_\-\-M\-S\-G@{E\-R\-R\-\_\-\-M\-S\-G}!diagnostics.h@{diagnostics.\-h}}
+\subsubsection[{E\-R\-R\-\_\-\-M\-S\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-R\-R\-\_\-\-M\-S\-G(
+\begin{DoxyParamCaption}
+\item[{}]{buffer, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)~{\bf err\-\_\-msg}(buffer, \-\_\-\-\_\-\-F\-U\-N\-C\-T\-I\-O\-N\-\_\-\-\_\-,\-\_\-\-\_\-\-F\-I\-L\-E\-\_\-\-\_\-, \-\_\-\-\_\-\-L\-I\-N\-E\-\_\-\-\_\-,  \-\_\-\-\_\-\-V\-A\-\_\-\-A\-R\-G\-S\-\_\-\-\_\-)}}\label{diagnostics_8h_a27f860237208f6498d71d9af5ae5bf5a}
+
+
+Definition at line 50 of file diagnostics.\-h.
+
+\hypertarget{diagnostics_8h_afd59dfdb38e7de09dc95e1b4e6c3aefc}{\index{diagnostics.\-h@{diagnostics.\-h}!U\-L\-P\-P\-K\-\_\-\-D\-E\-B\-U\-G\-\_\-\-F\-L\-A\-G@{U\-L\-P\-P\-K\-\_\-\-D\-E\-B\-U\-G\-\_\-\-F\-L\-A\-G}}
+\index{U\-L\-P\-P\-K\-\_\-\-D\-E\-B\-U\-G\-\_\-\-F\-L\-A\-G@{U\-L\-P\-P\-K\-\_\-\-D\-E\-B\-U\-G\-\_\-\-F\-L\-A\-G}!diagnostics.h@{diagnostics.\-h}}
+\subsubsection[{U\-L\-P\-P\-K\-\_\-\-D\-E\-B\-U\-G\-\_\-\-F\-L\-A\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-L\-P\-P\-K\-\_\-\-D\-E\-B\-U\-G\-\_\-\-F\-L\-A\-G~0}}\label{diagnostics_8h_afd59dfdb38e7de09dc95e1b4e6c3aefc}
+
+
+Definition at line 47 of file diagnostics.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{diagnostics_8h_a235767ea56d89957d51d5d2eb0201f62}{\index{diagnostics.\-h@{diagnostics.\-h}!app\-\_\-error@{app\-\_\-error}}
+\index{app\-\_\-error@{app\-\_\-error}!diagnostics.h@{diagnostics.\-h}}
+\subsubsection[{app\-\_\-error}]{\setlength{\rightskip}{0pt plus 5cm}void app\-\_\-error (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{f, }
+\item[{const char $\ast$}]{func, }
+\item[{const char $\ast$}]{file, }
+\item[{int}]{line, }
+\item[{const char $\ast$}]{fmtp, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}}\label{diagnostics_8h_a235767ea56d89957d51d5d2eb0201f62}
+Format an error message, writes to a file and terminates the application. Accepts a variable number of arguments. Normally called using the A\-P\-P\-\_\-\-E\-R\-R macro in \hyperlink{diagnostics_8h}{diagnostics.\-h}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & The file stream (F\-I\-L\-E$\ast$) to which the message is written. \\
+\hline
+{\em func} & Name of function in which this function was called. \\
+\hline
+{\em file} & Source file in which function is defined \\
+\hline
+{\em line} & Line at which verr\-\_\-msg was invoked. \\
+\hline
+{\em fmtp} & A format string \\
+\hline
+{\em ...} & variable number of arguments follows. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 132 of file diagnostics.\-c.
+
+\hypertarget{diagnostics_8h_af2ace46aa510654d322db0974186cb1a}{\index{diagnostics.\-h@{diagnostics.\-h}!crash@{crash}}
+\index{crash@{crash}!diagnostics.h@{diagnostics.\-h}}
+\subsubsection[{crash}]{\setlength{\rightskip}{0pt plus 5cm}void crash (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{func, }
+\item[{const char $\ast$}]{file, }
+\item[{int}]{line, }
+\item[{const char $\ast$}]{msg}
+\end{DoxyParamCaption}
+)}}\label{diagnostics_8h_af2ace46aa510654d322db0974186cb1a}
+\hypertarget{diagnostics_8h_aa2a7f8ba578a3cb05093f20883e2f123}{\index{diagnostics.\-h@{diagnostics.\-h}!dbg\-\_\-trace@{dbg\-\_\-trace}}
+\index{dbg\-\_\-trace@{dbg\-\_\-trace}!diagnostics.h@{diagnostics.\-h}}
+\subsubsection[{dbg\-\_\-trace}]{\setlength{\rightskip}{0pt plus 5cm}void dbg\-\_\-trace (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{f, }
+\item[{int}]{debug\-\_\-flag, }
+\item[{const char $\ast$}]{func, }
+\item[{const char $\ast$}]{file, }
+\item[{int}]{line, }
+\item[{const char $\ast$}]{fmtp, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}}\label{diagnostics_8h_aa2a7f8ba578a3cb05093f20883e2f123}
+Format an error message. Accepts a variable number of arguments. Used to produce debug trace output. Normally called using the D\-B\-G\-\_\-\-T\-R\-A\-C\-E macro in \hyperlink{diagnostics_8h}{diagnostics.\-h}
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & The file stream (F\-I\-L\-E$\ast$) to which the message is written. \\
+\hline
+{\em debug\-\_\-flag} & If false, then debug output is suppressed. \\
+\hline
+{\em func} & Name of function in which this function was called. \\
+\hline
+{\em file} & Source file in which function is defined \\
+\hline
+{\em line} & Line at which verr\-\_\-msg was invoked. \\
+\hline
+{\em fmtp} & A format string \\
+\hline
+{\em ...} & variable number of arguments follows. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 161 of file diagnostics.\-c.
+
+\hypertarget{diagnostics_8h_a05611ae6dcdc1c6ade9c973b648e73e8}{\index{diagnostics.\-h@{diagnostics.\-h}!err\-\_\-msg@{err\-\_\-msg}}
+\index{err\-\_\-msg@{err\-\_\-msg}!diagnostics.h@{diagnostics.\-h}}
+\subsubsection[{err\-\_\-msg}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ err\-\_\-msg (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buffp, }
+\item[{const char $\ast$}]{func, }
+\item[{const char $\ast$}]{file, }
+\item[{int}]{line, }
+\item[{const char $\ast$}]{fmtp, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}}\label{diagnostics_8h_a05611ae6dcdc1c6ade9c973b648e73e8}
+Format an error message. Accepts a variable number of arguments.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffp} & buffp is a buffer of sufficient size provided by the caller, and which will receive the formatted error message. \\
+\hline
+{\em func} & Name of function in which this function was called. \\
+\hline
+{\em file} & Source file in which function is defined \\
+\hline
+{\em line} & Line at which verr\-\_\-msg was invoked. \\
+\hline
+{\em fmtp} & A format string \\
+\hline
+{\em ...} & variable number of arguments follows. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 96 of file diagnostics.\-c.
+
+\hypertarget{diagnostics_8h_a44c5456e4b1ffd3627ef2292c7e7de9f}{\index{diagnostics.\-h@{diagnostics.\-h}!verr\-\_\-msg@{verr\-\_\-msg}}
+\index{verr\-\_\-msg@{verr\-\_\-msg}!diagnostics.h@{diagnostics.\-h}}
+\subsubsection[{verr\-\_\-msg}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ verr\-\_\-msg (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buffp, }
+\item[{const char $\ast$}]{label, }
+\item[{const char $\ast$}]{func, }
+\item[{const char $\ast$}]{file, }
+\item[{int}]{line, }
+\item[{const char $\ast$}]{fmtp, }
+\item[{va\-\_\-list}]{ap}
+\end{DoxyParamCaption}
+)}}\label{diagnostics_8h_a44c5456e4b1ffd3627ef2292c7e7de9f}
+Format an error message. Similar to err\-\_\-msg but provides handling for errno and errno's related error message string.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffp} & Pointer to buffer to receive text. If buffp is N\-U\-L\-L, then memory is allocated by the function. This memory M\-U\-S\-T be released by calling free. Otherwise, buffp is a buffer of sufficient size provided by the caller, and which will receive the formatted error message. \\
+\hline
+{\em label} & Label shows up first in the error text \\
+\hline
+{\em func} & Name of function in which this function was called. \\
+\hline
+{\em file} & Source file in which function is defined \\
+\hline
+{\em line} & Line at which verr\-\_\-msg was invoked. \\
+\hline
+{\em fmtp} & A format string \\
+\hline
+{\em ap} & Variable length argument list. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 61 of file diagnostics.\-c.
+

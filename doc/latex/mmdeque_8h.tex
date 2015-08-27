@@ -1,0 +1,447 @@
+\hypertarget{mmdeque_8h}{\section{ulppk/mmdeque.h File Reference}
+\label{mmdeque_8h}\index{ulppk/mmdeque.\-h@{ulppk/mmdeque.\-h}}
+}
+
+
+A generalized memory mapped double ended queue. The queue is implemented on top of a memory map atom ... typically a memory mapped file.  
+
+
+{\ttfamily \#include $<$mmapfile.\-h$>$}\\*
+{\ttfamily \#include $<$dqacc.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{mmdeque_8h_adb1a468eecf0be8d3b053abe1ca27105}{M\-A\-X\-\_\-\-D\-E\-Q\-U\-E\-\_\-\-N\-A\-M\-E\-\_\-\-L\-E\-N}~32
+\item 
+\#define \hyperlink{mmdeque_8h_ac9a78a4f9d3c8d8a08bb6c3d91a22441}{M\-M\-D\-Q\-\_\-\-D\-I\-R\-\_\-\-P\-A\-T\-H}~\char`\"{}M\-M\-D\-Q\-\_\-\-D\-I\-R\-\_\-\-P\-A\-T\-H\char`\"{}
+\item 
+\#define \hyperlink{mmdeque_8h_a92d62ab75b3196a39231138cf583b7c1}{D\-E\-F\-A\-U\-L\-T\-\_\-\-M\-M\-D\-Q\-\_\-\-D\-I\-R\-\_\-\-P\-A\-T\-H}~\char`\"{}/var/ulppk/data/deques\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_m_m_a___h_a_n_d_l_e}{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$ \hyperlink{mmdeque_8h_abde0537dc16a1b42ff7b7aed358ece93}{mmdq\-\_\-create} (const char $\ast$dequename, ushort item\-\_\-size, ushort nitems)
+\begin{DoxyCompactList}\small\item\em Create a memory mapped deque. \end{DoxyCompactList}\item 
+\hyperlink{struct_m_m_a___h_a_n_d_l_e}{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$ \hyperlink{mmdeque_8h_ab010770a02052ced4f5a5a5fd9b59df1}{mmdq\-\_\-open} (const char $\ast$dequename)
+\begin{DoxyCompactList}\small\item\em Open access to a previously created memory mapped deque. \end{DoxyCompactList}\item 
+int \hyperlink{mmdeque_8h_ae42f34a7b30deea2b7e388dc2e44af58}{mmdq\-\_\-close} (\hyperlink{struct_m_m_a___h_a_n_d_l_e}{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$mmdqhp)
+\item 
+int \hyperlink{mmdeque_8h_ad5e7c0a9c4cc1522988b3c4624af9a51}{mmdq\-\_\-isempty} (\hyperlink{struct_m_m_a___h_a_n_d_l_e}{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$mmdqhp)
+\begin{DoxyCompactList}\small\item\em Check to see if the memory mapped deque is empty. \end{DoxyCompactList}\item 
+int \hyperlink{mmdeque_8h_ac3adb144c6f1704769bf909ac1d9c8ae}{mmdq\-\_\-atd} (\hyperlink{struct_m_m_a___h_a_n_d_l_e}{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$mmdqhp, void $\ast$itemp)
+\begin{DoxyCompactList}\small\item\em Add item to top of memory mapped deque. \end{DoxyCompactList}\item 
+int \hyperlink{mmdeque_8h_ad0a11f3fd61462a08bfe79c9063d2a4d}{mmdq\-\_\-abd} (\hyperlink{struct_m_m_a___h_a_n_d_l_e}{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$mmdqhp, void $\ast$itemp)
+\begin{DoxyCompactList}\small\item\em Add item to bottom of memory mapped deque. \end{DoxyCompactList}\item 
+int \hyperlink{mmdeque_8h_a299b5ed5903765931cd4a2f7caf6b60e}{mmdq\-\_\-rtd} (\hyperlink{struct_m_m_a___h_a_n_d_l_e}{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$mmdqhp, void $\ast$itemp)
+\begin{DoxyCompactList}\small\item\em Remove item from top of memory mapped deque. \end{DoxyCompactList}\item 
+int \hyperlink{mmdeque_8h_a9c665c407cee35b974a66244a0c9e4f2}{mmdq\-\_\-rbd} (\hyperlink{struct_m_m_a___h_a_n_d_l_e}{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$mmdqhp, void $\ast$itemp)
+\begin{DoxyCompactList}\small\item\em Remove item from bottom of memory mapped deque. \end{DoxyCompactList}\item 
+int \hyperlink{mmdeque_8h_a6843066bd1d746d56aa21bc947b58d49}{mmdq\-\_\-reset} (\hyperlink{struct_m_m_a___h_a_n_d_l_e}{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$mmdqhp)
+\begin{DoxyCompactList}\small\item\em Reset a memory mapped deque to the empty state. \end{DoxyCompactList}\item 
+\hyperlink{dqacc_8h_a5d52bf5dc6d09851d56540d91612f129}{D\-Q\-S\-T\-A\-T\-S} $\ast$ \hyperlink{mmdeque_8h_a5c15c9bdc56c63505d739473384e80d3}{mmdq\-\_\-stats} (\hyperlink{struct_m_m_a___h_a_n_d_l_e}{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$mmdqhp, \hyperlink{dqacc_8h_a5d52bf5dc6d09851d56540d91612f129}{D\-Q\-S\-T\-A\-T\-S} $\ast$dq\-\_\-statsp)
+\item 
+char $\ast$ \hyperlink{mmdeque_8h_a01e689dc4b0ba94de85027eec66dedba}{mmdq\-\_\-dequedir} ()
+\begin{DoxyCompactList}\small\item\em Return the path to the memory mapped deque directory. The deque directory is where an application or system of applications maintains its memory mapped deque files. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{mmdeque_8h_ac55d3b89625b24ef8855911b53355273}{mmdq\-\_\-dequepath} (char $\ast$pathbuff, const char $\ast$dequename)
+\begin{DoxyCompactList}\small\item\em Given a deque name, return the full path to the deque file. If pathbuff is N\-U\-L\-L, then the string returned is allocated from the heap and must be released by calling free. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{mmdeque_8h_a578df187eb00b10387012a1bff21c2d5}{mmdq\-\_\-dequepath\-\_\-from\-\_\-handle} (\hyperlink{struct_m_m_a___h_a_n_d_l_e}{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$mmdqhp)
+\begin{DoxyCompactList}\small\item\em Given a memory mapped deque handle, retrieve the full path to the deque file. A wrapper for mma\-\_\-get\-\_\-disk\-\_\-file\-\_\-path. \end{DoxyCompactList}\item 
+int \hyperlink{mmdeque_8h_a5ac697737cdfbb7127a26b922e7726a9}{mmdq\-\_\-write\-\_\-packet} (\hyperlink{struct_m_m_a___h_a_n_d_l_e}{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$mmdqhp, void $\ast$packetp, size\-\_\-t packet\-\_\-len)
+\begin{DoxyCompactList}\small\item\em Write a packet of data to a memory mapped deque. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{mmdeque_8h_aa1f64d042a30cd511b42d34d07840e91}{mmdq\-\_\-read\-\_\-packet} (\hyperlink{struct_m_m_a___h_a_n_d_l_e}{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$mmdqhp, size\-\_\-t $\ast$packet\-\_\-lenp)
+\begin{DoxyCompactList}\small\item\em Read a packet of data from memory mapped deque. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A generalized memory mapped double ended queue. The queue is implemented on top of a memory map atom ... typically a memory mapped file. The package reads the environment variable M\-M\-D\-Q\-\_\-\-D\-I\-R\-\_\-\-P\-A\-T\-H. This should be the directory that will contain the deque files. If you are using \hyperlink{sysconfig_8c}{sysconfig.\-c} and ini file support (\hyperlink{ifile_8c}{ifile.\-c}) then this environment variable can be overridden by inifile settings. 
+
+Definition in file \hyperlink{mmdeque_8h_source}{mmdeque.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{mmdeque_8h_a92d62ab75b3196a39231138cf583b7c1}{\index{mmdeque.\-h@{mmdeque.\-h}!D\-E\-F\-A\-U\-L\-T\-\_\-\-M\-M\-D\-Q\-\_\-\-D\-I\-R\-\_\-\-P\-A\-T\-H@{D\-E\-F\-A\-U\-L\-T\-\_\-\-M\-M\-D\-Q\-\_\-\-D\-I\-R\-\_\-\-P\-A\-T\-H}}
+\index{D\-E\-F\-A\-U\-L\-T\-\_\-\-M\-M\-D\-Q\-\_\-\-D\-I\-R\-\_\-\-P\-A\-T\-H@{D\-E\-F\-A\-U\-L\-T\-\_\-\-M\-M\-D\-Q\-\_\-\-D\-I\-R\-\_\-\-P\-A\-T\-H}!mmdeque.h@{mmdeque.\-h}}
+\subsubsection[{D\-E\-F\-A\-U\-L\-T\-\_\-\-M\-M\-D\-Q\-\_\-\-D\-I\-R\-\_\-\-P\-A\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-F\-A\-U\-L\-T\-\_\-\-M\-M\-D\-Q\-\_\-\-D\-I\-R\-\_\-\-P\-A\-T\-H~\char`\"{}/var/ulppk/data/deques\char`\"{}}}\label{mmdeque_8h_a92d62ab75b3196a39231138cf583b7c1}
+
+
+Definition at line 48 of file mmdeque.\-h.
+
+\hypertarget{mmdeque_8h_adb1a468eecf0be8d3b053abe1ca27105}{\index{mmdeque.\-h@{mmdeque.\-h}!M\-A\-X\-\_\-\-D\-E\-Q\-U\-E\-\_\-\-N\-A\-M\-E\-\_\-\-L\-E\-N@{M\-A\-X\-\_\-\-D\-E\-Q\-U\-E\-\_\-\-N\-A\-M\-E\-\_\-\-L\-E\-N}}
+\index{M\-A\-X\-\_\-\-D\-E\-Q\-U\-E\-\_\-\-N\-A\-M\-E\-\_\-\-L\-E\-N@{M\-A\-X\-\_\-\-D\-E\-Q\-U\-E\-\_\-\-N\-A\-M\-E\-\_\-\-L\-E\-N}!mmdeque.h@{mmdeque.\-h}}
+\subsubsection[{M\-A\-X\-\_\-\-D\-E\-Q\-U\-E\-\_\-\-N\-A\-M\-E\-\_\-\-L\-E\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-D\-E\-Q\-U\-E\-\_\-\-N\-A\-M\-E\-\_\-\-L\-E\-N~32}}\label{mmdeque_8h_adb1a468eecf0be8d3b053abe1ca27105}
+
+
+Definition at line 46 of file mmdeque.\-h.
+
+\hypertarget{mmdeque_8h_ac9a78a4f9d3c8d8a08bb6c3d91a22441}{\index{mmdeque.\-h@{mmdeque.\-h}!M\-M\-D\-Q\-\_\-\-D\-I\-R\-\_\-\-P\-A\-T\-H@{M\-M\-D\-Q\-\_\-\-D\-I\-R\-\_\-\-P\-A\-T\-H}}
+\index{M\-M\-D\-Q\-\_\-\-D\-I\-R\-\_\-\-P\-A\-T\-H@{M\-M\-D\-Q\-\_\-\-D\-I\-R\-\_\-\-P\-A\-T\-H}!mmdeque.h@{mmdeque.\-h}}
+\subsubsection[{M\-M\-D\-Q\-\_\-\-D\-I\-R\-\_\-\-P\-A\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-M\-D\-Q\-\_\-\-D\-I\-R\-\_\-\-P\-A\-T\-H~\char`\"{}M\-M\-D\-Q\-\_\-\-D\-I\-R\-\_\-\-P\-A\-T\-H\char`\"{}}}\label{mmdeque_8h_ac9a78a4f9d3c8d8a08bb6c3d91a22441}
+
+
+Definition at line 47 of file mmdeque.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{mmdeque_8h_ad0a11f3fd61462a08bfe79c9063d2a4d}{\index{mmdeque.\-h@{mmdeque.\-h}!mmdq\-\_\-abd@{mmdq\-\_\-abd}}
+\index{mmdq\-\_\-abd@{mmdq\-\_\-abd}!mmdeque.h@{mmdeque.\-h}}
+\subsubsection[{mmdq\-\_\-abd}]{\setlength{\rightskip}{0pt plus 5cm}int mmdq\-\_\-abd (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{mmdqhp, }
+\item[{void $\ast$}]{itemp}
+\end{DoxyParamCaption}
+)}}\label{mmdeque_8h_ad0a11f3fd61462a08bfe79c9063d2a4d}
+
+
+Add item to bottom of memory mapped deque. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mmdqhp} & Pointer to \hyperlink{struct_m_m_a___h_a_n_d_l_e}{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} structure representing the memory mapped deque. \\
+\hline
+{\em itemp} & Pointer to the item to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success. 
+\end{DoxyReturn}
+
+
+Definition at line 265 of file mmdeque.\-c.
+
+\hypertarget{mmdeque_8h_ac3adb144c6f1704769bf909ac1d9c8ae}{\index{mmdeque.\-h@{mmdeque.\-h}!mmdq\-\_\-atd@{mmdq\-\_\-atd}}
+\index{mmdq\-\_\-atd@{mmdq\-\_\-atd}!mmdeque.h@{mmdeque.\-h}}
+\subsubsection[{mmdq\-\_\-atd}]{\setlength{\rightskip}{0pt plus 5cm}int mmdq\-\_\-atd (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{mmdqhp, }
+\item[{void $\ast$}]{itemp}
+\end{DoxyParamCaption}
+)}}\label{mmdeque_8h_ac3adb144c6f1704769bf909ac1d9c8ae}
+
+
+Add item to top of memory mapped deque. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mmdqhp} & Pointer to \hyperlink{struct_m_m_a___h_a_n_d_l_e}{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} structure representing the memory mapped deque. \\
+\hline
+{\em itemp} & Pointer to the item to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success. 
+\end{DoxyReturn}
+
+
+Definition at line 245 of file mmdeque.\-c.
+
+\hypertarget{mmdeque_8h_ae42f34a7b30deea2b7e388dc2e44af58}{\index{mmdeque.\-h@{mmdeque.\-h}!mmdq\-\_\-close@{mmdq\-\_\-close}}
+\index{mmdq\-\_\-close@{mmdq\-\_\-close}!mmdeque.h@{mmdeque.\-h}}
+\subsubsection[{mmdq\-\_\-close}]{\setlength{\rightskip}{0pt plus 5cm}int mmdq\-\_\-close (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{mmdqhp}
+\end{DoxyParamCaption}
+)}}\label{mmdeque_8h_ae42f34a7b30deea2b7e388dc2e44af58}
+
+
+Definition at line 214 of file mmdeque.\-c.
+
+\hypertarget{mmdeque_8h_abde0537dc16a1b42ff7b7aed358ece93}{\index{mmdeque.\-h@{mmdeque.\-h}!mmdq\-\_\-create@{mmdq\-\_\-create}}
+\index{mmdq\-\_\-create@{mmdq\-\_\-create}!mmdeque.h@{mmdeque.\-h}}
+\subsubsection[{mmdq\-\_\-create}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E}$\ast$ mmdq\-\_\-create (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{dequename, }
+\item[{ushort}]{item\-\_\-size, }
+\item[{ushort}]{nitems}
+\end{DoxyParamCaption}
+)}}\label{mmdeque_8h_abde0537dc16a1b42ff7b7aed358ece93}
+
+
+Create a memory mapped deque. 
+
+Creates a memory mapped file and sets up a deque header in the memory mapped region. Initializes the deque header so that the deque buffer points into the memory mapped region. 
+\begin{DoxyParams}{Parameters}
+{\em dequename} & Name of the deque \\
+\hline
+{\em item\-\_\-size} & Size of the items to be pushed onto the deque in bytes. \\
+\hline
+{\em nitems} & Max number of items the deque is to store (deque slots). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to \hyperlink{struct_m_m_a___h_a_n_d_l_e}{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} structure representing the memory mapped deque. 
+\end{DoxyReturn}
+
+
+Definition at line 157 of file mmdeque.\-c.
+
+\hypertarget{mmdeque_8h_a01e689dc4b0ba94de85027eec66dedba}{\index{mmdeque.\-h@{mmdeque.\-h}!mmdq\-\_\-dequedir@{mmdq\-\_\-dequedir}}
+\index{mmdq\-\_\-dequedir@{mmdq\-\_\-dequedir}!mmdeque.h@{mmdeque.\-h}}
+\subsubsection[{mmdq\-\_\-dequedir}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ mmdq\-\_\-dequedir (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{mmdeque_8h_a01e689dc4b0ba94de85027eec66dedba}
+
+
+Return the path to the memory mapped deque directory. The deque directory is where an application or system of applications maintains its memory mapped deque files. 
+
+\begin{DoxyReturn}{Returns}
+full path to memory mapped deque directory. 
+\end{DoxyReturn}
+
+
+Definition at line 100 of file mmdeque.\-c.
+
+\hypertarget{mmdeque_8h_ac55d3b89625b24ef8855911b53355273}{\index{mmdeque.\-h@{mmdeque.\-h}!mmdq\-\_\-dequepath@{mmdq\-\_\-dequepath}}
+\index{mmdq\-\_\-dequepath@{mmdq\-\_\-dequepath}!mmdeque.h@{mmdeque.\-h}}
+\subsubsection[{mmdq\-\_\-dequepath}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ mmdq\-\_\-dequepath (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{pathbuff, }
+\item[{const char $\ast$}]{dequename}
+\end{DoxyParamCaption}
+)}}\label{mmdeque_8h_ac55d3b89625b24ef8855911b53355273}
+
+
+Given a deque name, return the full path to the deque file. If pathbuff is N\-U\-L\-L, then the string returned is allocated from the heap and must be released by calling free. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pathbuff} & Pointer to buffer to receive path buffer. Caller must insure it is long enough. If N\-U\-L\-L, memory is allocated from the heap. The caller M\-U\-S\-T eventuall free this memory. \\
+\hline
+{\em dequename} & Name of the deque. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to full path name. 
+\end{DoxyReturn}
+
+
+Definition at line 120 of file mmdeque.\-c.
+
+\hypertarget{mmdeque_8h_a578df187eb00b10387012a1bff21c2d5}{\index{mmdeque.\-h@{mmdeque.\-h}!mmdq\-\_\-dequepath\-\_\-from\-\_\-handle@{mmdq\-\_\-dequepath\-\_\-from\-\_\-handle}}
+\index{mmdq\-\_\-dequepath\-\_\-from\-\_\-handle@{mmdq\-\_\-dequepath\-\_\-from\-\_\-handle}!mmdeque.h@{mmdeque.\-h}}
+\subsubsection[{mmdq\-\_\-dequepath\-\_\-from\-\_\-handle}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ mmdq\-\_\-dequepath\-\_\-from\-\_\-handle (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{mmdqhp}
+\end{DoxyParamCaption}
+)}}\label{mmdeque_8h_a578df187eb00b10387012a1bff21c2d5}
+
+
+Given a memory mapped deque handle, retrieve the full path to the deque file. A wrapper for mma\-\_\-get\-\_\-disk\-\_\-file\-\_\-path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mmdqhp} & Pointer to the \hyperlink{struct_m_m_a___h_a_n_d_l_e}{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} structure representing the deque. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Full path of the deque file. 
+\end{DoxyReturn}
+
+
+Definition at line 142 of file mmdeque.\-c.
+
+\hypertarget{mmdeque_8h_ad5e7c0a9c4cc1522988b3c4624af9a51}{\index{mmdeque.\-h@{mmdeque.\-h}!mmdq\-\_\-isempty@{mmdq\-\_\-isempty}}
+\index{mmdq\-\_\-isempty@{mmdq\-\_\-isempty}!mmdeque.h@{mmdeque.\-h}}
+\subsubsection[{mmdq\-\_\-isempty}]{\setlength{\rightskip}{0pt plus 5cm}int mmdq\-\_\-isempty (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{mmdqhp}
+\end{DoxyParamCaption}
+)}}\label{mmdeque_8h_ad5e7c0a9c4cc1522988b3c4624af9a51}
+
+
+Check to see if the memory mapped deque is empty. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mmdqhp} & Pointer to \hyperlink{struct_m_m_a___h_a_n_d_l_e}{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} structure representing the memory mapped deque. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the deque is empty 0 otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 225 of file mmdeque.\-c.
+
+\hypertarget{mmdeque_8h_ab010770a02052ced4f5a5a5fd9b59df1}{\index{mmdeque.\-h@{mmdeque.\-h}!mmdq\-\_\-open@{mmdq\-\_\-open}}
+\index{mmdq\-\_\-open@{mmdq\-\_\-open}!mmdeque.h@{mmdeque.\-h}}
+\subsubsection[{mmdq\-\_\-open}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E}$\ast$ mmdq\-\_\-open (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{dequename}
+\end{DoxyParamCaption}
+)}}\label{mmdeque_8h_ab010770a02052ced4f5a5a5fd9b59df1}
+
+
+Open access to a previously created memory mapped deque. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dequename} & Name of the deque \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to \hyperlink{struct_m_m_a___h_a_n_d_l_e}{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} structure representing the memory mapped deque. 
+\end{DoxyReturn}
+
+
+Definition at line 193 of file mmdeque.\-c.
+
+\hypertarget{mmdeque_8h_a9c665c407cee35b974a66244a0c9e4f2}{\index{mmdeque.\-h@{mmdeque.\-h}!mmdq\-\_\-rbd@{mmdq\-\_\-rbd}}
+\index{mmdq\-\_\-rbd@{mmdq\-\_\-rbd}!mmdeque.h@{mmdeque.\-h}}
+\subsubsection[{mmdq\-\_\-rbd}]{\setlength{\rightskip}{0pt plus 5cm}int mmdq\-\_\-rbd (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{mmdqhp, }
+\item[{void $\ast$}]{itemp}
+\end{DoxyParamCaption}
+)}}\label{mmdeque_8h_a9c665c407cee35b974a66244a0c9e4f2}
+
+
+Remove item from bottom of memory mapped deque. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mmdqhp} & Pointer to \hyperlink{struct_m_m_a___h_a_n_d_l_e}{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} structure representing the memory mapped deque. \\
+\hline
+{\em itemp} & Pointer to properly sized memory area that will receive a copy of the item data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success. 
+\end{DoxyReturn}
+
+
+Definition at line 307 of file mmdeque.\-c.
+
+\hypertarget{mmdeque_8h_aa1f64d042a30cd511b42d34d07840e91}{\index{mmdeque.\-h@{mmdeque.\-h}!mmdq\-\_\-read\-\_\-packet@{mmdq\-\_\-read\-\_\-packet}}
+\index{mmdq\-\_\-read\-\_\-packet@{mmdq\-\_\-read\-\_\-packet}!mmdeque.h@{mmdeque.\-h}}
+\subsubsection[{mmdq\-\_\-read\-\_\-packet}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ mmdq\-\_\-read\-\_\-packet (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{mmdqhp, }
+\item[{size\-\_\-t $\ast$}]{packet\-\_\-lenp}
+\end{DoxyParamCaption}
+)}}\label{mmdeque_8h_aa1f64d042a30cd511b42d34d07840e91}
+
+
+Read a packet of data from memory mapped deque. 
+
+In order to be used as a packet exchange deque, the deque must be created by a item size of 1. This function will A\-P\-P\-\_\-\-E\-R\-R if that is not properly set up.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mmdqhp} & Pointer to \hyperlink{struct_m_m_a___h_a_n_d_l_e}{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} structure representing the memory mapped deque. \\
+\hline
+{\em packet\-\_\-lenp} & Pointer to a size\-\_\-t variable that will receive size of the received packet in bytes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to received packet data. 
+\end{DoxyReturn}
+
+
+Definition at line 451 of file mmdeque.\-c.
+
+\hypertarget{mmdeque_8h_a6843066bd1d746d56aa21bc947b58d49}{\index{mmdeque.\-h@{mmdeque.\-h}!mmdq\-\_\-reset@{mmdq\-\_\-reset}}
+\index{mmdq\-\_\-reset@{mmdq\-\_\-reset}!mmdeque.h@{mmdeque.\-h}}
+\subsubsection[{mmdq\-\_\-reset}]{\setlength{\rightskip}{0pt plus 5cm}int mmdq\-\_\-reset (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{mmdqhp}
+\end{DoxyParamCaption}
+)}}\label{mmdeque_8h_a6843066bd1d746d56aa21bc947b58d49}
+
+
+Reset a memory mapped deque to the empty state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mmdqhp} & Pointer to \hyperlink{struct_m_m_a___h_a_n_d_l_e}{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} structure representing the memory mapped deque. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success. 
+\end{DoxyReturn}
+
+
+Definition at line 326 of file mmdeque.\-c.
+
+\hypertarget{mmdeque_8h_a299b5ed5903765931cd4a2f7caf6b60e}{\index{mmdeque.\-h@{mmdeque.\-h}!mmdq\-\_\-rtd@{mmdq\-\_\-rtd}}
+\index{mmdq\-\_\-rtd@{mmdq\-\_\-rtd}!mmdeque.h@{mmdeque.\-h}}
+\subsubsection[{mmdq\-\_\-rtd}]{\setlength{\rightskip}{0pt plus 5cm}int mmdq\-\_\-rtd (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{mmdqhp, }
+\item[{void $\ast$}]{itemp}
+\end{DoxyParamCaption}
+)}}\label{mmdeque_8h_a299b5ed5903765931cd4a2f7caf6b60e}
+
+
+Remove item from top of memory mapped deque. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mmdqhp} & Pointer to \hyperlink{struct_m_m_a___h_a_n_d_l_e}{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} structure representing the memory mapped deque. \\
+\hline
+{\em itemp} & Pointer to properly sized memory area that will receive a copy of the item data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success. 
+\end{DoxyReturn}
+
+
+Definition at line 286 of file mmdeque.\-c.
+
+\hypertarget{mmdeque_8h_a5c15c9bdc56c63505d739473384e80d3}{\index{mmdeque.\-h@{mmdeque.\-h}!mmdq\-\_\-stats@{mmdq\-\_\-stats}}
+\index{mmdq\-\_\-stats@{mmdq\-\_\-stats}!mmdeque.h@{mmdeque.\-h}}
+\subsubsection[{mmdq\-\_\-stats}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\-Q\-S\-T\-A\-T\-S}$\ast$ mmdq\-\_\-stats (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{mmdqhp, }
+\item[{{\bf D\-Q\-S\-T\-A\-T\-S} $\ast$}]{dq\-\_\-statsp}
+\end{DoxyParamCaption}
+)}}\label{mmdeque_8h_a5c15c9bdc56c63505d739473384e80d3}
+Obtains memory mapped data pointer to deque and calls dq\-\_\-stats. 
+\begin{DoxyParams}{Parameters}
+{\em mmdqhp} & Pointer to \hyperlink{struct_m_m_a___h_a_n_d_l_e}{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} structure representing the memory mapped deque. \\
+\hline
+{\em dq\-\_\-statsp} & Pointer to a D\-Q\-S\-T\-A\-T\-S structure to receive deque status info. If N\-U\-L\-L, memory is allocated from the heap and M\-U\-S\-T be freed by the caller. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to D\-Q\-S\-T\-A\-T\-S structure. 
+\end{DoxyReturn}
+
+
+Definition at line 350 of file mmdeque.\-c.
+
+\hypertarget{mmdeque_8h_a5ac697737cdfbb7127a26b922e7726a9}{\index{mmdeque.\-h@{mmdeque.\-h}!mmdq\-\_\-write\-\_\-packet@{mmdq\-\_\-write\-\_\-packet}}
+\index{mmdq\-\_\-write\-\_\-packet@{mmdq\-\_\-write\-\_\-packet}!mmdeque.h@{mmdeque.\-h}}
+\subsubsection[{mmdq\-\_\-write\-\_\-packet}]{\setlength{\rightskip}{0pt plus 5cm}int mmdq\-\_\-write\-\_\-packet (
+\begin{DoxyParamCaption}
+\item[{{\bf M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{mmdqhp, }
+\item[{void $\ast$}]{packetp, }
+\item[{size\-\_\-t}]{packet\-\_\-len}
+\end{DoxyParamCaption}
+)}}\label{mmdeque_8h_a5ac697737cdfbb7127a26b922e7726a9}
+
+
+Write a packet of data to a memory mapped deque. 
+
+In order to be used as a packet exchange deque, the deque must be created by a item size of 1. This function will A\-P\-P\-\_\-\-E\-R\-R if that is not properly set up.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mmdqhp} & Pointer to \hyperlink{struct_m_m_a___h_a_n_d_l_e}{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E} structure representing the memory mapped deque. \\
+\hline
+{\em packetp} & Pointer to packet data. \\
+\hline
+{\em packet\-\_\-len} & Size of the packet in bytes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success. 
+\end{DoxyReturn}
+
+
+Definition at line 421 of file mmdeque.\-c.
+

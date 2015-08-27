@@ -1,0 +1,29 @@
+AM_CFLAGS = -g -fPIC 
+AM_LDFLAGS = -ldl 
+AM_YFLAGS = -d
+lib_LTLIBRARIES=libulppkproc.la
+libulppkproc_la_SOURCES = appenv.c \
+btacc.c \
+cmdargs.c \
+diagnostics.c \
+dqacc.c \
+llacc.c \
+rpt_deque.c \
+inifileparser.y \
+inifile.l \
+ifile.c \
+ulppkproc-properties.c 
+
+libulppkproc_la_LDFLAGS = -release @PACKAGE_VERSION@ -version-info @LIBVERSION@
+
+pkginclude_HEADERS = appenv.h \
+bool.h \
+btacc.h \
+cmdargs.h \
+diagnostics.h \
+dqacc.h \
+ifile.h \
+llacc.h \
+rpt_deque.h \
+ulppkproc-properties.h 
+

@@ -1,0 +1,324 @@
+\hypertarget{process__control_8h}{\section{ulppk/process\-\_\-control.h File Reference}
+\label{process__control_8h}\index{ulppk/process\-\_\-control.\-h@{ulppk/process\-\_\-control.\-h}}
+}
+
+
+Definitions for the Process Control module.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$dqacc.\-h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_f_c_d_s}{F\-C\-D\-S}
+\item 
+struct \hyperlink{struct_p_r_o_c___s_t_a_t_u_s}{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{process__control_8h_abab8c5b90cad4650984623f0f0fc727e}{F\-C\-D\-S\-\_\-\-B\-L\-O\-C\-K}~0x0001
+\item 
+\#define \hyperlink{process__control_8h_a038875f6a794901e5620d37b79750c79}{F\-C\-D\-S\-\_\-\-T\-I\-M\-E\-O\-U\-T}~0x0002
+\item 
+\#define \hyperlink{process__control_8h_a7b237a3658db97e7cc560747e415c101}{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S\-\_\-\-G\-U\-A\-R\-D1}~0x\-A55\-A\-A55\-A
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned int \hyperlink{process__control_8h_a5964701ff8cca34943b355c3353b50ee}{F\-C\-D\-S\-\_\-\-O\-P\-T\-I\-O\-N}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{process__control_8h_a1be137f35157415bb252ea40c92073f3}{proc\-\_\-dump\-\_\-proc\-\_\-status} (F\-I\-L\-E $\ast$f, \hyperlink{struct_p_r_o_c___s_t_a_t_u_s}{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S} $\ast$proc\-\_\-statusp)
+\begin{DoxyCompactList}\small\item\em Dump process status to the stream f. If f is N\-U\-L\-L, log to the ulppk log. \end{DoxyCompactList}\item 
+void \hyperlink{process__control_8h_ab616a0de29975187ac0d6afa901d0b15}{proc\-\_\-free\-\_\-proc\-\_\-status} (\hyperlink{struct_p_r_o_c___s_t_a_t_u_s}{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S} $\ast$proc\-\_\-statusp)
+\begin{DoxyCompactList}\small\item\em If you allocated a \hyperlink{struct_p_r_o_c___s_t_a_t_u_s}{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S} using proc\-\_\-new\-\_\-proc\-\_\-status, you M\-U\-S\-T free it using proc\-\_\-free\-\_\-proc\-\_\-status when done. \end{DoxyCompactList}\item 
+int \hyperlink{process__control_8h_ae2f61c22a5541a867217bc25c58cdd19}{proc\-\_\-in\-\_\-throttle} (\hyperlink{struct_f_c_d_s}{F\-C\-D\-S} $\ast$fcdsp)
+\begin{DoxyCompactList}\small\item\em Returns true if the \hyperlink{struct_f_c_d_s}{F\-C\-D\-S} is in a throttle condition. \end{DoxyCompactList}\item 
+int \hyperlink{process__control_8h_a729c5c46b617a340ec9c5fb2171d7346}{proc\-\_\-make\-\_\-daemon} (char $\ast$workingdir, int prohibit\-\_\-ctty)
+\item 
+\hyperlink{struct_f_c_d_s}{F\-C\-D\-S} $\ast$ \hyperlink{process__control_8h_aed1533f16cc0be2de9b28e127acbec84}{proc\-\_\-new\-\_\-fcds} (\hyperlink{struct_f_c_d_s}{F\-C\-D\-S} $\ast$fcdsp, int proc\-\_\-limit, int throttle\-\_\-exit, int options)
+\begin{DoxyCompactList}\small\item\em Construct a new \hyperlink{struct_f_c_d_s}{F\-C\-D\-S}. If fcdsp is not N\-U\-L\-L, it points to a buffer of at least sizeof(\-F\-C\-D\-S) bytes that can be used to store the \hyperlink{struct_f_c_d_s}{F\-C\-D\-S} information. Otherwise, memory is allocated from the heap (and must eventually be returned by free). In either event, returns a pointer to the freshly initialized \hyperlink{struct_f_c_d_s}{F\-C\-D\-S} structure. \end{DoxyCompactList}\item 
+\hyperlink{struct_p_r_o_c___s_t_a_t_u_s}{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S} $\ast$ \hyperlink{process__control_8h_ad6fad09ce35cae38f8851a2b2fa0d48c}{proc\-\_\-new\-\_\-proc\-\_\-status} ()
+\begin{DoxyCompactList}\small\item\em If you M\-U\-S\-T allocate proc status from the heap, use this function and return it with proc\-\_\-free\-\_\-proc\-\_\-status. \end{DoxyCompactList}\item 
+\hyperlink{struct_p_r_o_c___s_t_a_t_u_s}{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S} $\ast$ \hyperlink{process__control_8h_a0021ff24803c4e3c146f2e81286eb6fd}{proc\-\_\-throttled\-\_\-fork} (\hyperlink{struct_f_c_d_s}{F\-C\-D\-S} $\ast$fcdsp, \hyperlink{struct_p_r_o_c___s_t_a_t_u_s}{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S} $\ast$proc\-\_\-statusp)
+\begin{DoxyCompactList}\small\item\em Perform a fork operation if not in throttle. \end{DoxyCompactList}\item 
+\hyperlink{struct_p_r_o_c___s_t_a_t_u_s}{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S} $\ast$ \hyperlink{process__control_8h_a2b0425a03f91b8bb6bca65cc9c67662f}{proc\-\_\-throttled\-\_\-wait} (\hyperlink{struct_f_c_d_s}{F\-C\-D\-S} $\ast$fcdsp, \hyperlink{struct_p_r_o_c___s_t_a_t_u_s}{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S} $\ast$proc\-\_\-statusp, int options, int wait4pid)
+\begin{DoxyCompactList}\small\item\em Wait for a managed child process to terminate, and properly update the \hyperlink{struct_f_c_d_s}{F\-C\-D\-S} when it does. This function treats managed children (spawned by calling proc\-\_\-throttled\-\_\-fork) and unmanaged child (forked through any other means) differently. Termination of unmanaged child processes is essentially ignored. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Definitions for the Process Control module. Process control provides tools for managing the spawning of child processes, reaping their status, making a process a daemon, etc. 
+
+Definition in file \hyperlink{process__control_8h_source}{process\-\_\-control.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{process__control_8h_abab8c5b90cad4650984623f0f0fc727e}{\index{process\-\_\-control.\-h@{process\-\_\-control.\-h}!F\-C\-D\-S\-\_\-\-B\-L\-O\-C\-K@{F\-C\-D\-S\-\_\-\-B\-L\-O\-C\-K}}
+\index{F\-C\-D\-S\-\_\-\-B\-L\-O\-C\-K@{F\-C\-D\-S\-\_\-\-B\-L\-O\-C\-K}!process_control.h@{process\-\_\-control.\-h}}
+\subsubsection[{F\-C\-D\-S\-\_\-\-B\-L\-O\-C\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-C\-D\-S\-\_\-\-B\-L\-O\-C\-K~0x0001}}\label{process__control_8h_abab8c5b90cad4650984623f0f0fc727e}
+F\-C\-D\-S\-\_\-\-B\-L\-O\-C\-K ... if throttle, loop until throttle exit is achieved F\-C\-D\-S\-\_\-\-T\-I\-M\-E\-O\-U\-T ... monitor running processes and abort those who have exceed their timeouts Ignored if F\-C\-D\-S\-\_\-\-B\-L\-O\-C\-K is not also specified. 
+
+Definition at line 62 of file process\-\_\-control.\-h.
+
+\hypertarget{process__control_8h_a038875f6a794901e5620d37b79750c79}{\index{process\-\_\-control.\-h@{process\-\_\-control.\-h}!F\-C\-D\-S\-\_\-\-T\-I\-M\-E\-O\-U\-T@{F\-C\-D\-S\-\_\-\-T\-I\-M\-E\-O\-U\-T}}
+\index{F\-C\-D\-S\-\_\-\-T\-I\-M\-E\-O\-U\-T@{F\-C\-D\-S\-\_\-\-T\-I\-M\-E\-O\-U\-T}!process_control.h@{process\-\_\-control.\-h}}
+\subsubsection[{F\-C\-D\-S\-\_\-\-T\-I\-M\-E\-O\-U\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-C\-D\-S\-\_\-\-T\-I\-M\-E\-O\-U\-T~0x0002}}\label{process__control_8h_a038875f6a794901e5620d37b79750c79}
+
+
+Definition at line 63 of file process\-\_\-control.\-h.
+
+\hypertarget{process__control_8h_a7b237a3658db97e7cc560747e415c101}{\index{process\-\_\-control.\-h@{process\-\_\-control.\-h}!P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S\-\_\-\-G\-U\-A\-R\-D1@{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S\-\_\-\-G\-U\-A\-R\-D1}}
+\index{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S\-\_\-\-G\-U\-A\-R\-D1@{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S\-\_\-\-G\-U\-A\-R\-D1}!process_control.h@{process\-\_\-control.\-h}}
+\subsubsection[{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S\-\_\-\-G\-U\-A\-R\-D1}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S\-\_\-\-G\-U\-A\-R\-D1~0x\-A55\-A\-A55\-A}}\label{process__control_8h_a7b237a3658db97e7cc560747e415c101}
+
+
+Definition at line 78 of file process\-\_\-control.\-h.
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{process__control_8h_a5964701ff8cca34943b355c3353b50ee}{\index{process\-\_\-control.\-h@{process\-\_\-control.\-h}!F\-C\-D\-S\-\_\-\-O\-P\-T\-I\-O\-N@{F\-C\-D\-S\-\_\-\-O\-P\-T\-I\-O\-N}}
+\index{F\-C\-D\-S\-\_\-\-O\-P\-T\-I\-O\-N@{F\-C\-D\-S\-\_\-\-O\-P\-T\-I\-O\-N}!process_control.h@{process\-\_\-control.\-h}}
+\subsubsection[{F\-C\-D\-S\-\_\-\-O\-P\-T\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned int {\bf F\-C\-D\-S\-\_\-\-O\-P\-T\-I\-O\-N}}}\label{process__control_8h_a5964701ff8cca34943b355c3353b50ee}
+Fork control data structure. Used by limited (throttled) process management facilities. This provides a flow control or throttle mechanism. Throttle is posted when an attempt to fork a process would exceed the established process limit. Throttle remains in effect until the number of active processes falls below the throttle exit limit. 
+
+Definition at line 55 of file process\-\_\-control.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{process__control_8h_a1be137f35157415bb252ea40c92073f3}{\index{process\-\_\-control.\-h@{process\-\_\-control.\-h}!proc\-\_\-dump\-\_\-proc\-\_\-status@{proc\-\_\-dump\-\_\-proc\-\_\-status}}
+\index{proc\-\_\-dump\-\_\-proc\-\_\-status@{proc\-\_\-dump\-\_\-proc\-\_\-status}!process_control.h@{process\-\_\-control.\-h}}
+\subsubsection[{proc\-\_\-dump\-\_\-proc\-\_\-status}]{\setlength{\rightskip}{0pt plus 5cm}void proc\-\_\-dump\-\_\-proc\-\_\-status (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{f, }
+\item[{{\bf P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S} $\ast$}]{proc\-\_\-statusp}
+\end{DoxyParamCaption}
+)}}\label{process__control_8h_a1be137f35157415bb252ea40c92073f3}
+
+
+Dump process status to the stream f. If f is N\-U\-L\-L, log to the ulppk log. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & N\-U\-L\-L means log via syslog, otherwise print to stream \\
+\hline
+{\em proc\-\_\-statusp} & ptr to process status record to dump \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 454 of file process\-\_\-control.\-c.
+
+\hypertarget{process__control_8h_ab616a0de29975187ac0d6afa901d0b15}{\index{process\-\_\-control.\-h@{process\-\_\-control.\-h}!proc\-\_\-free\-\_\-proc\-\_\-status@{proc\-\_\-free\-\_\-proc\-\_\-status}}
+\index{proc\-\_\-free\-\_\-proc\-\_\-status@{proc\-\_\-free\-\_\-proc\-\_\-status}!process_control.h@{process\-\_\-control.\-h}}
+\subsubsection[{proc\-\_\-free\-\_\-proc\-\_\-status}]{\setlength{\rightskip}{0pt plus 5cm}void proc\-\_\-free\-\_\-proc\-\_\-status (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S} $\ast$}]{proc\-\_\-statusp}
+\end{DoxyParamCaption}
+)}}\label{process__control_8h_ab616a0de29975187ac0d6afa901d0b15}
+
+
+If you allocated a \hyperlink{struct_p_r_o_c___s_t_a_t_u_s}{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S} using proc\-\_\-new\-\_\-proc\-\_\-status, you M\-U\-S\-T free it using proc\-\_\-free\-\_\-proc\-\_\-status when done. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em proc\-\_\-statusp} & Pointer to \hyperlink{struct_p_r_o_c___s_t_a_t_u_s}{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S} structure previously allocated by proc\-\_\-new\-\_\-proc\-\_\-status \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 276 of file process\-\_\-control.\-c.
+
+\hypertarget{process__control_8h_ae2f61c22a5541a867217bc25c58cdd19}{\index{process\-\_\-control.\-h@{process\-\_\-control.\-h}!proc\-\_\-in\-\_\-throttle@{proc\-\_\-in\-\_\-throttle}}
+\index{proc\-\_\-in\-\_\-throttle@{proc\-\_\-in\-\_\-throttle}!process_control.h@{process\-\_\-control.\-h}}
+\subsubsection[{proc\-\_\-in\-\_\-throttle}]{\setlength{\rightskip}{0pt plus 5cm}int proc\-\_\-in\-\_\-throttle (
+\begin{DoxyParamCaption}
+\item[{{\bf F\-C\-D\-S} $\ast$}]{fcdsp}
+\end{DoxyParamCaption}
+)}}\label{process__control_8h_ae2f61c22a5541a867217bc25c58cdd19}
+
+
+Returns true if the \hyperlink{struct_f_c_d_s}{F\-C\-D\-S} is in a throttle condition. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fcdsp} & Pointer to Flow Control Data Structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+currrent state of throttle flag. 
+\end{DoxyReturn}
+
+
+Definition at line 95 of file process\-\_\-control.\-c.
+
+\hypertarget{process__control_8h_a729c5c46b617a340ec9c5fb2171d7346}{\index{process\-\_\-control.\-h@{process\-\_\-control.\-h}!proc\-\_\-make\-\_\-daemon@{proc\-\_\-make\-\_\-daemon}}
+\index{proc\-\_\-make\-\_\-daemon@{proc\-\_\-make\-\_\-daemon}!process_control.h@{process\-\_\-control.\-h}}
+\subsubsection[{proc\-\_\-make\-\_\-daemon}]{\setlength{\rightskip}{0pt plus 5cm}int proc\-\_\-make\-\_\-daemon (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{workingdir, }
+\item[{int}]{prohibit\-\_\-ctty}
+\end{DoxyParamCaption}
+)}}\label{process__control_8h_a729c5c46b617a340ec9c5fb2171d7346}
+Make the calling process a daemon process. As a daemon process 1) The calling process will be terminated. 2) Execution proceeds under a new process that a) is a session leader of a new session b) is a procress group leader of a new process group c) has no controlling terminal.
+
+
+\begin{DoxyParams}{Parameters}
+{\em workingdir} & new working directory for the daemon. If N\-U\-L\-L, then \char`\"{}/\char`\"{} \\
+\hline
+{\em prohibit\-\_\-ctty} & if true, additional steps are taken to insure that the newly established session can leader can never acquire a controlling terminal. In that event, the daemon ceases to be a session leader. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success. 
+\end{DoxyReturn}
+
+
+Definition at line 298 of file process\-\_\-control.\-c.
+
+\hypertarget{process__control_8h_aed1533f16cc0be2de9b28e127acbec84}{\index{process\-\_\-control.\-h@{process\-\_\-control.\-h}!proc\-\_\-new\-\_\-fcds@{proc\-\_\-new\-\_\-fcds}}
+\index{proc\-\_\-new\-\_\-fcds@{proc\-\_\-new\-\_\-fcds}!process_control.h@{process\-\_\-control.\-h}}
+\subsubsection[{proc\-\_\-new\-\_\-fcds}]{\setlength{\rightskip}{0pt plus 5cm}{\bf F\-C\-D\-S}$\ast$ proc\-\_\-new\-\_\-fcds (
+\begin{DoxyParamCaption}
+\item[{{\bf F\-C\-D\-S} $\ast$}]{fcdsp, }
+\item[{int}]{proc\-\_\-limit, }
+\item[{int}]{throttle\-\_\-exit, }
+\item[{int}]{options}
+\end{DoxyParamCaption}
+)}}\label{process__control_8h_aed1533f16cc0be2de9b28e127acbec84}
+
+
+Construct a new \hyperlink{struct_f_c_d_s}{F\-C\-D\-S}. If fcdsp is not N\-U\-L\-L, it points to a buffer of at least sizeof(\-F\-C\-D\-S) bytes that can be used to store the \hyperlink{struct_f_c_d_s}{F\-C\-D\-S} information. Otherwise, memory is allocated from the heap (and must eventually be returned by free). In either event, returns a pointer to the freshly initialized \hyperlink{struct_f_c_d_s}{F\-C\-D\-S} structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fcdsp} & Pointer to Flow Control Data Structure \\
+\hline
+{\em proc\-\_\-limit} & Max number of active child processes allowed. \\
+\hline
+{\em throttle\-\_\-exit} & Active process count must fall below this limit to exit flow control. \\
+\hline
+{\em options} & Intended to be waitpid options, but not used. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to newly formatted flow control data structure. If fdcsp was N\-U\-L\-L, then this pointer points to memory allocated from the heap and must be released by calling free at some point. 
+\end{DoxyReturn}
+
+
+Definition at line 77 of file process\-\_\-control.\-c.
+
+\hypertarget{process__control_8h_ad6fad09ce35cae38f8851a2b2fa0d48c}{\index{process\-\_\-control.\-h@{process\-\_\-control.\-h}!proc\-\_\-new\-\_\-proc\-\_\-status@{proc\-\_\-new\-\_\-proc\-\_\-status}}
+\index{proc\-\_\-new\-\_\-proc\-\_\-status@{proc\-\_\-new\-\_\-proc\-\_\-status}!process_control.h@{process\-\_\-control.\-h}}
+\subsubsection[{proc\-\_\-new\-\_\-proc\-\_\-status}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S}$\ast$ proc\-\_\-new\-\_\-proc\-\_\-status (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{process__control_8h_ad6fad09ce35cae38f8851a2b2fa0d48c}
+
+
+If you M\-U\-S\-T allocate proc status from the heap, use this function and return it with proc\-\_\-free\-\_\-proc\-\_\-status. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to freshly allocated \hyperlink{struct_p_r_o_c___s_t_a_t_u_s}{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S} structure. 
+\end{DoxyReturn}
+
+
+Definition at line 261 of file process\-\_\-control.\-c.
+
+\hypertarget{process__control_8h_a0021ff24803c4e3c146f2e81286eb6fd}{\index{process\-\_\-control.\-h@{process\-\_\-control.\-h}!proc\-\_\-throttled\-\_\-fork@{proc\-\_\-throttled\-\_\-fork}}
+\index{proc\-\_\-throttled\-\_\-fork@{proc\-\_\-throttled\-\_\-fork}!process_control.h@{process\-\_\-control.\-h}}
+\subsubsection[{proc\-\_\-throttled\-\_\-fork}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S}$\ast$ proc\-\_\-throttled\-\_\-fork (
+\begin{DoxyParamCaption}
+\item[{{\bf F\-C\-D\-S} $\ast$}]{fcdsp, }
+\item[{{\bf P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S} $\ast$}]{proc\-\_\-statusp}
+\end{DoxyParamCaption}
+)}}\label{process__control_8h_a0021ff24803c4e3c146f2e81286eb6fd}
+
+
+Perform a fork operation if not in throttle. 
+
+This will spawn a \char`\"{}managed child process\char`\"{}. Unmanaged child processes can be forked by other mechanisms. (Note that proc\-\_\-throttled\-\_\-wait may reap the exit status of unmanaged child processes. It will however essentially ignore those statuses. This can present a risk to designs that carelessly mingle managed and umanaged child processes, and which require the exit status of unmanaged child processes.)
+
+Once a child process has been created, its pid is used to fill out a \hyperlink{struct_p_r_o_c___s_t_a_t_u_s}{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S} structure, which is returned to the parent.
+
+Parent Process\-:
+
+The \hyperlink{struct_p_r_o_c___s_t_a_t_u_s}{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S} structure may be provided by the caller. Alternatively, if proc\-\_\-statusp is N\-U\-L\-L memory for the \hyperlink{struct_p_r_o_c___s_t_a_t_u_s}{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S} is allocated by using proc\-\_\-new\-\_\-proc\-\_\-status. The calling parent process must subsequently release this memory resource by calling proc\-\_\-free\-\_\-proc\-\_\-status. In either case, the function returns a pointer to the the \hyperlink{struct_p_r_o_c___s_t_a_t_u_s}{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S} structure.
+
+If the \hyperlink{struct_f_c_d_s}{F\-C\-D\-S} is in a throttle condition when this function is called, it will return to the parent with a N\-U\-L\-L \hyperlink{struct_p_r_o_c___s_t_a_t_u_s}{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S} pointer to indicate no process was forked. The parent should then call proc\-\_\-throttled\-\_\-wait to allow the exit status of terminated child processes to be reaped.
+
+If a fork error ocurrs, U\-L\-P\-P\-K\-\_\-\-C\-R\-A\-S\-H is invoked to produce a core file and a fatal error in the log file.
+
+Child Process\-:
+
+The child process will receive a N\-U\-L\-L return value from this process.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fcdsp} & ptr to \hyperlink{struct_f_c_d_s}{F\-C\-D\-S} structure \\
+\hline
+{\em proc\-\_\-statusp} & N\-U\-L\-L or pointer to a \hyperlink{struct_p_r_o_c___s_t_a_t_u_s}{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S} structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to \hyperlink{struct_p_r_o_c___s_t_a_t_u_s}{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S} structure. If returning to parent, \hyperlink{struct_p_r_o_c___s_t_a_t_u_s}{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S} pid is process I\-D of the forked child or -\/1 if the system in in throttle and no child process was spawned. If returning to child, \hyperlink{struct_p_r_o_c___s_t_a_t_u_s}{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S} field pid is 0. 
+\end{DoxyReturn}
+
+
+Definition at line 139 of file process\-\_\-control.\-c.
+
+\hypertarget{process__control_8h_a2b0425a03f91b8bb6bca65cc9c67662f}{\index{process\-\_\-control.\-h@{process\-\_\-control.\-h}!proc\-\_\-throttled\-\_\-wait@{proc\-\_\-throttled\-\_\-wait}}
+\index{proc\-\_\-throttled\-\_\-wait@{proc\-\_\-throttled\-\_\-wait}!process_control.h@{process\-\_\-control.\-h}}
+\subsubsection[{proc\-\_\-throttled\-\_\-wait}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S}$\ast$ proc\-\_\-throttled\-\_\-wait (
+\begin{DoxyParamCaption}
+\item[{{\bf F\-C\-D\-S} $\ast$}]{fcdsp, }
+\item[{{\bf P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S} $\ast$}]{proc\-\_\-statusp, }
+\item[{int}]{options, }
+\item[{int}]{wait4pid}
+\end{DoxyParamCaption}
+)}}\label{process__control_8h_a2b0425a03f91b8bb6bca65cc9c67662f}
+
+
+Wait for a managed child process to terminate, and properly update the \hyperlink{struct_f_c_d_s}{F\-C\-D\-S} when it does. This function treats managed children (spawned by calling proc\-\_\-throttled\-\_\-fork) and unmanaged child (forked through any other means) differently. Termination of unmanaged child processes is essentially ignored. 
+
+pid and status of the terminated managed child process are stored in proc\-\_\-statusp. If proc\-\_\-statusp provided by the caller is N\-U\-L\-L, then proc\-\_\-new\-\_\-proc\-\_\-status is used to allocate space to store the process status info. The caller is responsible for releasing such memory by calling proc\-\_\-free\-\_\-proc\-\_\-status.
+
+This function essentially calls waitpid with the option provided. To provide a specific pid value to waitpid, the caller must provide a non-\/null value for proc\-\_\-statusp, set the pid field of that structure to the appropriate value, and set wait4pid to a nonzero value.
+
+The meaning of proc\-\_\-statusp-\/$>$pid if wait4pid is non-\/zero (as defined by waitpid)
+
+
+\begin{DoxyItemize}
+\item pid == -\/1 wait for any child process 
+\item pid $>$ 0 wait for any child whose process I\-D equals pid 
+\item pid == 0 wait for any child whose process group I\-D equals that of the calling process 
+\item pid $<$ -\/1 wait for any child whose process group I\-D equals the absolute value of pid 
+\end{DoxyItemize}
+
+See man waitpid for more details regarding option, exit statuses, etc.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fcdsp} & ptr to \hyperlink{struct_f_c_d_s}{F\-C\-D\-S} structure \\
+\hline
+{\em proc\-\_\-statusp} & N\-U\-L\-L or pointer to a \hyperlink{struct_p_r_o_c___s_t_a_t_u_s}{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S} structure. If not N\-U\-L\-L and wait4pid is non-\/zero, the pid field of the structure is used to call waitpid. \\
+\hline
+{\em options} & option to pass to waitpid \\
+\hline
+{\em wait4pid} & ignored if proc\-\_\-statusp is N\-U\-L\-L. If proc\-\_\-statusp is not N\-U\-L\-L and wait4pid is non-\/zero, the the pid field of proc\-\_\-statusp is passed to waitpid \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ptr to \hyperlink{struct_p_r_o_c___s_t_a_t_u_s}{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S} structure. If W\-N\-O\-H\-A\-N\-G is set in options, and the return \hyperlink{struct_p_r_o_c___s_t_a_t_u_s}{P\-R\-O\-C\-\_\-\-S\-T\-A\-T\-U\-S} structure pid = 0, then no child process meeting the criteria have terminated since the last call. If pid = -\/1, an error occurred. 
+\end{DoxyReturn}
+
+
+Definition at line 194 of file process\-\_\-control.\-c.
+

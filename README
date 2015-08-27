@@ -1,0 +1,54 @@
+ulppk 2
+
+Unix/Linux Process Programming Kit
+
+A collection of facilities that support the development of systems
+of interacting processes. The package includes a shared library of
+functions, supporting programs, and test programs.
+
+Build Instructions
+
+For development: 
+
+aclocal
+autoconf
+automake
+
+
+For normal builds:
+
+./configure
+
+For enabling debugging and debug features:
+
+./runconfigure.sh
+
+To debug a program built under the src directory:
+
+libtool --mode=execute gdb programname
+
+To build and run tests
+
+make check
+
+To make a distribution package:
+
+make dist
+
+To install
+
+sudo make install
+
+To remove 
+
+sudo make uninstall
+
+To regenerate the documentation
+
+doxygen doxygen.conf
+
+Directory Structure
+
+src -- programs and tests
+ulppk -- library modules
+

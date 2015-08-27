@@ -1,0 +1,172 @@
+\hypertarget{ulppk__log_8c}{\section{ulppk/ulppk\-\_\-log.c File Reference}
+\label{ulppk__log_8c}\index{ulppk/ulppk\-\_\-log.\-c@{ulppk/ulppk\-\_\-log.\-c}}
+}
+{\ttfamily \#include $<$sys/file.\-h$>$}\\*
+{\ttfamily \#include $<$sys/types.\-h$>$}\\*
+{\ttfamily \#include $<$sys/stat.\-h$>$}\\*
+{\ttfamily \#include $<$signal.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include $<$stdarg.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$syslog.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$fcntl.\-h$>$}\\*
+{\ttfamily \#include $<$memory.\-h$>$}\\*
+{\ttfamily \#include $<$bool.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ifile.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ulppk\-\_\-log.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{ulppk__log_8c_a7a1d4bcd20f58a5abb44c665d0b17498}{ulppk\-\_\-log\-\_\-set\-\_\-logconfig} (int new\-\_\-dest, const char $\ast$ident, int options, int facility)
+\begin{DoxyCompactList}\small\item\em Set the log destination and if S\-Y\-S\-L\-O\-G is a destination, sets openlog option and facility codes. Returns previous log destination bit mask. \end{DoxyCompactList}\item 
+int \hyperlink{ulppk__log_8c_ab358e7f087f43f579d63f5c45de1d203}{ulppk\-\_\-log} (const char $\ast$func, const char $\ast$file, int line, \hyperlink{ulppk__log_8h_ac7fdc517ef452c57c44989aa2fed94b7}{U\-L\-P\-P\-K\-\_\-\-L\-O\-G\-\_\-\-L\-E\-V\-E\-L} text\-\_\-level, const char $\ast$fmtp,...)
+\item 
+int \hyperlink{ulppk__log_8c_a45180015c6e645f1f4ec46cad6691f88}{ulppk\-\_\-vlog} (const char $\ast$func, const char $\ast$file, int line, \hyperlink{ulppk__log_8h_ac7fdc517ef452c57c44989aa2fed94b7}{U\-L\-P\-P\-K\-\_\-\-L\-O\-G\-\_\-\-L\-E\-V\-E\-L} text\-\_\-level, const char $\ast$fmtp, va\-\_\-list ap)
+\item 
+int \hyperlink{ulppk__log_8c_a3f521c4d39d182c8e524e159553dcfad}{log\-\_\-app\-\_\-start} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+a logging mechanism that .ini file settings Logging level can be changed \char`\"{}on the fly\char`\"{} but setting the \mbox{[}logging\mbox{]} variable log\-\_\-level to the desired numeric value. (See \hyperlink{ulppk__log_8h}{ulppk\-\_\-log.\-h} for valid values and their meanings.) 
+
+Definition in file \hyperlink{ulppk__log_8c_source}{ulppk\-\_\-log.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{ulppk__log_8c_a3f521c4d39d182c8e524e159553dcfad}{\index{ulppk\-\_\-log.\-c@{ulppk\-\_\-log.\-c}!log\-\_\-app\-\_\-start@{log\-\_\-app\-\_\-start}}
+\index{log\-\_\-app\-\_\-start@{log\-\_\-app\-\_\-start}!ulppk_log.c@{ulppk\-\_\-log.\-c}}
+\subsubsection[{log\-\_\-app\-\_\-start}]{\setlength{\rightskip}{0pt plus 5cm}int log\-\_\-app\-\_\-start (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{ulppk__log_8c_a3f521c4d39d182c8e524e159553dcfad}
+Logs the start of an application.
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Argument count as passed to \hyperlink{dequetool_8c_a0ddf1224851353fc92bfbff6f499fa97}{main()} \\
+\hline
+{\em argv} & Argument array as passed to \hyperlink{dequetool_8c_a0ddf1224851353fc92bfbff6f499fa97}{main()} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Always returns 0. 
+\end{DoxyReturn}
+
+
+Definition at line 252 of file ulppk\-\_\-log.\-c.
+
+\hypertarget{ulppk__log_8c_ab358e7f087f43f579d63f5c45de1d203}{\index{ulppk\-\_\-log.\-c@{ulppk\-\_\-log.\-c}!ulppk\-\_\-log@{ulppk\-\_\-log}}
+\index{ulppk\-\_\-log@{ulppk\-\_\-log}!ulppk_log.c@{ulppk\-\_\-log.\-c}}
+\subsubsection[{ulppk\-\_\-log}]{\setlength{\rightskip}{0pt plus 5cm}int ulppk\-\_\-log (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{func, }
+\item[{const char $\ast$}]{file, }
+\item[{int}]{line, }
+\item[{{\bf U\-L\-P\-P\-K\-\_\-\-L\-O\-G\-\_\-\-L\-E\-V\-E\-L}}]{text\-\_\-level, }
+\item[{const char $\ast$}]{fmtp, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}}\label{ulppk__log_8c_ab358e7f087f43f579d63f5c45de1d203}
+Write to the log(s). Intended to be called from the U\-L\-P\-P\-K\-\_\-\-L\-O\-G macro (see \hyperlink{ulppk__log_8h}{ulppk\-\_\-log.\-h}).
+
+Only log text with text level $>$= the established log level is printed to the log(s). The log level is set in the .ini file for the calling app (section \mbox{[}logging\mbox{]}, variable log\-\_\-level).If no value was provided, the default if U\-L\-P\-P\-K\-\_\-\-L\-O\-G\-\_\-\-D\-E\-B\-U\-G (0) is used.
+
+
+\begin{DoxyParams}{Parameters}
+{\em func} & Name of the calling function \\
+\hline
+{\em file} & File in which calling function is implemented. \\
+\hline
+{\em line} & Line number at which ulppk\-\_\-log was called. \\
+\hline
+{\em text\-\_\-level} & The logging (text) level of the log write request. \\
+\hline
+{\em fmtp} & A printf style format string \\
+\hline
+{\em ...} & variable number of arguments consistent with the fmtp format string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+non-\/zero if text\-\_\-level $>$= logging level (printed to log). 
+\end{DoxyReturn}
+
+
+Definition at line 178 of file ulppk\-\_\-log.\-c.
+
+\hypertarget{ulppk__log_8c_a7a1d4bcd20f58a5abb44c665d0b17498}{\index{ulppk\-\_\-log.\-c@{ulppk\-\_\-log.\-c}!ulppk\-\_\-log\-\_\-set\-\_\-logconfig@{ulppk\-\_\-log\-\_\-set\-\_\-logconfig}}
+\index{ulppk\-\_\-log\-\_\-set\-\_\-logconfig@{ulppk\-\_\-log\-\_\-set\-\_\-logconfig}!ulppk_log.c@{ulppk\-\_\-log.\-c}}
+\subsubsection[{ulppk\-\_\-log\-\_\-set\-\_\-logconfig}]{\setlength{\rightskip}{0pt plus 5cm}int ulppk\-\_\-log\-\_\-set\-\_\-logconfig (
+\begin{DoxyParamCaption}
+\item[{int}]{new\-\_\-dest, }
+\item[{const char $\ast$}]{ident, }
+\item[{int}]{options, }
+\item[{int}]{facility}
+\end{DoxyParamCaption}
+)}}\label{ulppk__log_8c_a7a1d4bcd20f58a5abb44c665d0b17498}
+
+
+Set the log destination and if S\-Y\-S\-L\-O\-G is a destination, sets openlog option and facility codes. Returns previous log destination bit mask. 
+
+This function should be called B\-E\-F\-O\-R\-E calling sysconfig\-\_\-parse\-\_\-inifile.
+
+log\-\_\-dest specifies the log destination and is one of the following values\-: 
+\begin{DoxyItemize}
+\item U\-L\-P\-P\-K\-\_\-\-L\-O\-G\-M\-O\-D\-E\-\_\-\-C\-O\-N\-S\-O\-L\-E 1 
+\item U\-L\-P\-P\-K\-\_\-\-L\-O\-G\-M\-O\-D\-E\-\_\-\-S\-Y\-S\-L\-O\-G 2 
+\item U\-L\-P\-P\-K\-\_\-\-L\-O\-G\-M\-O\-D\-E\-\_\-\-A\-L\-L 3 
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\-\_\-dest} & (see \hyperlink{ulppk__log_8h}{ulppk\-\_\-log.\-h} for details) \\
+\hline
+{\em ident} & Identify string, usually the app name \\
+\hline
+{\em options} & See syslog(3). Meaningless if log\-\_\-dest is U\-L\-P\-P\-K\-\_\-\-L\-O\-G\-D\-E\-S\-T\-\_\-\-C\-O\-N\-S\-O\-L\-E \\
+\hline
+{\em facility} & See syslog(3). Meaningless if log\-\_\-dest is U\-L\-P\-P\-K\-\_\-\-L\-O\-G\-D\-E\-S\-T\-\_\-\-C\-O\-N\-S\-O\-L\-E \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 148 of file ulppk\-\_\-log.\-c.
+
+\hypertarget{ulppk__log_8c_a45180015c6e645f1f4ec46cad6691f88}{\index{ulppk\-\_\-log.\-c@{ulppk\-\_\-log.\-c}!ulppk\-\_\-vlog@{ulppk\-\_\-vlog}}
+\index{ulppk\-\_\-vlog@{ulppk\-\_\-vlog}!ulppk_log.c@{ulppk\-\_\-log.\-c}}
+\subsubsection[{ulppk\-\_\-vlog}]{\setlength{\rightskip}{0pt plus 5cm}int ulppk\-\_\-vlog (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{func, }
+\item[{const char $\ast$}]{file, }
+\item[{int}]{line, }
+\item[{{\bf U\-L\-P\-P\-K\-\_\-\-L\-O\-G\-\_\-\-L\-E\-V\-E\-L}}]{text\-\_\-level, }
+\item[{const char $\ast$}]{fmtp, }
+\item[{va\-\_\-list}]{ap}
+\end{DoxyParamCaption}
+)}}\label{ulppk__log_8c_a45180015c6e645f1f4ec46cad6691f88}
+Form of log\-\_\-ulppk\-\_\-text that takes va\-\_\-list argument. Used by web service logging. 
+\begin{DoxyParams}{Parameters}
+{\em func} & Name of the calling function \\
+\hline
+{\em file} & File in which calling function is implemented. \\
+\hline
+{\em line} & Line number at which ulppk\-\_\-log was called. \\
+\hline
+{\em text\-\_\-level} & The logging (text) level of the log write request. \\
+\hline
+{\em fmtp} & A printf style format string \\
+\hline
+{\em ap} & variable argument list consistent with the fmtp format string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+non-\/zero if text\-\_\-level $>$= logging level (printed to log). 
+\end{DoxyReturn}
+
+
+Definition at line 221 of file ulppk\-\_\-log.\-c.
+

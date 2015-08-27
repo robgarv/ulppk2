@@ -1,0 +1,103 @@
+\hypertarget{struct__dq__statbuff}{\section{\-\_\-dq\-\_\-statbuff Struct Reference}
+\label{struct__dq__statbuff}\index{\-\_\-dq\-\_\-statbuff@{\-\_\-dq\-\_\-statbuff}}
+}
+
+
+{\ttfamily \#include $<$dqacc.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{struct__dq__statbuff_a2cfb815275868f448170339b01fb68a6}{dq\-\_\-open}
+\begin{DoxyCompactList}\small\item\em T\-R\-U\-E if open. \end{DoxyCompactList}\item 
+ushort \hyperlink{struct__dq__statbuff_a40241a744320a331e0a0c37ecc1a7b8b}{dqitem\-\_\-size}
+\begin{DoxyCompactList}\small\item\em Size in bytes of items on the deque. \end{DoxyCompactList}\item 
+ushort \hyperlink{struct__dq__statbuff_a569a481b9cdc53a7e96804a51643e504}{dqslots}
+\begin{DoxyCompactList}\small\item\em Capacity of the deque in items. \end{DoxyCompactList}\item 
+ushort \hyperlink{struct__dq__statbuff_a2fdb1d169ae74820026e2897a3dec9a3}{dquse}
+\begin{DoxyCompactList}\small\item\em Number of deque slots in use (items in the deque) \end{DoxyCompactList}\item 
+ushort \hyperlink{struct__dq__statbuff_a738331e6f1d54405b568a4c032f8c8eb}{memmapped}\-: 1
+\begin{DoxyCompactList}\small\item\em 1 if deque is memory mapped \end{DoxyCompactList}\item 
+ushort \hyperlink{struct__dq__statbuff_a9f1a8e591d86f4e9e40c723dbb9f1d34}{buffctrl}\-: 1
+\begin{DoxyCompactList}\small\item\em 1 if deque buffer was allocated from heap \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Deque status structure. Used to determine the current state of the double ended queue. 
+
+Definition at line 85 of file dqacc.\-h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{struct__dq__statbuff_a9f1a8e591d86f4e9e40c723dbb9f1d34}{\index{\-\_\-dq\-\_\-statbuff@{\-\_\-dq\-\_\-statbuff}!buffctrl@{buffctrl}}
+\index{buffctrl@{buffctrl}!_dq_statbuff@{\-\_\-dq\-\_\-statbuff}}
+\subsubsection[{buffctrl}]{\setlength{\rightskip}{0pt plus 5cm}ushort buffctrl}}\label{struct__dq__statbuff_a9f1a8e591d86f4e9e40c723dbb9f1d34}
+
+
+1 if deque buffer was allocated from heap 
+
+
+
+Definition at line 91 of file dqacc.\-h.
+
+\hypertarget{struct__dq__statbuff_a2cfb815275868f448170339b01fb68a6}{\index{\-\_\-dq\-\_\-statbuff@{\-\_\-dq\-\_\-statbuff}!dq\-\_\-open@{dq\-\_\-open}}
+\index{dq\-\_\-open@{dq\-\_\-open}!_dq_statbuff@{\-\_\-dq\-\_\-statbuff}}
+\subsubsection[{dq\-\_\-open}]{\setlength{\rightskip}{0pt plus 5cm}int dq\-\_\-open}}\label{struct__dq__statbuff_a2cfb815275868f448170339b01fb68a6}
+
+
+T\-R\-U\-E if open. 
+
+
+
+Definition at line 86 of file dqacc.\-h.
+
+\hypertarget{struct__dq__statbuff_a40241a744320a331e0a0c37ecc1a7b8b}{\index{\-\_\-dq\-\_\-statbuff@{\-\_\-dq\-\_\-statbuff}!dqitem\-\_\-size@{dqitem\-\_\-size}}
+\index{dqitem\-\_\-size@{dqitem\-\_\-size}!_dq_statbuff@{\-\_\-dq\-\_\-statbuff}}
+\subsubsection[{dqitem\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}ushort dqitem\-\_\-size}}\label{struct__dq__statbuff_a40241a744320a331e0a0c37ecc1a7b8b}
+
+
+Size in bytes of items on the deque. 
+
+
+
+Definition at line 87 of file dqacc.\-h.
+
+\hypertarget{struct__dq__statbuff_a569a481b9cdc53a7e96804a51643e504}{\index{\-\_\-dq\-\_\-statbuff@{\-\_\-dq\-\_\-statbuff}!dqslots@{dqslots}}
+\index{dqslots@{dqslots}!_dq_statbuff@{\-\_\-dq\-\_\-statbuff}}
+\subsubsection[{dqslots}]{\setlength{\rightskip}{0pt plus 5cm}ushort dqslots}}\label{struct__dq__statbuff_a569a481b9cdc53a7e96804a51643e504}
+
+
+Capacity of the deque in items. 
+
+
+
+Definition at line 88 of file dqacc.\-h.
+
+\hypertarget{struct__dq__statbuff_a2fdb1d169ae74820026e2897a3dec9a3}{\index{\-\_\-dq\-\_\-statbuff@{\-\_\-dq\-\_\-statbuff}!dquse@{dquse}}
+\index{dquse@{dquse}!_dq_statbuff@{\-\_\-dq\-\_\-statbuff}}
+\subsubsection[{dquse}]{\setlength{\rightskip}{0pt plus 5cm}ushort dquse}}\label{struct__dq__statbuff_a2fdb1d169ae74820026e2897a3dec9a3}
+
+
+Number of deque slots in use (items in the deque) 
+
+
+
+Definition at line 89 of file dqacc.\-h.
+
+\hypertarget{struct__dq__statbuff_a738331e6f1d54405b568a4c032f8c8eb}{\index{\-\_\-dq\-\_\-statbuff@{\-\_\-dq\-\_\-statbuff}!memmapped@{memmapped}}
+\index{memmapped@{memmapped}!_dq_statbuff@{\-\_\-dq\-\_\-statbuff}}
+\subsubsection[{memmapped}]{\setlength{\rightskip}{0pt plus 5cm}ushort memmapped}}\label{struct__dq__statbuff_a738331e6f1d54405b568a4c032f8c8eb}
+
+
+1 if deque is memory mapped 
+
+
+
+Definition at line 90 of file dqacc.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+ulppk/\hyperlink{dqacc_8h}{dqacc.\-h}\end{DoxyCompactItemize}

@@ -1,0 +1,391 @@
+\hypertarget{mmpool_8c}{\section{ulppk/mmpool.c File Reference}
+\label{mmpool_8c}\index{ulppk/mmpool.\-c@{ulppk/mmpool.\-c}}
+}
+
+
+Memory Mapped Buffer Pool Module.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include $<$sys/types.\-h$>$}\\*
+{\ttfamily \#include $<$dirent.\-h$>$}\\*
+{\ttfamily \#include $<$stddef.\-h$>$}\\*
+{\ttfamily \#include $<$mmpool.\-h$>$}\\*
+{\ttfamily \#include $<$appenv.\-h$>$}\\*
+{\ttfamily \#include $<$diagnostics.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{mmpool_8h_ac1d859278019b946523decac0f4e9196}{B\-P\-C\-F\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-R\-E\-F} $\ast$ \hyperlink{mmpool_8c_a42bb980c58c4dbf289c141d03fbf3577}{mmpool\-\_\-buffx2refp} (\hyperlink{mmpool_8h_ae03d04e575f01b611b8f4fc473a6dd2a}{B\-P\-O\-O\-L\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$bphp, \hyperlink{mmpool_8h_af9c89c63e54c678d57572603a97df34d}{B\-P\-O\-O\-L\-\_\-\-I\-N\-D\-E\-X} bpx)
+\item 
+\hyperlink{mmpool_8h_ae03d04e575f01b611b8f4fc473a6dd2a}{B\-P\-O\-O\-L\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$ \hyperlink{mmpool_8c_a7b9cb9758503f9f1201f806e6786c40a}{mmpool\-\_\-define\-\_\-pool} (char name\mbox{[}\hyperlink{mmpool_8h_ab1c7dc5e75ad9fc419f257e4cab04365}{M\-M\-P\-O\-O\-L\-\_\-\-M\-A\-X\-\_\-\-P\-O\-O\-L\-\_\-\-N\-A\-M\-E}\mbox{]}, unsigned short bp\-\_\-id, size\-\_\-t max\-\_\-data\-\_\-size, unsigned short rqst\-\_\-capacity)
+\begin{DoxyCompactList}\small\item\em Define a buffer pool. If the pool has already been defined, no action is taken. A valid handle is returned. The status will be B\-P\-O\-O\-L\-\_\-\-O\-P\-E\-N\-E\-D\-\_\-\-R\-W to indicate the pool has been opened for read/write. \end{DoxyCompactList}\item 
+\hyperlink{mmpool_8h_ae03d04e575f01b611b8f4fc473a6dd2a}{B\-P\-O\-O\-L\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$ \hyperlink{mmpool_8c_ae5a9f957a7d32f425f42ec2db49ef54c}{mmpool\-\_\-open} (char $\ast$pool\-\_\-name)
+\item 
+int \hyperlink{mmpool_8c_a3cbb2d5d39098118ad2b6f3d70098060}{mmpool\-\_\-close} (\hyperlink{mmpool_8h_ae03d04e575f01b611b8f4fc473a6dd2a}{B\-P\-O\-O\-L\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$bphp)
+\begin{DoxyCompactList}\small\item\em Close a buffer pool and unmap all associated memory regions. \end{DoxyCompactList}\item 
+\hyperlink{mmpool_8h_ac1d859278019b946523decac0f4e9196}{B\-P\-C\-F\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-R\-E\-F} $\ast$ \hyperlink{mmpool_8c_aac9d8cec9e86dbac0fe4e521e23439dd}{mmpool\-\_\-getbuff} (\hyperlink{mmpool_8h_ae03d04e575f01b611b8f4fc473a6dd2a}{B\-P\-O\-O\-L\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$bphp)
+\begin{DoxyCompactList}\small\item\em Get a buffer from the pool. \end{DoxyCompactList}\item 
+int \hyperlink{mmpool_8c_ab88bdb549e979e098f4bcbe0cd229847}{mmpool\-\_\-putbuff} (\hyperlink{mmpool_8h_ae03d04e575f01b611b8f4fc473a6dd2a}{B\-P\-O\-O\-L\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$bphp, \hyperlink{mmpool_8h_ac1d859278019b946523decac0f4e9196}{B\-P\-C\-F\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-R\-E\-F} $\ast$buffp)
+\begin{DoxyCompactList}\small\item\em Return a buffer to the pool. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{mmpool_8c_a4bc697b6f1df1b3557cd4d86f0727384}{mmpool\-\_\-buffer\-\_\-data} (\hyperlink{mmpool_8h_ac1d859278019b946523decac0f4e9196}{B\-P\-C\-F\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-R\-E\-F} $\ast$buff\-\_\-refp)
+\begin{DoxyCompactList}\small\item\em Given a buffer reference, return a pointer to the memory mapped data region of the buffer. \end{DoxyCompactList}\item 
+\hyperlink{mmpool_8h_ac1d859278019b946523decac0f4e9196}{B\-P\-C\-F\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-R\-E\-F} $\ast$ \hyperlink{mmpool_8c_aa9f20f2ffc3828c1a5a8328532ac03d1}{mmpool\-\_\-buffer\-\_\-data2refp} (void $\ast$datap)
+\begin{DoxyCompactList}\small\item\em Given a valid buffer data pointer, return a pointer to its buffer reference. \end{DoxyCompactList}\item 
+\hyperlink{mmpool_8h_a0c142d5c3fd113592173c44a84ca032a}{B\-P\-M\-F\-\_\-\-S\-T\-A\-T\-S} $\ast$ \hyperlink{mmpool_8c_a0ec6d30e984bd6f1cf3bb3533b12e3c3}{mmpool\-\_\-getstats} (\hyperlink{mmpool_8h_ae03d04e575f01b611b8f4fc473a6dd2a}{B\-P\-O\-O\-L\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$bphp)
+\begin{DoxyCompactList}\small\item\em Get pointer to buffer pool stats structure. \end{DoxyCompactList}\item 
+unsigned short \hyperlink{mmpool_8c_aa58fb4c07a6ec250c7d4c9daf46406f4}{mmpool\-\_\-zap\-\_\-pool} (\hyperlink{mmpool_8h_ae03d04e575f01b611b8f4fc473a6dd2a}{B\-P\-O\-O\-L\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$bphp)
+\begin{DoxyCompactList}\small\item\em Deallocate all buffers currently out of the pool. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{mmpool_8c_aa928d0f2ba844916d6203c6cd74611ac}{mmpool\-\_\-bpmf\-\_\-filename} (char $\ast$pool\-\_\-name)
+\begin{DoxyCompactList}\small\item\em Given the symbolic name of a pool, derive the B\-P\-M\-F file name. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{mmpool_8c_afbb5d919a0e34315b0f6095c0f02cceb}{mmpool\-\_\-bpcf\-\_\-filename} (char $\ast$pool\-\_\-name)
+\begin{DoxyCompactList}\small\item\em Given the symbolic name of a pool, derive the B\-P\-C\-F file name (contents file) \end{DoxyCompactList}\item 
+int \hyperlink{mmpool_8c_af6c19f6fe58a1ffe59074091185b87c7}{mmpool\-\_\-bpfiles\-\_\-exist} (char $\ast$pool\-\_\-name)
+\item 
+\hyperlink{mmpool_8h_af9c89c63e54c678d57572603a97df34d}{B\-P\-O\-O\-L\-\_\-\-I\-N\-D\-E\-X} \hyperlink{mmpool_8c_a2f738e68e534a759f35752b61d983a7a}{mmpool\-\_\-refp2buffx} (\hyperlink{mmpool_8h_ac1d859278019b946523decac0f4e9196}{B\-P\-C\-F\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-R\-E\-F} $\ast$buff\-\_\-refp)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Memory Mapped Buffer Pool Module. Memory Mapped Buffer Pool Management.
+
+A buffer pool is a collection of memory blocks which can be allocated and returned to future use by calling applications. I some respects, its operation is reminiscent of standard C library's heap (malloc and free).
+
+But memory allocators behind malloc and free are considerably more sophisticated than a buffer pool. They allow allocation of arbitrarily sized blocks of memory, implement strategies to combat fragementation, etc. (See \href{http://gee.cs.oswego.edu/dl/html/malloc.html}{\tt http\-://gee.\-cs.\-oswego.\-edu/dl/html/malloc.\-html} for a good discussion.)
+
+Buffer pools are a less flexible but considerably faster memory allocation scheme. The applications code defines one or more pools of fixed size blocks.
+
+A buffer pool is characterized by 
+\begin{DoxyEnumerate}
+\item A logical name and numberic I\-D 
+\item The size of the buffers in bytes 
+\item The number of total buffers allocated to the pool 
+\item The number of unused buffers remaining in the pool 
+\end{DoxyEnumerate}
+
+See \hyperlink{mmpool_8h}{mmpool.\-h} for a discussion of the data structures. See the \hyperlink{mmbuffpool_8c}{mmbuffpool.\-c} utility, which is used to create, report, display and zap (clear out) buffer pools.)
+
+This package defines a persistent buffer pool. Buffers are mapped to disk files through the mmfor, mmapfile and mmatom mechanisms.
+
+A buffer pool consists of the following objects
+
+1) A B\-U\-F\-F\-E\-R P\-O\-O\-L M\-A\-N\-A\-G\-E\-M\-E\-N\-T F\-I\-L\-E (B\-P\-M\-F). This contains control structures necessary to manage the allocation and deallocation of buffers. 2) A B\-U\-F\-F\-E\-R P\-O\-O\-L C\-O\-N\-T\-E\-N\-T\-S F\-I\-L\-E (B\-P\-C\-F). This is a file of fixed length buffers (records).
+
+Both kinds of files are managed as memory mapped files.
+
+The B\-P\-M\-F consists of two deque headers (see \hyperlink{dqacc_8h}{dqacc.\-h}) and an array of deque items. Deque items are indices of buffers in the contents (B\-P\-C\-F) file. The two deque headers represent two sets of buffers. The first set contains the buffers \char`\"{}in the pool\char`\"{}, which are available for use. This is called the \char`\"{}in deque\char`\"{}, dq\-\_\-inpool. The second set are the buffers which have been allocated for use and are therefore \char`\"{}out of the pool\char`\"{}. This set is called the \char`\"{}out deque\char`\"{}, dq\-\_\-outpool.
+
+Each buffer in the B\-P\-C\-F file consists of a short control header and user specifed data.
+
+Manages pools of memory mapped fixed length records.
+
+B\-P\-M\-F == Buffer Pool Management Files. Contains information used to manage the state of the buffer pool. This structure contains two double ended queues (deques). One deque contains buffer pool indices of those buffers which have not been allocated and are hence \char`\"{}in the pool\char`\"{}. The other contains indices of those blocks have have been allocated and are hence \char`\"{}out of the pool\char`\"{} and presumably being used by processes.
+
+B\-P\-C\-F == Buffer Pool Content Files ... contains the actual buffers, an array of fixed length memory blocks. 
+
+Definition in file \hyperlink{mmpool_8c_source}{mmpool.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{mmpool_8c_afbb5d919a0e34315b0f6095c0f02cceb}{\index{mmpool.\-c@{mmpool.\-c}!mmpool\-\_\-bpcf\-\_\-filename@{mmpool\-\_\-bpcf\-\_\-filename}}
+\index{mmpool\-\_\-bpcf\-\_\-filename@{mmpool\-\_\-bpcf\-\_\-filename}!mmpool.c@{mmpool.\-c}}
+\subsubsection[{mmpool\-\_\-bpcf\-\_\-filename}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ mmpool\-\_\-bpcf\-\_\-filename (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{pool\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{mmpool_8c_afbb5d919a0e34315b0f6095c0f02cceb}
+
+
+Given the symbolic name of a pool, derive the B\-P\-C\-F file name (contents file) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pool\-\_\-name} & Symbolic name of the pool \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The name of the buffer pool management file (not full path). 
+\end{DoxyReturn}
+
+
+Definition at line 366 of file mmpool.\-c.
+
+\hypertarget{mmpool_8c_af6c19f6fe58a1ffe59074091185b87c7}{\index{mmpool.\-c@{mmpool.\-c}!mmpool\-\_\-bpfiles\-\_\-exist@{mmpool\-\_\-bpfiles\-\_\-exist}}
+\index{mmpool\-\_\-bpfiles\-\_\-exist@{mmpool\-\_\-bpfiles\-\_\-exist}!mmpool.c@{mmpool.\-c}}
+\subsubsection[{mmpool\-\_\-bpfiles\-\_\-exist}]{\setlength{\rightskip}{0pt plus 5cm}int mmpool\-\_\-bpfiles\-\_\-exist (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{pool\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{mmpool_8c_af6c19f6fe58a1ffe59074091185b87c7}
+
+
+Definition at line 376 of file mmpool.\-c.
+
+\hypertarget{mmpool_8c_aa928d0f2ba844916d6203c6cd74611ac}{\index{mmpool.\-c@{mmpool.\-c}!mmpool\-\_\-bpmf\-\_\-filename@{mmpool\-\_\-bpmf\-\_\-filename}}
+\index{mmpool\-\_\-bpmf\-\_\-filename@{mmpool\-\_\-bpmf\-\_\-filename}!mmpool.c@{mmpool.\-c}}
+\subsubsection[{mmpool\-\_\-bpmf\-\_\-filename}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ mmpool\-\_\-bpmf\-\_\-filename (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{pool\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{mmpool_8c_aa928d0f2ba844916d6203c6cd74611ac}
+
+
+Given the symbolic name of a pool, derive the B\-P\-M\-F file name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pool\-\_\-name} & Symbolic name of the pool \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The name of the buffer pool management file (not full path). 
+\end{DoxyReturn}
+
+
+Definition at line 354 of file mmpool.\-c.
+
+\hypertarget{mmpool_8c_a4bc697b6f1df1b3557cd4d86f0727384}{\index{mmpool.\-c@{mmpool.\-c}!mmpool\-\_\-buffer\-\_\-data@{mmpool\-\_\-buffer\-\_\-data}}
+\index{mmpool\-\_\-buffer\-\_\-data@{mmpool\-\_\-buffer\-\_\-data}!mmpool.c@{mmpool.\-c}}
+\subsubsection[{mmpool\-\_\-buffer\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ mmpool\-\_\-buffer\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{{\bf B\-P\-C\-F\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-R\-E\-F} $\ast$}]{buff\-\_\-refp}
+\end{DoxyParamCaption}
+)}}\label{mmpool_8c_a4bc697b6f1df1b3557cd4d86f0727384}
+
+
+Given a buffer reference, return a pointer to the memory mapped data region of the buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buff\-\_\-refp} & Pointer to a buffer reference structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the memory mapped buffer. 
+\end{DoxyReturn}
+
+
+Definition at line 288 of file mmpool.\-c.
+
+\hypertarget{mmpool_8c_aa9f20f2ffc3828c1a5a8328532ac03d1}{\index{mmpool.\-c@{mmpool.\-c}!mmpool\-\_\-buffer\-\_\-data2refp@{mmpool\-\_\-buffer\-\_\-data2refp}}
+\index{mmpool\-\_\-buffer\-\_\-data2refp@{mmpool\-\_\-buffer\-\_\-data2refp}!mmpool.c@{mmpool.\-c}}
+\subsubsection[{mmpool\-\_\-buffer\-\_\-data2refp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-P\-C\-F\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-R\-E\-F}$\ast$ mmpool\-\_\-buffer\-\_\-data2refp (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{datap}
+\end{DoxyParamCaption}
+)}}\label{mmpool_8c_aa9f20f2ffc3828c1a5a8328532ac03d1}
+
+
+Given a valid buffer data pointer, return a pointer to its buffer reference. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em datap} & Pointer to the memory mapped buffer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to a buffer reference structure. 
+\end{DoxyReturn}
+
+
+Definition at line 302 of file mmpool.\-c.
+
+\hypertarget{mmpool_8c_a42bb980c58c4dbf289c141d03fbf3577}{\index{mmpool.\-c@{mmpool.\-c}!mmpool\-\_\-buffx2refp@{mmpool\-\_\-buffx2refp}}
+\index{mmpool\-\_\-buffx2refp@{mmpool\-\_\-buffx2refp}!mmpool.c@{mmpool.\-c}}
+\subsubsection[{mmpool\-\_\-buffx2refp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-P\-C\-F\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-R\-E\-F} $\ast$ mmpool\-\_\-buffx2refp (
+\begin{DoxyParamCaption}
+\item[{{\bf B\-P\-O\-O\-L\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{bphp, }
+\item[{{\bf B\-P\-O\-O\-L\-\_\-\-I\-N\-D\-E\-X}}]{bpx}
+\end{DoxyParamCaption}
+)}}\label{mmpool_8c_a42bb980c58c4dbf289c141d03fbf3577}
+
+
+Definition at line 616 of file mmpool.\-c.
+
+\hypertarget{mmpool_8c_a3cbb2d5d39098118ad2b6f3d70098060}{\index{mmpool.\-c@{mmpool.\-c}!mmpool\-\_\-close@{mmpool\-\_\-close}}
+\index{mmpool\-\_\-close@{mmpool\-\_\-close}!mmpool.c@{mmpool.\-c}}
+\subsubsection[{mmpool\-\_\-close}]{\setlength{\rightskip}{0pt plus 5cm}int mmpool\-\_\-close (
+\begin{DoxyParamCaption}
+\item[{{\bf B\-P\-O\-O\-L\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{bphp}
+\end{DoxyParamCaption}
+)}}\label{mmpool_8c_a3cbb2d5d39098118ad2b6f3d70098060}
+
+
+Close a buffer pool and unmap all associated memory regions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bphp} & Pointer to buffer pool handle structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, non-\/zero on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 215 of file mmpool.\-c.
+
+\hypertarget{mmpool_8c_a7b9cb9758503f9f1201f806e6786c40a}{\index{mmpool.\-c@{mmpool.\-c}!mmpool\-\_\-define\-\_\-pool@{mmpool\-\_\-define\-\_\-pool}}
+\index{mmpool\-\_\-define\-\_\-pool@{mmpool\-\_\-define\-\_\-pool}!mmpool.c@{mmpool.\-c}}
+\subsubsection[{mmpool\-\_\-define\-\_\-pool}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-P\-O\-O\-L\-\_\-\-H\-A\-N\-D\-L\-E}$\ast$ mmpool\-\_\-define\-\_\-pool (
+\begin{DoxyParamCaption}
+\item[{char}]{name\mbox{[}\-M\-M\-P\-O\-O\-L\-\_\-\-M\-A\-X\-\_\-\-P\-O\-O\-L\-\_\-\-N\-A\-M\-E\mbox{]}, }
+\item[{unsigned short}]{bp\-\_\-id, }
+\item[{size\-\_\-t}]{max\-\_\-data\-\_\-size, }
+\item[{unsigned short}]{rqst\-\_\-capacity}
+\end{DoxyParamCaption}
+)}}\label{mmpool_8c_a7b9cb9758503f9f1201f806e6786c40a}
+
+
+Define a buffer pool. If the pool has already been defined, no action is taken. A valid handle is returned. The status will be B\-P\-O\-O\-L\-\_\-\-O\-P\-E\-N\-E\-D\-\_\-\-R\-W to indicate the pool has been opened for read/write. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Symbolic name of the pool \\
+\hline
+{\em bp\-\_\-id} & Buffer pool I\-D assigned by the caller. \\
+\hline
+{\em max\-\_\-data\-\_\-size} & Max number of user bytes to be written to these buffers \\
+\hline
+{\em rqst\-\_\-capacity} & Min number of buffers to allocate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to buffer pool handle. 
+\end{DoxyReturn}
+
+
+Definition at line 120 of file mmpool.\-c.
+
+\hypertarget{mmpool_8c_aac9d8cec9e86dbac0fe4e521e23439dd}{\index{mmpool.\-c@{mmpool.\-c}!mmpool\-\_\-getbuff@{mmpool\-\_\-getbuff}}
+\index{mmpool\-\_\-getbuff@{mmpool\-\_\-getbuff}!mmpool.c@{mmpool.\-c}}
+\subsubsection[{mmpool\-\_\-getbuff}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-P\-C\-F\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-R\-E\-F}$\ast$ mmpool\-\_\-getbuff (
+\begin{DoxyParamCaption}
+\item[{{\bf B\-P\-O\-O\-L\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{bphp}
+\end{DoxyParamCaption}
+)}}\label{mmpool_8c_aac9d8cec9e86dbac0fe4e521e23439dd}
+
+
+Get a buffer from the pool. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bphp} & Pointer to buffer pool handle structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to a buffer reference structure. 
+\end{DoxyReturn}
+
+
+Definition at line 239 of file mmpool.\-c.
+
+\hypertarget{mmpool_8c_a0ec6d30e984bd6f1cf3bb3533b12e3c3}{\index{mmpool.\-c@{mmpool.\-c}!mmpool\-\_\-getstats@{mmpool\-\_\-getstats}}
+\index{mmpool\-\_\-getstats@{mmpool\-\_\-getstats}!mmpool.c@{mmpool.\-c}}
+\subsubsection[{mmpool\-\_\-getstats}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-P\-M\-F\-\_\-\-S\-T\-A\-T\-S}$\ast$ mmpool\-\_\-getstats (
+\begin{DoxyParamCaption}
+\item[{{\bf B\-P\-O\-O\-L\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{bphp}
+\end{DoxyParamCaption}
+)}}\label{mmpool_8c_a0ec6d30e984bd6f1cf3bb3533b12e3c3}
+
+
+Get pointer to buffer pool stats structure. 
+
+This provides the current state of buffer pool status and statistics.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bphp} & Pointer to buffer pool handle structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to buffer pool stats structure. 
+\end{DoxyReturn}
+
+
+Definition at line 317 of file mmpool.\-c.
+
+\hypertarget{mmpool_8c_ae5a9f957a7d32f425f42ec2db49ef54c}{\index{mmpool.\-c@{mmpool.\-c}!mmpool\-\_\-open@{mmpool\-\_\-open}}
+\index{mmpool\-\_\-open@{mmpool\-\_\-open}!mmpool.c@{mmpool.\-c}}
+\subsubsection[{mmpool\-\_\-open}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-P\-O\-O\-L\-\_\-\-H\-A\-N\-D\-L\-E}$\ast$ mmpool\-\_\-open (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{pool\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{mmpool_8c_ae5a9f957a7d32f425f42ec2db49ef54c}
+Open a buffer pool. If the pool does not exist or another error occurs, this function returns N\-U\-L\-L. Otherwise it returns a pointer to a B\-P\-O\-O\-L\-\_\-\-H\-A\-N\-D\-L\-E. 
+\begin{DoxyParams}{Parameters}
+{\em pool\-\_\-name} & Symbolic name of the buffer pool \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 171 of file mmpool.\-c.
+
+\hypertarget{mmpool_8c_ab88bdb549e979e098f4bcbe0cd229847}{\index{mmpool.\-c@{mmpool.\-c}!mmpool\-\_\-putbuff@{mmpool\-\_\-putbuff}}
+\index{mmpool\-\_\-putbuff@{mmpool\-\_\-putbuff}!mmpool.c@{mmpool.\-c}}
+\subsubsection[{mmpool\-\_\-putbuff}]{\setlength{\rightskip}{0pt plus 5cm}int mmpool\-\_\-putbuff (
+\begin{DoxyParamCaption}
+\item[{{\bf B\-P\-O\-O\-L\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{bphp, }
+\item[{{\bf B\-P\-C\-F\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-R\-E\-F} $\ast$}]{buffp}
+\end{DoxyParamCaption}
+)}}\label{mmpool_8c_ab88bdb549e979e098f4bcbe0cd229847}
+
+
+Return a buffer to the pool. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bphp} & Pointer to buffer pool handle structure. \\
+\hline
+{\em buffp} & Pointer to buffer reference structure of buffer to return \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to a buffer reference structure. 
+
+0 if successful, non-\/zero error code otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 262 of file mmpool.\-c.
+
+\hypertarget{mmpool_8c_a2f738e68e534a759f35752b61d983a7a}{\index{mmpool.\-c@{mmpool.\-c}!mmpool\-\_\-refp2buffx@{mmpool\-\_\-refp2buffx}}
+\index{mmpool\-\_\-refp2buffx@{mmpool\-\_\-refp2buffx}!mmpool.c@{mmpool.\-c}}
+\subsubsection[{mmpool\-\_\-refp2buffx}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\-P\-O\-O\-L\-\_\-\-I\-N\-D\-E\-X} mmpool\-\_\-refp2buffx (
+\begin{DoxyParamCaption}
+\item[{{\bf B\-P\-C\-F\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-R\-E\-F} $\ast$}]{buff\-\_\-refp}
+\end{DoxyParamCaption}
+)}}\label{mmpool_8c_a2f738e68e534a759f35752b61d983a7a}
+
+
+Definition at line 623 of file mmpool.\-c.
+
+\hypertarget{mmpool_8c_aa58fb4c07a6ec250c7d4c9daf46406f4}{\index{mmpool.\-c@{mmpool.\-c}!mmpool\-\_\-zap\-\_\-pool@{mmpool\-\_\-zap\-\_\-pool}}
+\index{mmpool\-\_\-zap\-\_\-pool@{mmpool\-\_\-zap\-\_\-pool}!mmpool.c@{mmpool.\-c}}
+\subsubsection[{mmpool\-\_\-zap\-\_\-pool}]{\setlength{\rightskip}{0pt plus 5cm}unsigned short mmpool\-\_\-zap\-\_\-pool (
+\begin{DoxyParamCaption}
+\item[{{\bf B\-P\-O\-O\-L\-\_\-\-H\-A\-N\-D\-L\-E} $\ast$}]{bphp}
+\end{DoxyParamCaption}
+)}}\label{mmpool_8c_aa58fb4c07a6ec250c7d4c9daf46406f4}
+
+
+Deallocate all buffers currently out of the pool. 
+
+Zap 'em clean and put them back in the \char`\"{}in pool\char`\"{} deque.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bphp} & Pointer to buffer pool handle structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+count of items returned to the pool. 
+\end{DoxyReturn}
+
+
+Definition at line 329 of file mmpool.\-c.
+

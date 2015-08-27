@@ -1,0 +1,124 @@
+\hypertarget{appenv_8c}{\section{ulppk/appenv.c File Reference}
+\label{appenv_8c}\index{ulppk/appenv.\-c@{ulppk/appenv.\-c}}
+}
+
+
+Application environment access methods.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}appenv.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}diagnostics.\-h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_e_n_v___t_r_e_e}{E\-N\-V\-\_\-\-T\-R\-E\-E}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{appenv_8c_a634462ff00e37a683c85e854b3d2f09e}{appenv\-\_\-register\-\_\-env\-\_\-var} (const char $\ast$varname, const char $\ast$defaultval)
+\item 
+char $\ast$ \hyperlink{appenv_8c_aab6d2988f6bf65ce3d6d090d2af18396}{appenv\-\_\-set\-\_\-env\-\_\-var} (const char $\ast$varname, const char $\ast$val)
+\item 
+char $\ast$ \hyperlink{appenv_8c_a49b6138b15f235330ce54a91cbc2520a}{appenv\-\_\-read\-\_\-env\-\_\-var} (const char $\ast$varname)
+\item 
+int \hyperlink{appenv_8c_aa814371fc2458e6e68cbb86d2a7e2044}{appenv\-\_\-report} (F\-I\-L\-E $\ast$fout)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Application environment access methods. This package provides a robust facility for accessing and managing environment variables.
+
+Environment variables that are of significance to the application should be identified by calling appenv\-\_\-register\-\_\-env\-\_\-var. At registration sensible defaults can be established, if the environment does not establish an overriding value. Applications code can then call appenv\-\_\-read\-\_\-env\-\_\-var and be assured that a reasonable value is returned. 
+
+Definition in file \hyperlink{appenv_8c_source}{appenv.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{appenv_8c_a49b6138b15f235330ce54a91cbc2520a}{\index{appenv.\-c@{appenv.\-c}!appenv\-\_\-read\-\_\-env\-\_\-var@{appenv\-\_\-read\-\_\-env\-\_\-var}}
+\index{appenv\-\_\-read\-\_\-env\-\_\-var@{appenv\-\_\-read\-\_\-env\-\_\-var}!appenv.c@{appenv.\-c}}
+\subsubsection[{appenv\-\_\-read\-\_\-env\-\_\-var}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ appenv\-\_\-read\-\_\-env\-\_\-var (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{varname}
+\end{DoxyParamCaption}
+)}}\label{appenv_8c_a49b6138b15f235330ce54a91cbc2520a}
+Obtain the value of a registered environment variable. 
+\begin{DoxyParams}{Parameters}
+{\em varname} & Name of the environment variable to register \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String value of environment variable 
+\end{DoxyReturn}
+
+
+Definition at line 210 of file appenv.\-c.
+
+\hypertarget{appenv_8c_a634462ff00e37a683c85e854b3d2f09e}{\index{appenv.\-c@{appenv.\-c}!appenv\-\_\-register\-\_\-env\-\_\-var@{appenv\-\_\-register\-\_\-env\-\_\-var}}
+\index{appenv\-\_\-register\-\_\-env\-\_\-var@{appenv\-\_\-register\-\_\-env\-\_\-var}!appenv.c@{appenv.\-c}}
+\subsubsection[{appenv\-\_\-register\-\_\-env\-\_\-var}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ appenv\-\_\-register\-\_\-env\-\_\-var (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{varname, }
+\item[{const char $\ast$}]{defaultval}
+\end{DoxyParamCaption}
+)}}\label{appenv_8c_a634462ff00e37a683c85e854b3d2f09e}
+Register an environment variable. If the environment does not define the variable, create an \hyperlink{struct_e_n_v___n_o_d_e}{E\-N\-V\-\_\-\-N\-O\-D\-E} and assign the default value. (A N\-U\-L\-L value is allowed, but will be interpreted as \char`\"{}set it to empty string\char`\"{}.) If the environment does define the variable, create a new \hyperlink{struct_e_n_v___n_o_d_e}{E\-N\-V\-\_\-\-N\-O\-D\-E}, do a getenv and store the value in the node. Return the established (default or retrieved) value to the caller.
+
+Note that the calling application must N\-O\-T alter the data referenced by the returned pointer, nor free it.
+
+
+\begin{DoxyParams}{Parameters}
+{\em varname} & Name of the environment variable to register \\
+\hline
+{\em defaultval} & Default value to assigned if not provided by the shell environment \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String value of the environment variable 
+\end{DoxyReturn}
+
+
+Definition at line 119 of file appenv.\-c.
+
+\hypertarget{appenv_8c_aa814371fc2458e6e68cbb86d2a7e2044}{\index{appenv.\-c@{appenv.\-c}!appenv\-\_\-report@{appenv\-\_\-report}}
+\index{appenv\-\_\-report@{appenv\-\_\-report}!appenv.c@{appenv.\-c}}
+\subsubsection[{appenv\-\_\-report}]{\setlength{\rightskip}{0pt plus 5cm}int appenv\-\_\-report (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{fout}
+\end{DoxyParamCaption}
+)}}\label{appenv_8c_aa814371fc2458e6e68cbb86d2a7e2044}
+Report on all registered environment variables. Print to the file stream provided. 
+\begin{DoxyParams}{Parameters}
+{\em fout} & File stream for writing the report out. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 228 of file appenv.\-c.
+
+\hypertarget{appenv_8c_aab6d2988f6bf65ce3d6d090d2af18396}{\index{appenv.\-c@{appenv.\-c}!appenv\-\_\-set\-\_\-env\-\_\-var@{appenv\-\_\-set\-\_\-env\-\_\-var}}
+\index{appenv\-\_\-set\-\_\-env\-\_\-var@{appenv\-\_\-set\-\_\-env\-\_\-var}!appenv.c@{appenv.\-c}}
+\subsubsection[{appenv\-\_\-set\-\_\-env\-\_\-var}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ appenv\-\_\-set\-\_\-env\-\_\-var (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{varname, }
+\item[{const char $\ast$}]{val}
+\end{DoxyParamCaption}
+)}}\label{appenv_8c_aab6d2988f6bf65ce3d6d090d2af18396}
+Set the value of an environment variable. Unlike appenv\-\_\-register\-\_\-env\-\_\-var, this function will cause an value set by the shell to be overriden. 
+\begin{DoxyParams}{Parameters}
+{\em varname} & Name of the environment variable to register \\
+\hline
+{\em val} & Value to assign to environment variable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String value assigned to environment variable 
+\end{DoxyReturn}
+
+
+Definition at line 168 of file appenv.\-c.
+

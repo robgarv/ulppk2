@@ -1,0 +1,116 @@
+\hypertarget{struct_m_m_a___m_e_m_m_a_p___r_e_f}{\section{M\-M\-A\-\_\-\-M\-E\-M\-M\-A\-P\-\_\-\-R\-E\-F Struct Reference}
+\label{struct_m_m_a___m_e_m_m_a_p___r_e_f}\index{M\-M\-A\-\_\-\-M\-E\-M\-M\-A\-P\-\_\-\-R\-E\-F@{M\-M\-A\-\_\-\-M\-E\-M\-M\-A\-P\-\_\-\-R\-E\-F}}
+}
+
+
+{\ttfamily \#include $<$mmatom.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{struct_m_m_a___m_e_m_m_a_p___r_e_f_ae5bd6c22dbf0f6b5b0ae0233f8eb3704}{addr}
+\begin{DoxyCompactList}\small\item\em address hint. Normally 0 \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{struct_m_m_a___m_e_m_m_a_p___r_e_f_a7360b55975153b822efc5217b7734e6a}{len}
+\begin{DoxyCompactList}\small\item\em length of the memory mapped region \end{DoxyCompactList}\item 
+int \hyperlink{struct_m_m_a___m_e_m_m_a_p___r_e_f_a55eaf976f72b18e313862d8f549a4ef0}{prot}
+\begin{DoxyCompactList}\small\item\em protection mode bits \end{DoxyCompactList}\item 
+int \hyperlink{struct_m_m_a___m_e_m_m_a_p___r_e_f_ac8bf36fe0577cba66bccda3a6f7e80a4}{flags}
+\begin{DoxyCompactList}\small\item\em flag bits (M\-A\-P\-\_\-\-S\-H\-A\-R\-E\-D, M\-A\-P\-\_\-\-P\-R\-I\-V\-A\-T\-E, M\-A\-P\-\_\-\-F\-I\-X\-E\-D) \end{DoxyCompactList}\item 
+int \hyperlink{struct_m_m_a___m_e_m_m_a_p___r_e_f_ac657804269d18c2152f07bc54c20874d}{filedes}
+\begin{DoxyCompactList}\small\item\em file descriptor of underlying object \end{DoxyCompactList}\item 
+off\-\_\-t \hyperlink{struct_m_m_a___m_e_m_m_a_p___r_e_f_ae55cdc1a5c5d6998036cdc48050636a9}{off}
+\begin{DoxyCompactList}\small\item\em offset \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{struct_m_m_a___m_e_m_m_a_p___r_e_f_ae642ac0c16c7fa1c32b7612e9734db81}{pa}
+\begin{DoxyCompactList}\small\item\em returned from mmap ... pointer to memory mapped area \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Mapped memory region reference 
+
+Definition at line 87 of file mmatom.\-h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{struct_m_m_a___m_e_m_m_a_p___r_e_f_ae5bd6c22dbf0f6b5b0ae0233f8eb3704}{\index{M\-M\-A\-\_\-\-M\-E\-M\-M\-A\-P\-\_\-\-R\-E\-F@{M\-M\-A\-\_\-\-M\-E\-M\-M\-A\-P\-\_\-\-R\-E\-F}!addr@{addr}}
+\index{addr@{addr}!MMA_MEMMAP_REF@{M\-M\-A\-\_\-\-M\-E\-M\-M\-A\-P\-\_\-\-R\-E\-F}}
+\subsubsection[{addr}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ addr}}\label{struct_m_m_a___m_e_m_m_a_p___r_e_f_ae5bd6c22dbf0f6b5b0ae0233f8eb3704}
+
+
+address hint. Normally 0 
+
+
+
+Definition at line 88 of file mmatom.\-h.
+
+\hypertarget{struct_m_m_a___m_e_m_m_a_p___r_e_f_ac657804269d18c2152f07bc54c20874d}{\index{M\-M\-A\-\_\-\-M\-E\-M\-M\-A\-P\-\_\-\-R\-E\-F@{M\-M\-A\-\_\-\-M\-E\-M\-M\-A\-P\-\_\-\-R\-E\-F}!filedes@{filedes}}
+\index{filedes@{filedes}!MMA_MEMMAP_REF@{M\-M\-A\-\_\-\-M\-E\-M\-M\-A\-P\-\_\-\-R\-E\-F}}
+\subsubsection[{filedes}]{\setlength{\rightskip}{0pt plus 5cm}int filedes}}\label{struct_m_m_a___m_e_m_m_a_p___r_e_f_ac657804269d18c2152f07bc54c20874d}
+
+
+file descriptor of underlying object 
+
+
+
+Definition at line 92 of file mmatom.\-h.
+
+\hypertarget{struct_m_m_a___m_e_m_m_a_p___r_e_f_ac8bf36fe0577cba66bccda3a6f7e80a4}{\index{M\-M\-A\-\_\-\-M\-E\-M\-M\-A\-P\-\_\-\-R\-E\-F@{M\-M\-A\-\_\-\-M\-E\-M\-M\-A\-P\-\_\-\-R\-E\-F}!flags@{flags}}
+\index{flags@{flags}!MMA_MEMMAP_REF@{M\-M\-A\-\_\-\-M\-E\-M\-M\-A\-P\-\_\-\-R\-E\-F}}
+\subsubsection[{flags}]{\setlength{\rightskip}{0pt plus 5cm}int flags}}\label{struct_m_m_a___m_e_m_m_a_p___r_e_f_ac8bf36fe0577cba66bccda3a6f7e80a4}
+
+
+flag bits (M\-A\-P\-\_\-\-S\-H\-A\-R\-E\-D, M\-A\-P\-\_\-\-P\-R\-I\-V\-A\-T\-E, M\-A\-P\-\_\-\-F\-I\-X\-E\-D) 
+
+
+
+Definition at line 91 of file mmatom.\-h.
+
+\hypertarget{struct_m_m_a___m_e_m_m_a_p___r_e_f_a7360b55975153b822efc5217b7734e6a}{\index{M\-M\-A\-\_\-\-M\-E\-M\-M\-A\-P\-\_\-\-R\-E\-F@{M\-M\-A\-\_\-\-M\-E\-M\-M\-A\-P\-\_\-\-R\-E\-F}!len@{len}}
+\index{len@{len}!MMA_MEMMAP_REF@{M\-M\-A\-\_\-\-M\-E\-M\-M\-A\-P\-\_\-\-R\-E\-F}}
+\subsubsection[{len}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t len}}\label{struct_m_m_a___m_e_m_m_a_p___r_e_f_a7360b55975153b822efc5217b7734e6a}
+
+
+length of the memory mapped region 
+
+
+
+Definition at line 89 of file mmatom.\-h.
+
+\hypertarget{struct_m_m_a___m_e_m_m_a_p___r_e_f_ae55cdc1a5c5d6998036cdc48050636a9}{\index{M\-M\-A\-\_\-\-M\-E\-M\-M\-A\-P\-\_\-\-R\-E\-F@{M\-M\-A\-\_\-\-M\-E\-M\-M\-A\-P\-\_\-\-R\-E\-F}!off@{off}}
+\index{off@{off}!MMA_MEMMAP_REF@{M\-M\-A\-\_\-\-M\-E\-M\-M\-A\-P\-\_\-\-R\-E\-F}}
+\subsubsection[{off}]{\setlength{\rightskip}{0pt plus 5cm}off\-\_\-t off}}\label{struct_m_m_a___m_e_m_m_a_p___r_e_f_ae55cdc1a5c5d6998036cdc48050636a9}
+
+
+offset 
+
+
+
+Definition at line 93 of file mmatom.\-h.
+
+\hypertarget{struct_m_m_a___m_e_m_m_a_p___r_e_f_ae642ac0c16c7fa1c32b7612e9734db81}{\index{M\-M\-A\-\_\-\-M\-E\-M\-M\-A\-P\-\_\-\-R\-E\-F@{M\-M\-A\-\_\-\-M\-E\-M\-M\-A\-P\-\_\-\-R\-E\-F}!pa@{pa}}
+\index{pa@{pa}!MMA_MEMMAP_REF@{M\-M\-A\-\_\-\-M\-E\-M\-M\-A\-P\-\_\-\-R\-E\-F}}
+\subsubsection[{pa}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ pa}}\label{struct_m_m_a___m_e_m_m_a_p___r_e_f_ae642ac0c16c7fa1c32b7612e9734db81}
+
+
+returned from mmap ... pointer to memory mapped area 
+
+
+
+Definition at line 94 of file mmatom.\-h.
+
+\hypertarget{struct_m_m_a___m_e_m_m_a_p___r_e_f_a55eaf976f72b18e313862d8f549a4ef0}{\index{M\-M\-A\-\_\-\-M\-E\-M\-M\-A\-P\-\_\-\-R\-E\-F@{M\-M\-A\-\_\-\-M\-E\-M\-M\-A\-P\-\_\-\-R\-E\-F}!prot@{prot}}
+\index{prot@{prot}!MMA_MEMMAP_REF@{M\-M\-A\-\_\-\-M\-E\-M\-M\-A\-P\-\_\-\-R\-E\-F}}
+\subsubsection[{prot}]{\setlength{\rightskip}{0pt plus 5cm}int prot}}\label{struct_m_m_a___m_e_m_m_a_p___r_e_f_a55eaf976f72b18e313862d8f549a4ef0}
+
+
+protection mode bits 
+
+
+
+Definition at line 90 of file mmatom.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+ulppk/\hyperlink{mmatom_8h}{mmatom.\-h}\end{DoxyCompactItemize}

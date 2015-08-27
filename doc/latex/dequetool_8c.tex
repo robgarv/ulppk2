@@ -1,0 +1,103 @@
+\hypertarget{dequetool_8c}{\section{src/dequetool.c File Reference}
+\label{dequetool_8c}\index{src/dequetool.\-c@{src/dequetool.\-c}}
+}
+
+
+Deque maintenance utility.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stddef.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include $<$sys/types.\-h$>$}\\*
+{\ttfamily \#include $<$sys/stat.\-h$>$}\\*
+{\ttfamily \#include $<$limits.\-h$>$}\\*
+{\ttfamily \#include $<$appenv.\-h$>$}\\*
+{\ttfamily \#include $<$diagnostics.\-h$>$}\\*
+{\ttfamily \#include $<$cmdargs.\-h$>$}\\*
+{\ttfamily \#include $<$mmdeque.\-h$>$}\\*
+{\ttfamily \#include $<$mmrpt\-\_\-deque.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{dequetool_8c_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{dequetool_8c_abebb5d0dd5483dfe1482865b01680450}{ebuff} \mbox{[}2046\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Deque maintenance utility. dequetool provides features for manipulating memory mapped double ended queues. These features include\-: 
+\begin{DoxyItemize}
+\item -\/c --create \-: Create a memory mapped double ended queue 
+\item -\/r --report \-: Report status of the memory mapped double ended queue 
+\item -\/z --zap \-: Zap (reset) a memory mapped double ended queue 
+\item -\/i --inject \-: Inject data onto the bottom of a memory mapped double ended queue 
+\item -\/e --extract \-: Extract data from the top a memory mapped double ended queue 
+\item -\/b --binary \-: For inject/extract operations use binary transfer mode 
+\item -\/h --help \-: command line help 
+\item -\/d --directory \-: Data directory -- overrides env var M\-M\-D\-Q\-\_\-\-D\-I\-R\-\_\-\-P\-A\-T\-H (default /var/ulppk/data) 
+\item -\/q --queue \-: Name of the double ended queue (filename w/o extension) 
+\item -\/f --file \-: Name of file that is source of data for injection (-\/i) or destination for extraction (-\/e)  
+\item -\/n --nitems \-: Number of items the dequeue can contain. (create option only)  
+\item -\/s --sizeofitem \-: Size of a deque item in bytes (create otion only) 
+\end{DoxyItemize}
+
+About transfer modes for the inject and extract operations. The issue revolves around deque item size and the number of items required to transmit the contents of a file. To illustrate, let's assum the deque item size is 5 bytes and the file we want to inject is 16 bytes long. This will require 4 items ... and one of them will only contain one byte. However when we extract the data, the last item popped from the deque will contain that last data byte and four trailing nulls. If that is unimportant, or if item size is 1 byte, then ascii transfer mode is adequate.
+
+However, if item size is not one byte and a file written with extracted data M\-U\-S\-T be of the same length as the original file, binary transfer mode is necessary. Items in binary transfer mode are written with a header so that only valid data bytes are written to the output file.
+
+Examples\-:
+
+Create a deque that can hold 20 64 byte records. The deque is called mydeque and will be implemented as a file at /var/ulppk2/memfiles/mydeque.dq
+
+dequetool -\/c -\/q mydeque -\/d /var/ulppk2/memfiles -\/n 20 -\/s 64
+
+Report on the deque just created.
+
+dequetool -\/r -\/q mydeque -\/d /var/ulppk2/memfiles
+
+Inject data in file foo.\-txt into the deque using ascii transfer mode.
+
+dequetool -\/i -\/q mydeque -\/d /var/ulppk2/memfiles -\/f foo.\-txt
+
+Extract data from the deque into the file bar.\-txt using ascii transfer mode.
+
+dequetool -\/e -\/q mydeque -\/d /var/ulppk2/memfiles -\/f bar.\-txt
+
+Zap this deque ... resets it to the empty state
+
+dequetool -\/z -\/q mydeque -\/d /var/ulppk2/memfiles 
+
+Definition in file \hyperlink{dequetool_8c_source}{dequetool.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{dequetool_8c_a0ddf1224851353fc92bfbff6f499fa97}{\index{dequetool.\-c@{dequetool.\-c}!main@{main}}
+\index{main@{main}!dequetool.c@{dequetool.\-c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{dequetool_8c_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+Definition at line 440 of file dequetool.\-c.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{dequetool_8c_abebb5d0dd5483dfe1482865b01680450}{\index{dequetool.\-c@{dequetool.\-c}!ebuff@{ebuff}}
+\index{ebuff@{ebuff}!dequetool.c@{dequetool.\-c}}
+\subsubsection[{ebuff}]{\setlength{\rightskip}{0pt plus 5cm}char ebuff\mbox{[}2046\mbox{]}}}\label{dequetool_8c_abebb5d0dd5483dfe1482865b01680450}
+
+
+Definition at line 101 of file dequetool.\-c.
+

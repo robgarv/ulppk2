@@ -1,0 +1,7 @@
+# Configure for debugging. mainly, turns 
+# off optimization and sets -g 
+# use set -DULPPK_DEBUG if you want increased debug output
+# to the screen
+# env CFLAGS="-g -I. -DULPPK_DEBUG" ./configure
+env CFLAGS="-g -O0 -I." ./configure
+

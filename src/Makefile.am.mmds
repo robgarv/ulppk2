@@ -1,0 +1,15 @@
+AM_CFLAGS = -I$(top_srcdir) @ulppkproc_inc@
+testbindir = $(top_srcdir)/../testbin
+AM_LDFLAGS = -lulppkproc -lulppkmmds @ulppkproc_libflags@ @ulppkmmds_libflags@
+TESTS = test-memmapio
+check_PROGRAMS = test-memmapio printinfo
+test_memmapio_SOURCES = test-memmapio.c
+printinfo_SOURCES = printinfo.c
+bin_PROGRAMS = dequetool mmatomx mmbuffpool
+dequetool_SOURCE = dequetool.c
+mmatomx_SOURCES = mmatomx.c
+mmbuffpool_SOURCES = mmbuffpool.c
+
+
+
+

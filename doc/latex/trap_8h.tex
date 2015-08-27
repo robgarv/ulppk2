@@ -1,0 +1,92 @@
+\hypertarget{trap_8h}{\section{ulppk/trap.h File Reference}
+\label{trap_8h}\index{ulppk/trap.\-h@{ulppk/trap.\-h}}
+}
+{\ttfamily \#include $<$ifile.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{trap_8h_a1d87e482edbb84f52b378e13112ac005}{trap\-\_\-read\-\_\-trapfile} (\hyperlink{struct_i_n_i_f_i_l_e___n_o_d_e}{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E} $\ast$inifilep)
+\begin{DoxyCompactList}\small\item\em Get the trap file name from the system initialization file. The function presumes sysconfig\-\_\-parse\-\_\-inifile has already occurred. \end{DoxyCompactList}\item 
+int \hyperlink{trap_8h_a1d2232e9a45988578fcc60634f25e019}{trap\-\_\-set\-\_\-flag\-\_\-file} (char $\ast$filepath)
+\item 
+int \hyperlink{trap_8h_a1281c9216bff80ccce9e23f3ece9c0d3}{trap\-\_\-test} (const char $\ast$trap\-\_\-name)
+\begin{DoxyCompactList}\small\item\em Return true if the named flag in the trap settings file is on. \end{DoxyCompactList}\item 
+void \hyperlink{trap_8h_abe1776ccf2626cd4aff9446b9e7a28bd}{trap\-\_\-attach\-\_\-debugger} (const char $\ast$trap\-\_\-name, const char $\ast$comment)
+\begin{DoxyCompactList}\small\item\em Hold up processing until the developer can attach the debugger to the blocked process. This function loops until the variable debugflag becomes non-\/zero. In gdb, this can be done by attaching to the process and entering the command \char`\"{}print debugflag=1\char`\"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{trap_8h_abe1776ccf2626cd4aff9446b9e7a28bd}{\index{trap.\-h@{trap.\-h}!trap\-\_\-attach\-\_\-debugger@{trap\-\_\-attach\-\_\-debugger}}
+\index{trap\-\_\-attach\-\_\-debugger@{trap\-\_\-attach\-\_\-debugger}!trap.h@{trap.\-h}}
+\subsubsection[{trap\-\_\-attach\-\_\-debugger}]{\setlength{\rightskip}{0pt plus 5cm}void trap\-\_\-attach\-\_\-debugger (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{trap\-\_\-name, }
+\item[{const char $\ast$}]{comment}
+\end{DoxyParamCaption}
+)}}\label{trap_8h_abe1776ccf2626cd4aff9446b9e7a28bd}
+
+
+Hold up processing until the developer can attach the debugger to the blocked process. This function loops until the variable debugflag becomes non-\/zero. In gdb, this can be done by attaching to the process and entering the command \char`\"{}print debugflag=1\char`\"{}. 
+
+The comment provided is written to the log file along with a T\-R\-A\-P advisoring given the pid of the blocked process.
+
+
+\begin{DoxyParams}{Parameters}
+{\em trap\-\_\-name} & -- name of the trap. If the trap is on, the blocking loop is engaged. \\
+\hline
+{\em comment} & -- comment to deposit in log file. Usually the program name. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 154 of file trap.\-c.
+
+\hypertarget{trap_8h_a1d87e482edbb84f52b378e13112ac005}{\index{trap.\-h@{trap.\-h}!trap\-\_\-read\-\_\-trapfile@{trap\-\_\-read\-\_\-trapfile}}
+\index{trap\-\_\-read\-\_\-trapfile@{trap\-\_\-read\-\_\-trapfile}!trap.h@{trap.\-h}}
+\subsubsection[{trap\-\_\-read\-\_\-trapfile}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ trap\-\_\-read\-\_\-trapfile (
+\begin{DoxyParamCaption}
+\item[{{\bf I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E} $\ast$}]{inifilep}
+\end{DoxyParamCaption}
+)}}\label{trap_8h_a1d87e482edbb84f52b378e13112ac005}
+
+
+Get the trap file name from the system initialization file. The function presumes sysconfig\-\_\-parse\-\_\-inifile has already occurred. 
+
+The trapfile is specified in the \mbox{[}debug\mbox{]} section \mbox{[}debug\mbox{]} trapfile=/full/path/to/trap/file 
+
+Definition at line 86 of file trap.\-c.
+
+\hypertarget{trap_8h_a1d2232e9a45988578fcc60634f25e019}{\index{trap.\-h@{trap.\-h}!trap\-\_\-set\-\_\-flag\-\_\-file@{trap\-\_\-set\-\_\-flag\-\_\-file}}
+\index{trap\-\_\-set\-\_\-flag\-\_\-file@{trap\-\_\-set\-\_\-flag\-\_\-file}!trap.h@{trap.\-h}}
+\subsubsection[{trap\-\_\-set\-\_\-flag\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}int trap\-\_\-set\-\_\-flag\-\_\-file (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{filepath}
+\end{DoxyParamCaption}
+)}}\label{trap_8h_a1d2232e9a45988578fcc60634f25e019}
+
+
+Definition at line 100 of file trap.\-c.
+
+\hypertarget{trap_8h_a1281c9216bff80ccce9e23f3ece9c0d3}{\index{trap.\-h@{trap.\-h}!trap\-\_\-test@{trap\-\_\-test}}
+\index{trap\-\_\-test@{trap\-\_\-test}!trap.h@{trap.\-h}}
+\subsubsection[{trap\-\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}int trap\-\_\-test (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{trap\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{trap_8h_a1281c9216bff80ccce9e23f3ece9c0d3}
+
+
+Return true if the named flag in the trap settings file is on. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trap\-\_\-name} & -- name of the trap flah \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the trap is on, 0 if not found or not on 
+\end{DoxyReturn}
+
+
+Definition at line 123 of file trap.\-c.
+

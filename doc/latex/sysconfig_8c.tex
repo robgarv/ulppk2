@@ -1,0 +1,212 @@
+\hypertarget{sysconfig_8c}{\section{ulppk/sysconfig.c File Reference}
+\label{sysconfig_8c}\index{ulppk/sysconfig.\-c@{ulppk/sysconfig.\-c}}
+}
+
+
+System configuration support.  
+
+
+{\ttfamily \#include $<$config.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$sys/types.\-h$>$}\\*
+{\ttfamily \#include $<$sys/stat.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$signal.\-h$>$}\\*
+{\ttfamily \#include $<$syslog.\-h$>$}\\*
+{\ttfamily \#include $<$pwd.\-h$>$}\\*
+{\ttfamily \#include $<$grp.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include $<$appenv.\-h$>$}\\*
+{\ttfamily \#include $<$diagnostics.\-h$>$}\\*
+{\ttfamily \#include $<$mmdeque.\-h$>$}\\*
+{\ttfamily \#include $<$mmpool.\-h$>$}\\*
+{\ttfamily \#include $<$mmfor.\-h$>$}\\*
+{\ttfamily \#include $<$sysconfig.\-h$>$}\\*
+{\ttfamily \#include $<$ulppk\-\_\-log.\-h$>$}\\*
+{\ttfamily \#include $<$pathinfo.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{sysconfig_8c_ac71a45808e11ebced5a2b31a335a6d43}{sysconfig\-\_\-register\-\_\-env} ()
+\item 
+int \hyperlink{sysconfig_8c_a02ad4783bd47c35948566ee77c549da5}{sysconfig\-\_\-set\-\_\-logging} (int log\-\_\-dest, const char $\ast$appname, int options, int facility)
+\item 
+\hyperlink{struct_i_n_i_f_i_l_e___n_o_d_e}{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E} $\ast$ \hyperlink{sysconfig_8c_af3d1071e33433e9af577bca440ba932d}{sysconfig\-\_\-parse\-\_\-inifile} (const char $\ast$appname)
+\item 
+int \hyperlink{sysconfig_8c_a36a25fc5f2b4715717a03ac06e5af543}{sysconfig\-\_\-read\-\_\-inifile\-\_\-int} (\hyperlink{struct_i_n_i_f_i_l_e___n_o_d_e}{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E} $\ast$inifilep, const char $\ast$section, const char $\ast$name, int defaultval)
+\item 
+char $\ast$ \hyperlink{sysconfig_8c_abc915150c47d64e7adef75569b00d1ef}{sysconfig\-\_\-read\-\_\-inifile\-\_\-string} (\hyperlink{struct_i_n_i_f_i_l_e___n_o_d_e}{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E} $\ast$inifilep, const char $\ast$section, const char $\ast$name, const char $\ast$defaultval)
+\item 
+int \hyperlink{sysconfig_8c_afa58b0044d143bff8713b558a318b678}{sysconfig\-\_\-set\-\_\-user} (char $\ast$user)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+System configuration support. sysconfig provides a facility for management of environment variables, parsing of system initialization files (.ini files), establishing logging, etc. 
+
+Definition in file \hyperlink{sysconfig_8c_source}{sysconfig.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{sysconfig_8c_af3d1071e33433e9af577bca440ba932d}{\index{sysconfig.\-c@{sysconfig.\-c}!sysconfig\-\_\-parse\-\_\-inifile@{sysconfig\-\_\-parse\-\_\-inifile}}
+\index{sysconfig\-\_\-parse\-\_\-inifile@{sysconfig\-\_\-parse\-\_\-inifile}!sysconfig.c@{sysconfig.\-c}}
+\subsubsection[{sysconfig\-\_\-parse\-\_\-inifile}]{\setlength{\rightskip}{0pt plus 5cm}{\bf I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E}$\ast$ sysconfig\-\_\-parse\-\_\-inifile (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{appname}
+\end{DoxyParamCaption}
+)}}\label{sysconfig_8c_af3d1071e33433e9af577bca440ba932d}
+Parse the ini file. The function presumes the following environment variables have been set\-: S\-Y\-S\-C\-O\-N\-F\-I\-G\-\_\-\-E\-T\-C -- path to configuration settings directory S\-Y\-S\-C\-O\-N\-F\-I\-G\-\_\-\-I\-N\-I\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E -- ini file name
+
+appname is just the application name. If null uses value in environment variable S\-Y\-S\-C\-O\-N\-F\-I\-G\-\_\-\-A\-P\-P\-N\-A\-M\-E.
+
+appname is used to form a ini file name that overrides the S\-Y\-S\-C\-O\-N\-F\-I\-G\-\_\-\-I\-N\-I\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E setting, if the file exists. The ini file in this case is named \mbox{[}appname\mbox{]}.ini If that file is not found, then the value of S\-Y\-S\-C\-O\-N\-F\-I\-G\-\_\-\-I\-N\-I\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E is used.
+
+
+\begin{DoxyParams}{Parameters}
+{\em appname} & -- application name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to root inifile node on succes, N\-U\-L\-L on failure 
+\end{DoxyReturn}
+
+
+Definition at line 212 of file sysconfig.\-c.
+
+\hypertarget{sysconfig_8c_a36a25fc5f2b4715717a03ac06e5af543}{\index{sysconfig.\-c@{sysconfig.\-c}!sysconfig\-\_\-read\-\_\-inifile\-\_\-int@{sysconfig\-\_\-read\-\_\-inifile\-\_\-int}}
+\index{sysconfig\-\_\-read\-\_\-inifile\-\_\-int@{sysconfig\-\_\-read\-\_\-inifile\-\_\-int}!sysconfig.c@{sysconfig.\-c}}
+\subsubsection[{sysconfig\-\_\-read\-\_\-inifile\-\_\-int}]{\setlength{\rightskip}{0pt plus 5cm}int sysconfig\-\_\-read\-\_\-inifile\-\_\-int (
+\begin{DoxyParamCaption}
+\item[{{\bf I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E} $\ast$}]{inifilep, }
+\item[{const char $\ast$}]{section, }
+\item[{const char $\ast$}]{name, }
+\item[{int}]{defaultval}
+\end{DoxyParamCaption}
+)}}\label{sysconfig_8c_a36a25fc5f2b4715717a03ac06e5af543}
+Read an integer variable from the .I\-N\-I file. A default value is provided by the caller to enforce if the ini file variable is not found of is incorrectly formed. Errors accessing the ini file are logged as warnings.
+
+
+\begin{DoxyParams}{Parameters}
+{\em inifilep} & -- ptr to root node of inifile parse tree \\
+\hline
+{\em section} & -- section name (without brackets, so \char`\"{}foo\char`\"{} not \char`\"{}\mbox{[}foo\mbox{]}\char`\"{}) \\
+\hline
+{\em name} & -- name of the variable \\
+\hline
+{\em defaultval} & -- the default value to return if error reading ini file variable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Intger value of named variable. 
+\end{DoxyReturn}
+
+
+Definition at line 390 of file sysconfig.\-c.
+
+\hypertarget{sysconfig_8c_abc915150c47d64e7adef75569b00d1ef}{\index{sysconfig.\-c@{sysconfig.\-c}!sysconfig\-\_\-read\-\_\-inifile\-\_\-string@{sysconfig\-\_\-read\-\_\-inifile\-\_\-string}}
+\index{sysconfig\-\_\-read\-\_\-inifile\-\_\-string@{sysconfig\-\_\-read\-\_\-inifile\-\_\-string}!sysconfig.c@{sysconfig.\-c}}
+\subsubsection[{sysconfig\-\_\-read\-\_\-inifile\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ sysconfig\-\_\-read\-\_\-inifile\-\_\-string (
+\begin{DoxyParamCaption}
+\item[{{\bf I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E} $\ast$}]{inifilep, }
+\item[{const char $\ast$}]{section, }
+\item[{const char $\ast$}]{name, }
+\item[{const char $\ast$}]{defaultval}
+\end{DoxyParamCaption}
+)}}\label{sysconfig_8c_abc915150c47d64e7adef75569b00d1ef}
+Read a string variable from the .I\-N\-I file. A default value is provided by the caller to enforce if the ini file variable is not found of is incorrectly formed. Errors accessing the ini file are logged as warnings. All returned strings are allocated from the heap and must be subsequently freed when the calling process no longer requires them.
+
+
+\begin{DoxyParams}{Parameters}
+{\em inifilep} & -- ptr to root node of inifile parse tree \\
+\hline
+{\em section} & -- section name (without brackets, so \char`\"{}foo\char`\"{} not \char`\"{}\mbox{[}foo\mbox{]}\char`\"{}) \\
+\hline
+{\em name} & -- name of the variable \\
+\hline
+{\em defaultval} & -- the default value to return if error reading ini file variable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String value of named variable 
+\end{DoxyReturn}
+
+
+Definition at line 419 of file sysconfig.\-c.
+
+\hypertarget{sysconfig_8c_ac71a45808e11ebced5a2b31a335a6d43}{\index{sysconfig.\-c@{sysconfig.\-c}!sysconfig\-\_\-register\-\_\-env@{sysconfig\-\_\-register\-\_\-env}}
+\index{sysconfig\-\_\-register\-\_\-env@{sysconfig\-\_\-register\-\_\-env}!sysconfig.c@{sysconfig.\-c}}
+\subsubsection[{sysconfig\-\_\-register\-\_\-env}]{\setlength{\rightskip}{0pt plus 5cm}void sysconfig\-\_\-register\-\_\-env (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{sysconfig_8c_ac71a45808e11ebced5a2b31a335a6d43}
+Registers environment variables necessary for U\-L\-P\-P\-K components. Establishes default values. In most cases, you won't want to let it go at that. Either establish these through the shell, or override with .ini files values by defining them in the \mbox{[}environment\mbox{]} section of your .ini files.
+
+These include\-: 
+\begin{DoxyItemize}
+\item S\-Y\-S\-C\-O\-N\-F\-I\-G\-\_\-\-A\-P\-P\-N\-A\-M\-E -- Name of the application 
+\item S\-Y\-S\-C\-O\-N\-F\-I\-G\-\_\-\-C\-O\-R\-E\-\_\-\-D\-I\-R -- Directory into which to write core files 
+\item S\-Y\-S\-C\-O\-N\-F\-I\-G\-\_\-\-D\-A\-T\-A\-\_\-\-D\-I\-R -- Data directory 
+\item S\-Y\-S\-C\-O\-N\-F\-I\-G\-\_\-\-E\-T\-C -- etc directory (location of ini files and misc configuration data) 
+\item S\-Y\-S\-C\-O\-N\-F\-I\-G\-\_\-\-I\-N\-I\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E -- Name of the ini file 
+\item M\-M\-D\-Q\-\_\-\-D\-I\-R\-\_\-\-P\-A\-T\-H -- Directory for storing application's memory mapped deques 
+\item M\-M\-P\-O\-O\-L\-\_\-\-E\-N\-V\-\_\-\-D\-A\-T\-A\-\_\-\-D\-I\-R -- Directory for storing application's memory mapped buffer pools 
+\end{DoxyItemize}
+
+Definition at line 81 of file sysconfig.\-c.
+
+\hypertarget{sysconfig_8c_a02ad4783bd47c35948566ee77c549da5}{\index{sysconfig.\-c@{sysconfig.\-c}!sysconfig\-\_\-set\-\_\-logging@{sysconfig\-\_\-set\-\_\-logging}}
+\index{sysconfig\-\_\-set\-\_\-logging@{sysconfig\-\_\-set\-\_\-logging}!sysconfig.c@{sysconfig.\-c}}
+\subsubsection[{sysconfig\-\_\-set\-\_\-logging}]{\setlength{\rightskip}{0pt plus 5cm}int sysconfig\-\_\-set\-\_\-logging (
+\begin{DoxyParamCaption}
+\item[{int}]{log\-\_\-dest, }
+\item[{const char $\ast$}]{appname, }
+\item[{int}]{options, }
+\item[{int}]{facility}
+\end{DoxyParamCaption}
+)}}\label{sysconfig_8c_a02ad4783bd47c35948566ee77c549da5}
+Set up system logging.
+
+log\-\_\-dest specifies the log destination and is one of the following values\-: 
+\begin{DoxyItemize}
+\item U\-L\-P\-P\-K\-\_\-\-L\-O\-G\-M\-O\-D\-E\-\_\-\-C\-O\-N\-S\-O\-L\-E 1 
+\item U\-L\-P\-P\-K\-\_\-\-L\-O\-G\-M\-O\-D\-E\-\_\-\-S\-Y\-S\-L\-O\-G 2 
+\item U\-L\-P\-P\-K\-\_\-\-L\-O\-G\-M\-O\-D\-E\-\_\-\-A\-L\-L 3 
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em log\-\_\-dest} & (see \hyperlink{ulppk__log_8h}{ulppk\-\_\-log.\-h} for details) \\
+\hline
+{\em appname} & Name of the application (or arbitrary identification string) \\
+\hline
+{\em options} & -- See syslog(3). Meaningless if log\-\_\-dest is U\-L\-P\-P\-K\-\_\-\-L\-O\-G\-D\-E\-S\-T\-\_\-\-C\-O\-N\-S\-O\-L\-E \\
+\hline
+{\em facility} & -- See syslog(3). Meaningless if log\-\_\-dest is U\-L\-P\-P\-K\-\_\-\-L\-O\-G\-D\-E\-S\-T\-\_\-\-C\-O\-N\-S\-O\-L\-E \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 191 of file sysconfig.\-c.
+
+\hypertarget{sysconfig_8c_afa58b0044d143bff8713b558a318b678}{\index{sysconfig.\-c@{sysconfig.\-c}!sysconfig\-\_\-set\-\_\-user@{sysconfig\-\_\-set\-\_\-user}}
+\index{sysconfig\-\_\-set\-\_\-user@{sysconfig\-\_\-set\-\_\-user}!sysconfig.c@{sysconfig.\-c}}
+\subsubsection[{sysconfig\-\_\-set\-\_\-user}]{\setlength{\rightskip}{0pt plus 5cm}int sysconfig\-\_\-set\-\_\-user (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{user}
+\end{DoxyParamCaption}
+)}}\label{sysconfig_8c_afa58b0044d143bff8713b558a318b678}
+Set user and group I\-D to for the calling process. Calling parameter user specifies the user to set to. Note that group I\-D is obtained by accessing password data. 
+\begin{DoxyParams}{Parameters}
+{\em user} & User name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-- 0 on success, non-\/zero on error. 
+\end{DoxyReturn}
+
+
+Definition at line 443 of file sysconfig.\-c.
+

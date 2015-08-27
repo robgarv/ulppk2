@@ -1,0 +1,112 @@
+\hypertarget{struct_m_m_a___h_a_n_d_l_e}{\section{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E Struct Reference}
+\label{struct_m_m_a___h_a_n_d_l_e}\index{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E@{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E}}
+}
+
+
+{\ttfamily \#include $<$mmatom.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{struct_m_m_a___h_a_n_d_l_e_a83833ee55452b10d5fa6c7daa0295cd0}{tag} \mbox{[}\hyperlink{mmatom_8h_a61bdbcb1c787bc366cc82c35a5aecd75}{M\-M\-A\-\_\-\-M\-A\-X\-\_\-\-T\-A\-G\-\_\-\-L\-E\-N}\mbox{]}
+\begin{DoxyCompactList}\small\item\em a logical name for the atom \end{DoxyCompactList}\item 
+\hyperlink{mmatom_8h_accd6d884f022e3962f0b0544cfbc9720}{M\-M\-A\-\_\-\-A\-C\-C\-E\-S\-S\-\_\-\-M\-O\-D\-E\-S} \hyperlink{struct_m_m_a___h_a_n_d_l_e_a98aa4874a71c2ed9fb7dda0b285507b8}{access\-\_\-mode}
+\begin{DoxyCompactList}\small\item\em Access (read and or write) \end{DoxyCompactList}\item 
+\hyperlink{mmatom_8h_aa159a898b228728f9dc4f832308750c1}{M\-M\-A\-\_\-\-O\-B\-J\-E\-C\-T\-\_\-\-T\-Y\-P\-E\-S} \hyperlink{struct_m_m_a___h_a_n_d_l_e_a26e09b58edb668f1bafef07fd59ed8d1}{obj\-\_\-type}
+\begin{DoxyCompactList}\small\item\em Backing object type. \end{DoxyCompactList}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\hyperlink{struct_m_m_a___d_i_s_k___f_i_l_e___r_e_f}{MMA\_DISK\_FILE\_REF} $\ast$ \hyperlink{struct_m_m_a___h_a_n_d_l_e_a32aee81eaefaf0b164da0b9375fc4f2d}{df\_refp}\\
+\>\>{\em Pointer to backing disk file reference structure. }\\
+\>void $\ast$ \hyperlink{struct_m_m_a___h_a_n_d_l_e_afa66c4821cc82b1e7f2ea0bbf3d6da7c}{void\_refp}\\
+\>\>{\em Pointer to TBD backing object reference. }\\
+\} \hyperlink{struct_m_m_a___h_a_n_d_l_e_a21169edfbd2efc332a0f67d74f5cd29b}{u}\\
+
+\end{tabbing}\item 
+\hyperlink{struct_m_m_a___m_e_m_m_a_p___r_e_f}{M\-M\-A\-\_\-\-M\-E\-M\-M\-A\-P\-\_\-\-R\-E\-F} \hyperlink{struct_m_m_a___h_a_n_d_l_e_aeda9825879900d8dab7aeb2590edec58}{mm\-\_\-ref}
+\begin{DoxyCompactList}\small\item\em pointer to memorary mapped region reference structure \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Memory mapped atom handle. This structure is used to reference and access the memory mapped atom. 
+
+Definition at line 103 of file mmatom.\-h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{struct_m_m_a___h_a_n_d_l_e_a98aa4874a71c2ed9fb7dda0b285507b8}{\index{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E@{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E}!access\-\_\-mode@{access\-\_\-mode}}
+\index{access\-\_\-mode@{access\-\_\-mode}!MMA_HANDLE@{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E}}
+\subsubsection[{access\-\_\-mode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-M\-A\-\_\-\-A\-C\-C\-E\-S\-S\-\_\-\-M\-O\-D\-E\-S} access\-\_\-mode}}\label{struct_m_m_a___h_a_n_d_l_e_a98aa4874a71c2ed9fb7dda0b285507b8}
+
+
+Access (read and or write) 
+
+
+
+Definition at line 105 of file mmatom.\-h.
+
+\hypertarget{struct_m_m_a___h_a_n_d_l_e_a32aee81eaefaf0b164da0b9375fc4f2d}{\index{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E@{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E}!df\-\_\-refp@{df\-\_\-refp}}
+\index{df\-\_\-refp@{df\-\_\-refp}!MMA_HANDLE@{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E}}
+\subsubsection[{df\-\_\-refp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-M\-A\-\_\-\-D\-I\-S\-K\-\_\-\-F\-I\-L\-E\-\_\-\-R\-E\-F}$\ast$ df\-\_\-refp}}\label{struct_m_m_a___h_a_n_d_l_e_a32aee81eaefaf0b164da0b9375fc4f2d}
+
+
+Pointer to backing disk file reference structure. 
+
+
+
+Definition at line 108 of file mmatom.\-h.
+
+\hypertarget{struct_m_m_a___h_a_n_d_l_e_aeda9825879900d8dab7aeb2590edec58}{\index{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E@{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E}!mm\-\_\-ref@{mm\-\_\-ref}}
+\index{mm\-\_\-ref@{mm\-\_\-ref}!MMA_HANDLE@{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E}}
+\subsubsection[{mm\-\_\-ref}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-M\-A\-\_\-\-M\-E\-M\-M\-A\-P\-\_\-\-R\-E\-F} mm\-\_\-ref}}\label{struct_m_m_a___h_a_n_d_l_e_aeda9825879900d8dab7aeb2590edec58}
+
+
+pointer to memorary mapped region reference structure 
+
+
+
+Definition at line 111 of file mmatom.\-h.
+
+\hypertarget{struct_m_m_a___h_a_n_d_l_e_a26e09b58edb668f1bafef07fd59ed8d1}{\index{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E@{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E}!obj\-\_\-type@{obj\-\_\-type}}
+\index{obj\-\_\-type@{obj\-\_\-type}!MMA_HANDLE@{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E}}
+\subsubsection[{obj\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\-M\-A\-\_\-\-O\-B\-J\-E\-C\-T\-\_\-\-T\-Y\-P\-E\-S} obj\-\_\-type}}\label{struct_m_m_a___h_a_n_d_l_e_a26e09b58edb668f1bafef07fd59ed8d1}
+
+
+Backing object type. 
+
+
+
+Definition at line 106 of file mmatom.\-h.
+
+\hypertarget{struct_m_m_a___h_a_n_d_l_e_a83833ee55452b10d5fa6c7daa0295cd0}{\index{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E@{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E}!tag@{tag}}
+\index{tag@{tag}!MMA_HANDLE@{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E}}
+\subsubsection[{tag}]{\setlength{\rightskip}{0pt plus 5cm}char tag\mbox{[}{\bf M\-M\-A\-\_\-\-M\-A\-X\-\_\-\-T\-A\-G\-\_\-\-L\-E\-N}\mbox{]}}}\label{struct_m_m_a___h_a_n_d_l_e_a83833ee55452b10d5fa6c7daa0295cd0}
+
+
+a logical name for the atom 
+
+
+
+Definition at line 104 of file mmatom.\-h.
+
+\hypertarget{struct_m_m_a___h_a_n_d_l_e_a21169edfbd2efc332a0f67d74f5cd29b}{\index{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E@{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E}!u@{u}}
+\index{u@{u}!MMA_HANDLE@{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E}}
+\subsubsection[{u}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \}   u}}\label{struct_m_m_a___h_a_n_d_l_e_a21169edfbd2efc332a0f67d74f5cd29b}
+\hypertarget{struct_m_m_a___h_a_n_d_l_e_afa66c4821cc82b1e7f2ea0bbf3d6da7c}{\index{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E@{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E}!void\-\_\-refp@{void\-\_\-refp}}
+\index{void\-\_\-refp@{void\-\_\-refp}!MMA_HANDLE@{M\-M\-A\-\_\-\-H\-A\-N\-D\-L\-E}}
+\subsubsection[{void\-\_\-refp}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ void\-\_\-refp}}\label{struct_m_m_a___h_a_n_d_l_e_afa66c4821cc82b1e7f2ea0bbf3d6da7c}
+
+
+Pointer to T\-B\-D backing object reference. 
+
+
+
+Definition at line 109 of file mmatom.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+ulppk/\hyperlink{mmatom_8h}{mmatom.\-h}\end{DoxyCompactItemize}

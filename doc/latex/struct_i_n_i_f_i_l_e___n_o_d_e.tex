@@ -1,0 +1,110 @@
+\hypertarget{struct_i_n_i_f_i_l_e___n_o_d_e}{\section{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E Struct Reference}
+\label{struct_i_n_i_f_i_l_e___n_o_d_e}\index{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E@{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E}}
+}
+
+
+{\ttfamily \#include $<$ifile.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{btacc_8h_a401cf184fc63368a8957143cbb772739}{T\-R\-E\-E\-\_\-\-N\-O\-D\-E} \hyperlink{struct_i_n_i_f_i_l_e___n_o_d_e_acdebf5c3c6a27c5ebd53e9854ae24214}{node}
+\begin{DoxyCompactList}\small\item\em Tree node element. See \hyperlink{btacc_8h}{btacc.\-h}. \end{DoxyCompactList}\item 
+\hyperlink{ifile_8h_aa33acc5a78166e20ede739b43311bc56}{I\-F\-\_\-\-N\-O\-D\-E\-\_\-\-T\-Y\-P\-E} \hyperlink{struct_i_n_i_f_i_l_e___n_o_d_e_a34ffe3d3db8e7b7cece8b906af93eabc}{node\-\_\-type}
+\begin{DoxyCompactList}\small\item\em Node type. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{struct_i_n_i_f_i_l_e___n_o_d_e_a5ac083a645d964373f022d03df4849c8}{name}
+\begin{DoxyCompactList}\small\item\em Name of the node. \end{DoxyCompactList}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\hyperlink{struct_i_f___i_n_i_f_i_l_e}{IF\_INIFILE} \hyperlink{struct_i_n_i_f_i_l_e___n_o_d_e_a72ba3c5d1252090b306902900075b123}{inifile}\\
+\>\>{\em For IFNT\_FILE types. }\\
+\>\hyperlink{struct_i_f___s_e_c_t_i_o_n___n_o_d_e}{IF\_SECTION\_NODE} \hyperlink{struct_i_n_i_f_i_l_e___n_o_d_e_ad464719ecd66ed02d7177e79d78f08c0}{section}\\
+\>\>{\em For IFNT\_SECTION types. }\\
+\>\hyperlink{struct_i_f___e_l_e_m_e_n_t___n_o_d_e}{IF\_ELEMENT\_NODE} \hyperlink{struct_i_n_i_f_i_l_e___n_o_d_e_a84164bc51e06ae830164ae7b047bfad7}{element}\\
+\>\>{\em For IFNT\_ELEMENT types. }\\
+\}; \\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Format of the nodes in the ini file data structure. 
+
+Definition at line 90 of file ifile.\-h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{struct_i_n_i_f_i_l_e___n_o_d_e_a4be0996d9eb4325528902fc7d49e14bf}{\subsubsection[{"@3}]{\setlength{\rightskip}{0pt plus 5cm}union \{ ... \} }}\label{struct_i_n_i_f_i_l_e___n_o_d_e_a4be0996d9eb4325528902fc7d49e14bf}
+\hypertarget{struct_i_n_i_f_i_l_e___n_o_d_e_a84164bc51e06ae830164ae7b047bfad7}{\index{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E@{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E}!element@{element}}
+\index{element@{element}!INIFILE_NODE@{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E}}
+\subsubsection[{element}]{\setlength{\rightskip}{0pt plus 5cm}{\bf I\-F\-\_\-\-E\-L\-E\-M\-E\-N\-T\-\_\-\-N\-O\-D\-E} element}}\label{struct_i_n_i_f_i_l_e___n_o_d_e_a84164bc51e06ae830164ae7b047bfad7}
+
+
+For I\-F\-N\-T\-\_\-\-E\-L\-E\-M\-E\-N\-T types. 
+
+
+
+Definition at line 97 of file ifile.\-h.
+
+\hypertarget{struct_i_n_i_f_i_l_e___n_o_d_e_a72ba3c5d1252090b306902900075b123}{\index{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E@{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E}!inifile@{inifile}}
+\index{inifile@{inifile}!INIFILE_NODE@{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E}}
+\subsubsection[{inifile}]{\setlength{\rightskip}{0pt plus 5cm}{\bf I\-F\-\_\-\-I\-N\-I\-F\-I\-L\-E} inifile}}\label{struct_i_n_i_f_i_l_e___n_o_d_e_a72ba3c5d1252090b306902900075b123}
+
+
+For I\-F\-N\-T\-\_\-\-F\-I\-L\-E types. 
+
+
+
+Definition at line 95 of file ifile.\-h.
+
+\hypertarget{struct_i_n_i_f_i_l_e___n_o_d_e_a5ac083a645d964373f022d03df4849c8}{\index{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E@{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E}!name@{name}}
+\index{name@{name}!INIFILE_NODE@{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ name}}\label{struct_i_n_i_f_i_l_e___n_o_d_e_a5ac083a645d964373f022d03df4849c8}
+
+
+Name of the node. 
+
+
+
+Definition at line 93 of file ifile.\-h.
+
+\hypertarget{struct_i_n_i_f_i_l_e___n_o_d_e_acdebf5c3c6a27c5ebd53e9854ae24214}{\index{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E@{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E}!node@{node}}
+\index{node@{node}!INIFILE_NODE@{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E}}
+\subsubsection[{node}]{\setlength{\rightskip}{0pt plus 5cm}{\bf T\-R\-E\-E\-\_\-\-N\-O\-D\-E} node}}\label{struct_i_n_i_f_i_l_e___n_o_d_e_acdebf5c3c6a27c5ebd53e9854ae24214}
+
+
+Tree node element. See \hyperlink{btacc_8h}{btacc.\-h}. 
+
+
+
+Definition at line 91 of file ifile.\-h.
+
+\hypertarget{struct_i_n_i_f_i_l_e___n_o_d_e_a34ffe3d3db8e7b7cece8b906af93eabc}{\index{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E@{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E}!node\-\_\-type@{node\-\_\-type}}
+\index{node\-\_\-type@{node\-\_\-type}!INIFILE_NODE@{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E}}
+\subsubsection[{node\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf I\-F\-\_\-\-N\-O\-D\-E\-\_\-\-T\-Y\-P\-E} node\-\_\-type}}\label{struct_i_n_i_f_i_l_e___n_o_d_e_a34ffe3d3db8e7b7cece8b906af93eabc}
+
+
+Node type. 
+
+
+
+Definition at line 92 of file ifile.\-h.
+
+\hypertarget{struct_i_n_i_f_i_l_e___n_o_d_e_ad464719ecd66ed02d7177e79d78f08c0}{\index{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E@{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E}!section@{section}}
+\index{section@{section}!INIFILE_NODE@{I\-N\-I\-F\-I\-L\-E\-\_\-\-N\-O\-D\-E}}
+\subsubsection[{section}]{\setlength{\rightskip}{0pt plus 5cm}{\bf I\-F\-\_\-\-S\-E\-C\-T\-I\-O\-N\-\_\-\-N\-O\-D\-E} section}}\label{struct_i_n_i_f_i_l_e___n_o_d_e_ad464719ecd66ed02d7177e79d78f08c0}
+
+
+For I\-F\-N\-T\-\_\-\-S\-E\-C\-T\-I\-O\-N types. 
+
+
+
+Definition at line 96 of file ifile.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+ulppk/\hyperlink{ifile_8h}{ifile.\-h}\end{DoxyCompactItemize}

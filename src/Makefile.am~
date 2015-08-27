@@ -1,0 +1,12 @@
+
+AM_CFLAGS = -I$(top_srcdir)
+ulppkproclib = $(top_srcdir)/ulppkproc/.libs
+testbindir = $(top_srcdir)/../testbin
+AM_LDFLAGS = -L$(ulppkproclib) -Wl,--rpath -Wl,$(ulppkproclib) -lulppkproc
+TESTS = hello test-datastruct test-cmdargs test-diagnostics
+check_PROGRAMS = hello test-datastruct test-cmdargs test-diagnostics
+hello_SOURCES = hello.c
+test_datastruct_SOURCES = test-datastruct.c
+test_cmdargs_SOURCES = test-cmdargs.c
+test_diagnostics_SOURCES = test-diagnostics.c
+

@@ -1,0 +1,70 @@
+\hypertarget{mmatomx_8c}{\section{src/mmatomx.c File Reference}
+\label{mmatomx_8c}\index{src/mmatomx.\-c@{src/mmatomx.\-c}}
+}
+
+
+Memory Mapped Atom Utility.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$fcntl.\-h$>$}\\*
+{\ttfamily \#include $<$cmdargs.\-h$>$}\\*
+{\ttfamily \#include $<$mmapfile.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{mmatomx_8c_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Memory Mapped Atom Utility. The mmatomx utility provides features for 
+\begin{DoxyItemize}
+\item Creating memory mapped atom files 
+\item Dumping memory mapped file contents 
+\end{DoxyItemize}
+
+The dump option is pretty minimalistic and not very useful. Piping through od -\/c helps, but a proper octal dump utility needs to be incorporated.
+
+mmmatomx -\/f /var/data/myfile.bin -\/d $\vert$ od -\/c
+
+\subsubsection*{Command Line Use}
+
+mmatomx -\/f \mbox{[}fullpath\mbox{]} -\/\mbox{[}dc\mbox{]}
+
+
+\begin{DoxyItemize}
+\item f -- full path to file (required)  
+\item d -- perform dump 
+\item c -- create file specified by -\/f option 
+\item 
+\end{DoxyItemize}
+
+If the -\/c option is given, then the following additional options are available. 
+\begin{DoxyItemize}
+\item l -- Length of file/mem mapped region in bytes (default 4096) 
+\item t -- Logical tag for memory mapped atom (default My\-Object) 
+\item m -- Protection mode Protection mode R\-E\-A\-D\-\_\-\-O\-N\-L\-Y, W\-R\-I\-T\-E\-\_\-\-O\-N\-L\-Y, R\-E\-A\-D\-\_\-\-W\-R\-I\-T\-E (default R\-E\-A\-D\-\_\-\-W\-R\-I\-T\-E) 
+\item M -- Map Flags\-: shared or private (default shared) 
+\item p -- File permissions/access mode (octal) (default 664) 
+\end{DoxyItemize}
+
+Definition in file \hyperlink{mmatomx_8c_source}{mmatomx.\-c}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{mmatomx_8c_a0ddf1224851353fc92bfbff6f499fa97}{\index{mmatomx.\-c@{mmatomx.\-c}!main@{main}}
+\index{main@{main}!mmatomx.c@{mmatomx.\-c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{mmatomx_8c_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+Definition at line 80 of file mmatomx.\-c.
+

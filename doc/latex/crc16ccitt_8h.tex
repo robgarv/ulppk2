@@ -1,0 +1,59 @@
+\hypertarget{crc16ccitt_8h}{\section{ulppk/crc16ccitt.h File Reference}
+\label{crc16ccitt_8h}\index{ulppk/crc16ccitt.\-h@{ulppk/crc16ccitt.\-h}}
+}
+
+
+Simple utility for calculating a 16 bit C\-R\-C.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{crc16ccitt_8h_a65bd3d9aa4d698cb349f3c6cdeee2ef0}{init\-\_\-crc\-\_\-ccitt} ()
+\item 
+unsigned short \hyperlink{crc16ccitt_8h_a3a2bd63d53980bf8cd793da465265265}{crc16ccitt} (char data\-\_\-byte)
+\begin{DoxyCompactList}\small\item\em Given a byte of data, update the running C\-R\-C calculation. The function update\-\_\-crc\-\_\-ccitt calculates a new C\-R\-C-\/\-C\-C\-I\-T\-T value based on the previous value of the C\-R\-C and the next byte of the data to be checked. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Simple utility for calculating a 16 bit C\-R\-C. 
+
+Definition in file \hyperlink{crc16ccitt_8h_source}{crc16ccitt.\-h}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{crc16ccitt_8h_a3a2bd63d53980bf8cd793da465265265}{\index{crc16ccitt.\-h@{crc16ccitt.\-h}!crc16ccitt@{crc16ccitt}}
+\index{crc16ccitt@{crc16ccitt}!crc16ccitt.h@{crc16ccitt.\-h}}
+\subsubsection[{crc16ccitt}]{\setlength{\rightskip}{0pt plus 5cm}unsigned short crc16ccitt (
+\begin{DoxyParamCaption}
+\item[{char}]{data\-\_\-byte}
+\end{DoxyParamCaption}
+)}}\label{crc16ccitt_8h_a3a2bd63d53980bf8cd793da465265265}
+
+
+Given a byte of data, update the running C\-R\-C calculation. The function update\-\_\-crc\-\_\-ccitt calculates a new C\-R\-C-\/\-C\-C\-I\-T\-T value based on the previous value of the C\-R\-C and the next byte of the data to be checked. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\-\_\-byte} & Byte to add into the running C\-R\-C \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+new 16 bit C\-R\-C value. 
+\end{DoxyReturn}
+
+
+Definition at line 105 of file crc16ccitt.\-c.
+
+\hypertarget{crc16ccitt_8h_a65bd3d9aa4d698cb349f3c6cdeee2ef0}{\index{crc16ccitt.\-h@{crc16ccitt.\-h}!init\-\_\-crc\-\_\-ccitt@{init\-\_\-crc\-\_\-ccitt}}
+\index{init\-\_\-crc\-\_\-ccitt@{init\-\_\-crc\-\_\-ccitt}!crc16ccitt.h@{crc16ccitt.\-h}}
+\subsubsection[{init\-\_\-crc\-\_\-ccitt}]{\setlength{\rightskip}{0pt plus 5cm}void init\-\_\-crc\-\_\-ccitt (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{crc16ccitt_8h_a65bd3d9aa4d698cb349f3c6cdeee2ef0}
+Initializes the crc tables. 
+
+Definition at line 113 of file crc16ccitt.\-c.
+

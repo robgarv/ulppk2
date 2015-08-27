@@ -1,0 +1,329 @@
+\hypertarget{dqacc_8h}{\section{ulppk/dqacc.h File Reference}
+\label{dqacc_8h}\index{ulppk/dqacc.\-h@{ulppk/dqacc.\-h}}
+}
+
+
+Double ended queue access support.  
+
+
+{\ttfamily \#include $<$sys/types.\-h$>$}\\*
+{\ttfamily \#include $<$bool.\-h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_d_q_h_e_a_d_e_r}{D\-Q\-H\-E\-A\-D\-E\-R}
+\item 
+struct \hyperlink{struct__dq__statbuff}{\-\_\-dq\-\_\-statbuff}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{dqacc_8h_a058e7ed9136b8b24f2065a0bf55c096d}{P\-B\-Y\-T\-E}~unsigned char$\ast$
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct__dq__statbuff}{\-\_\-dq\-\_\-statbuff} \hyperlink{dqacc_8h_a5d52bf5dc6d09851d56540d91612f129}{D\-Q\-S\-T\-A\-T\-S}
+\item 
+typedef \hyperlink{struct_d_q_h_e_a_d_e_r}{D\-Q\-H\-E\-A\-D\-E\-R} $\ast$ \hyperlink{dqacc_8h_adab6df7b5b0a306c5832205f0d2de8ce}{P\-D\-Q\-H\-E\-A\-D\-E\-R}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{dqacc_8h_a65bfd81ab2a6435c488f4abba6229c27}{dq\-\_\-init} (ushort deque\-\_\-size, ushort item\-\_\-size, \hyperlink{dqacc_8h_adab6df7b5b0a306c5832205f0d2de8ce}{P\-D\-Q\-H\-E\-A\-D\-E\-R} header)
+\item 
+void \hyperlink{dqacc_8h_ae304f991185d380c1c04b2399ac4cfe9}{dq\-\_\-init\-\_\-buffer} (ushort deque\-\_\-size, ushort item\-\_\-size, void $\ast$buffp, \hyperlink{dqacc_8h_adab6df7b5b0a306c5832205f0d2de8ce}{P\-D\-Q\-H\-E\-A\-D\-E\-R} header)
+\item 
+void \hyperlink{dqacc_8h_a26a36a8e92694677f237809d8c078d53}{dq\-\_\-init\-\_\-memmap} (ushort deque\-\_\-size, ushort item\-\_\-size, size\-\_\-t index, \hyperlink{dqacc_8h_adab6df7b5b0a306c5832205f0d2de8ce}{P\-D\-Q\-H\-E\-A\-D\-E\-R} header)
+\item 
+void \hyperlink{dqacc_8h_a0359e926b56774555e50c5b09d11fb00}{dq\-\_\-close} (\hyperlink{dqacc_8h_adab6df7b5b0a306c5832205f0d2de8ce}{P\-D\-Q\-H\-E\-A\-D\-E\-R} header)
+\item 
+int \hyperlink{dqacc_8h_a82301c1ebb752efb2f27fd6136a79514}{dq\-\_\-isempty} (\hyperlink{dqacc_8h_adab6df7b5b0a306c5832205f0d2de8ce}{P\-D\-Q\-H\-E\-A\-D\-E\-R} header)
+\item 
+int \hyperlink{dqacc_8h_a299e9ba2fb22d3c5b4c91bd230b1568b}{dq\-\_\-atd} (\hyperlink{dqacc_8h_adab6df7b5b0a306c5832205f0d2de8ce}{P\-D\-Q\-H\-E\-A\-D\-E\-R} deque, void $\ast$itemp)
+\item 
+int \hyperlink{dqacc_8h_a73d5ee065de46abbed9db732fd5127b3}{dq\-\_\-abd} (\hyperlink{dqacc_8h_adab6df7b5b0a306c5832205f0d2de8ce}{P\-D\-Q\-H\-E\-A\-D\-E\-R} deque, void $\ast$itemp)
+\item 
+int \hyperlink{dqacc_8h_acee87fee4174bbecbb61c509a3ec01ec}{dq\-\_\-rtd} (\hyperlink{dqacc_8h_adab6df7b5b0a306c5832205f0d2de8ce}{P\-D\-Q\-H\-E\-A\-D\-E\-R} deque, void $\ast$itemp)
+\item 
+int \hyperlink{dqacc_8h_a6a8f423d78e589f2105691a115f5666a}{dq\-\_\-rbd} (\hyperlink{dqacc_8h_adab6df7b5b0a306c5832205f0d2de8ce}{P\-D\-Q\-H\-E\-A\-D\-E\-R} deque, void $\ast$itemp)
+\item 
+\hyperlink{dqacc_8h_a5d52bf5dc6d09851d56540d91612f129}{D\-Q\-S\-T\-A\-T\-S} $\ast$ \hyperlink{dqacc_8h_ae95e89426b37a3016beb7fc6849638e4}{dq\-\_\-stats} (\hyperlink{dqacc_8h_adab6df7b5b0a306c5832205f0d2de8ce}{P\-D\-Q\-H\-E\-A\-D\-E\-R} dequep, \hyperlink{dqacc_8h_a5d52bf5dc6d09851d56540d91612f129}{D\-Q\-S\-T\-A\-T\-S} $\ast$dq\-\_\-statsp)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Double ended queue access support. Deque is pronounced \char`\"{}deck\char`\"{}.
+
+Double ended queue (deque) features\par
+ 
+\begin{DoxyEnumerate}
+\item Fixed maximum capacity 
+\item Insertions at top or bottom of deque 
+\item Removals from top or bottom of deque 
+\item Supports memory mapped I\-O implementation (see \hyperlink{mmdeque_8c}{mmdeque.\-c}) 
+\end{DoxyEnumerate}
+
+F\-I\-F\-Os are implemented by, for example adding items to the bottom and removing from the top. A stack can be implemented by adding to the bottom (or top) and removing from the bottom (or top).
+
+For deques implemented in U\-N\-I\-X memory mapped files, the field dqbuffx has been added to the classic deque header structure. If the memmaped bit is set, then deque algorithms are to use rules apropos to memory mapped files. Otherwise, classic behavior is followed.
+
+See function dq\-\_\-init\-\_\-memmap 
+
+Definition in file \hyperlink{dqacc_8h_source}{dqacc.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{dqacc_8h_a058e7ed9136b8b24f2065a0bf55c096d}{\index{dqacc.\-h@{dqacc.\-h}!P\-B\-Y\-T\-E@{P\-B\-Y\-T\-E}}
+\index{P\-B\-Y\-T\-E@{P\-B\-Y\-T\-E}!dqacc.h@{dqacc.\-h}}
+\subsubsection[{P\-B\-Y\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-B\-Y\-T\-E~unsigned char$\ast$}}\label{dqacc_8h_a058e7ed9136b8b24f2065a0bf55c096d}
+
+
+Definition at line 35 of file dqacc.\-h.
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{dqacc_8h_a5d52bf5dc6d09851d56540d91612f129}{\index{dqacc.\-h@{dqacc.\-h}!D\-Q\-S\-T\-A\-T\-S@{D\-Q\-S\-T\-A\-T\-S}}
+\index{D\-Q\-S\-T\-A\-T\-S@{D\-Q\-S\-T\-A\-T\-S}!dqacc.h@{dqacc.\-h}}
+\subsubsection[{D\-Q\-S\-T\-A\-T\-S}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \-\_\-dq\-\_\-statbuff}  {\bf D\-Q\-S\-T\-A\-T\-S}}}\label{dqacc_8h_a5d52bf5dc6d09851d56540d91612f129}
+Deque status structure. Used to determine the current state of the double ended queue. \hypertarget{dqacc_8h_adab6df7b5b0a306c5832205f0d2de8ce}{\index{dqacc.\-h@{dqacc.\-h}!P\-D\-Q\-H\-E\-A\-D\-E\-R@{P\-D\-Q\-H\-E\-A\-D\-E\-R}}
+\index{P\-D\-Q\-H\-E\-A\-D\-E\-R@{P\-D\-Q\-H\-E\-A\-D\-E\-R}!dqacc.h@{dqacc.\-h}}
+\subsubsection[{P\-D\-Q\-H\-E\-A\-D\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf D\-Q\-H\-E\-A\-D\-E\-R}$\ast$ {\bf P\-D\-Q\-H\-E\-A\-D\-E\-R}}}\label{dqacc_8h_adab6df7b5b0a306c5832205f0d2de8ce}
+
+
+Definition at line 97 of file dqacc.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{dqacc_8h_a73d5ee065de46abbed9db732fd5127b3}{\index{dqacc.\-h@{dqacc.\-h}!dq\-\_\-abd@{dq\-\_\-abd}}
+\index{dq\-\_\-abd@{dq\-\_\-abd}!dqacc.h@{dqacc.\-h}}
+\subsubsection[{dq\-\_\-abd}]{\setlength{\rightskip}{0pt plus 5cm}int dq\-\_\-abd (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-Q\-H\-E\-A\-D\-E\-R}}]{deque, }
+\item[{void $\ast$}]{item}
+\end{DoxyParamCaption}
+)}}\label{dqacc_8h_a73d5ee065de46abbed9db732fd5127b3}
+Add to the bottom of the deque.
+
+
+\begin{DoxyParams}{Parameters}
+{\em deque} & Pointer to the deque header. \\
+\hline
+{\em item} & Pointer to the item to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, non-\/zero if the deque is full 
+\end{DoxyReturn}
+
+
+Definition at line 229 of file dqacc.\-c.
+
+\hypertarget{dqacc_8h_a299e9ba2fb22d3c5b4c91bd230b1568b}{\index{dqacc.\-h@{dqacc.\-h}!dq\-\_\-atd@{dq\-\_\-atd}}
+\index{dq\-\_\-atd@{dq\-\_\-atd}!dqacc.h@{dqacc.\-h}}
+\subsubsection[{dq\-\_\-atd}]{\setlength{\rightskip}{0pt plus 5cm}int dq\-\_\-atd (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-Q\-H\-E\-A\-D\-E\-R}}]{deque, }
+\item[{void $\ast$}]{item}
+\end{DoxyParamCaption}
+)}}\label{dqacc_8h_a299e9ba2fb22d3c5b4c91bd230b1568b}
+Add to the top of the deque.
+
+
+\begin{DoxyParams}{Parameters}
+{\em deque} & Pointer to the deque header. \\
+\hline
+{\em item} & Pointer to the item to be added \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, non-\/zero if the deque is full 
+\end{DoxyReturn}
+
+
+Definition at line 190 of file dqacc.\-c.
+
+\hypertarget{dqacc_8h_a0359e926b56774555e50c5b09d11fb00}{\index{dqacc.\-h@{dqacc.\-h}!dq\-\_\-close@{dq\-\_\-close}}
+\index{dq\-\_\-close@{dq\-\_\-close}!dqacc.h@{dqacc.\-h}}
+\subsubsection[{dq\-\_\-close}]{\setlength{\rightskip}{0pt plus 5cm}void dq\-\_\-close (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-Q\-H\-E\-A\-D\-E\-R}}]{header}
+\end{DoxyParamCaption}
+)}}\label{dqacc_8h_a0359e926b56774555e50c5b09d11fb00}
+Close a double ended queue.
+
+If the deque uses a user supplied buffer, it is up to the user to release that memory (if required). Such deques are created by dq\-\_\-init\-\_\-buffer.
+
+If the deque was created using the dq\-\_\-init function, then the deque buffer is released by this function.
+
+If the deque was created using dq\-\_\-init\-\_\-memap, not memory resources are released. See mmdqacc.\-c for details.
+
+
+\begin{DoxyParams}{Parameters}
+{\em header} & Pointer to the double ended queue header. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 156 of file dqacc.\-c.
+
+\hypertarget{dqacc_8h_a65bfd81ab2a6435c488f4abba6229c27}{\index{dqacc.\-h@{dqacc.\-h}!dq\-\_\-init@{dq\-\_\-init}}
+\index{dq\-\_\-init@{dq\-\_\-init}!dqacc.h@{dqacc.\-h}}
+\subsubsection[{dq\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void dq\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{ushort}]{deque\-\_\-size, }
+\item[{ushort}]{item\-\_\-size, }
+\item[{{\bf P\-D\-Q\-H\-E\-A\-D\-E\-R}}]{header}
+\end{DoxyParamCaption}
+)}}\label{dqacc_8h_a65bfd81ab2a6435c488f4abba6229c27}
+The \char`\"{}classic\char`\"{} dq\-\_\-init form. Deque slot buffer is completely managed by dqacc ... it is allocated from the heap and is freed by dq\-\_\-close. 
+\begin{DoxyParams}{Parameters}
+{\em deque\-\_\-size} & Number of items to be stored in the new deque. \\
+\hline
+{\em item\-\_\-size} & Size of each of the items. (Consider this to be a maximum size.) \\
+\hline
+{\em header} & Pointer to the deque header to be initialized. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 76 of file dqacc.\-c.
+
+\hypertarget{dqacc_8h_ae304f991185d380c1c04b2399ac4cfe9}{\index{dqacc.\-h@{dqacc.\-h}!dq\-\_\-init\-\_\-buffer@{dq\-\_\-init\-\_\-buffer}}
+\index{dq\-\_\-init\-\_\-buffer@{dq\-\_\-init\-\_\-buffer}!dqacc.h@{dqacc.\-h}}
+\subsubsection[{dq\-\_\-init\-\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}void dq\-\_\-init\-\_\-buffer (
+\begin{DoxyParamCaption}
+\item[{ushort}]{deque\-\_\-size, }
+\item[{ushort}]{item\-\_\-size, }
+\item[{void $\ast$}]{buffp, }
+\item[{{\bf P\-D\-Q\-H\-E\-A\-D\-E\-R}}]{header}
+\end{DoxyParamCaption}
+)}}\label{dqacc_8h_ae304f991185d380c1c04b2399ac4cfe9}
+Sometimes, an application just wants to use its own buffer for the deque slots. This form is given a buffer managed by the applications layer ... dq\-\_\-close will N\-O\-T free the buffer provided. 
+\begin{DoxyParams}{Parameters}
+{\em deque\-\_\-size} & Number of items to be stored in the new deque. \\
+\hline
+{\em item\-\_\-size} & Size of each of the items. (Consider this to be a maximum size.) \\
+\hline
+{\em buffp} & Pointer to buffer to use to store deque items \\
+\hline
+{\em header} & Pointer to the deque header to be initialized. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 106 of file dqacc.\-c.
+
+\hypertarget{dqacc_8h_a26a36a8e92694677f237809d8c078d53}{\index{dqacc.\-h@{dqacc.\-h}!dq\-\_\-init\-\_\-memmap@{dq\-\_\-init\-\_\-memmap}}
+\index{dq\-\_\-init\-\_\-memmap@{dq\-\_\-init\-\_\-memmap}!dqacc.h@{dqacc.\-h}}
+\subsubsection[{dq\-\_\-init\-\_\-memmap}]{\setlength{\rightskip}{0pt plus 5cm}void dq\-\_\-init\-\_\-memmap (
+\begin{DoxyParamCaption}
+\item[{ushort}]{deque\-\_\-size, }
+\item[{ushort}]{item\-\_\-size, }
+\item[{size\-\_\-t}]{index, }
+\item[{{\bf P\-D\-Q\-H\-E\-A\-D\-E\-R}}]{header}
+\end{DoxyParamCaption}
+)}}\label{dqacc_8h_a26a36a8e92694677f237809d8c078d53}
+This form of dq\-\_\-init supports initialization in deque headers in memory mapped I/\-O regions. In this case, the slot buffer is an array in memory mapped I/\-O space. It must be located at a higher address than the deque header. The index passed by the caller is relative to the start of this deque header. 
+\begin{DoxyParams}{Parameters}
+{\em deque\-\_\-size} & Number of items to be stored in the new deque. \\
+\hline
+{\em item\-\_\-size} & Size of each of the items. (Consider this to be a maximum size.) \\
+\hline
+{\em index} & Index relative to the start of the header of the first byte in the memory mapped region to store item data. \\
+\hline
+{\em header} & Pointer to the deque header to be initialized. This header is located within a memory mapped region. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 134 of file dqacc.\-c.
+
+\hypertarget{dqacc_8h_a82301c1ebb752efb2f27fd6136a79514}{\index{dqacc.\-h@{dqacc.\-h}!dq\-\_\-isempty@{dq\-\_\-isempty}}
+\index{dq\-\_\-isempty@{dq\-\_\-isempty}!dqacc.h@{dqacc.\-h}}
+\subsubsection[{dq\-\_\-isempty}]{\setlength{\rightskip}{0pt plus 5cm}int dq\-\_\-isempty (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-Q\-H\-E\-A\-D\-E\-R}}]{deque}
+\end{DoxyParamCaption}
+)}}\label{dqacc_8h_a82301c1ebb752efb2f27fd6136a79514}
+Determines if the double ended queue is empty. 
+\begin{DoxyParams}{Parameters}
+{\em deque} & Deque header to be checked. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\-R\-U\-E if empty, F\-A\-L\-S\-E otherwise 
+\end{DoxyReturn}
+
+
+Definition at line 174 of file dqacc.\-c.
+
+\hypertarget{dqacc_8h_a6a8f423d78e589f2105691a115f5666a}{\index{dqacc.\-h@{dqacc.\-h}!dq\-\_\-rbd@{dq\-\_\-rbd}}
+\index{dq\-\_\-rbd@{dq\-\_\-rbd}!dqacc.h@{dqacc.\-h}}
+\subsubsection[{dq\-\_\-rbd}]{\setlength{\rightskip}{0pt plus 5cm}int dq\-\_\-rbd (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-Q\-H\-E\-A\-D\-E\-R}}]{deque, }
+\item[{void $\ast$}]{item}
+\end{DoxyParamCaption}
+)}}\label{dqacc_8h_a6a8f423d78e589f2105691a115f5666a}
+Remove an item from the bottom of the deque. 
+\begin{DoxyParams}{Parameters}
+{\em deque} & Pointer to deque header \\
+\hline
+{\em item} & Pointer to memory are of at least deque item\-\_\-size bytes, \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, non-\/zero otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 311 of file dqacc.\-c.
+
+\hypertarget{dqacc_8h_acee87fee4174bbecbb61c509a3ec01ec}{\index{dqacc.\-h@{dqacc.\-h}!dq\-\_\-rtd@{dq\-\_\-rtd}}
+\index{dq\-\_\-rtd@{dq\-\_\-rtd}!dqacc.h@{dqacc.\-h}}
+\subsubsection[{dq\-\_\-rtd}]{\setlength{\rightskip}{0pt plus 5cm}int dq\-\_\-rtd (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-Q\-H\-E\-A\-D\-E\-R}}]{deque, }
+\item[{void $\ast$}]{item}
+\end{DoxyParamCaption}
+)}}\label{dqacc_8h_acee87fee4174bbecbb61c509a3ec01ec}
+Remove an item from the top of the deque. 
+\begin{DoxyParams}{Parameters}
+{\em deque} & Pointer to deque header \\
+\hline
+{\em item} & Pointer to memory are of at least deque item\-\_\-size bytes, \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, non-\/zero otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 270 of file dqacc.\-c.
+
+\hypertarget{dqacc_8h_ae95e89426b37a3016beb7fc6849638e4}{\index{dqacc.\-h@{dqacc.\-h}!dq\-\_\-stats@{dq\-\_\-stats}}
+\index{dq\-\_\-stats@{dq\-\_\-stats}!dqacc.h@{dqacc.\-h}}
+\subsubsection[{dq\-\_\-stats}]{\setlength{\rightskip}{0pt plus 5cm}{\bf D\-Q\-S\-T\-A\-T\-S}$\ast$ dq\-\_\-stats (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-D\-Q\-H\-E\-A\-D\-E\-R}}]{dequep, }
+\item[{{\bf D\-Q\-S\-T\-A\-T\-S} $\ast$}]{dq\-\_\-statsp}
+\end{DoxyParamCaption}
+)}}\label{dqacc_8h_ae95e89426b37a3016beb7fc6849638e4}
+return status information from the given deque header. If dq\-\_\-statsp is not N\-U\-L\-L, the status data is written to the deque status buffer provided by the caller. Otherwise, memory is allocated from the heap (and must be returned by the caller.) 
+\begin{DoxyParams}{Parameters}
+{\em dequep} & Pointer to deque header \\
+\hline
+{\em dq\-\_\-statsp} & Pointer to a D\-Q\-S\-T\-A\-T\-S structure. If N\-U\-L\-L, memory is allocated from the heap and must be freed by the caller. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to D\-Q\-S\-T\-A\-T\-S structure containing the deque status information. 
+\end{DoxyReturn}
+
+
+Definition at line 358 of file dqacc.\-c.
+

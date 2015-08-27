@@ -1,0 +1,380 @@
+\hypertarget{cmdargs_8c}{\section{ulppk/cmdargs.c File Reference}
+\label{cmdargs_8c}\index{ulppk/cmdargs.\-c@{ulppk/cmdargs.\-c}}
+}
+
+
+Command argument parsing and access functions.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$limits.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}cmdargs.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{cmdargs_8c_ac3189d3e64436a0612a261c49ce651dc}{R\-O\-O\-T\-\_\-\-D\-E\-S\-C\-R\-I\-P\-T\-I\-O\-N}~\char`\"{}program name\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{cmdargs_8c_a9e94c18b7ab30b1852b73e7dc763223b}{cmdarg\-\_\-init} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+int \hyperlink{cmdargs_8c_a824b138cdb1e560576522551999e699e}{cmdarg\-\_\-register\-\_\-option} (char $\ast$opt\-\_\-name, char $\ast$verbose\-\_\-name, \hyperlink{cmdargs_8h_aa9bf4c218046aae7639d1f7341d5b130}{C\-A\-\_\-\-M\-O\-D\-E} mode, char $\ast$description, char $\ast$default\-\_\-value, char $\ast$parent\-\_\-opt\-\_\-name)
+\item 
+int \hyperlink{cmdargs_8c_a65e609b04344ac17e17a6deb5f0f4c76}{cmdarg\-\_\-parse} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+int \hyperlink{cmdargs_8c_aad7fa14f950893d91a72c1c031b9002d}{cmdarg\-\_\-print\-\_\-args} (\hyperlink{cmdargs_8h_a8361e99de714f71fad62f8aa83210f85}{C\-M\-D\-\_\-\-A\-R\-G} $\ast$argp)
+\item 
+int \hyperlink{cmdargs_8c_ab1249b0eb15658adbab140369ca9d9e9}{cmdarg\-\_\-print\-\_\-option\-\_\-defs} (\hyperlink{cmdargs_8h_a8361e99de714f71fad62f8aa83210f85}{C\-M\-D\-\_\-\-A\-R\-G} $\ast$argp)
+\item 
+int \hyperlink{cmdargs_8c_afb18af70ad412a2b9b0cd6322e68df87}{cmdarg\-\_\-show\-\_\-help} (\hyperlink{cmdargs_8h_a8361e99de714f71fad62f8aa83210f85}{C\-M\-D\-\_\-\-A\-R\-G} $\ast$argp)
+\item 
+\hyperlink{cmdargs_8h_a8361e99de714f71fad62f8aa83210f85}{C\-M\-D\-\_\-\-A\-R\-G} $\ast$ \hyperlink{cmdargs_8c_adcc0331bcc412c77df467fc2ab97026c}{cmdarg\-\_\-fetch} (\hyperlink{cmdargs_8h_a8361e99de714f71fad62f8aa83210f85}{C\-M\-D\-\_\-\-A\-R\-G} $\ast$argp, char $\ast$opt\-\_\-name)
+\item 
+int \hyperlink{cmdargs_8c_a6c2ace059cc10387aa3a03123e452568}{cmdarg\-\_\-fetch\-\_\-switch} (\hyperlink{cmdargs_8h_a8361e99de714f71fad62f8aa83210f85}{C\-M\-D\-\_\-\-A\-R\-G} $\ast$argp, char $\ast$opt\-\_\-name)
+\item 
+long \hyperlink{cmdargs_8c_a44e9226541904994eba05eb2362c1145}{cmdarg\-\_\-fetch\-\_\-long} (\hyperlink{cmdargs_8h_a8361e99de714f71fad62f8aa83210f85}{C\-M\-D\-\_\-\-A\-R\-G} $\ast$argp, char $\ast$opt\-\_\-name)
+\item 
+int \hyperlink{cmdargs_8c_ac909cb1061dcbca5a31657bd277a2775}{cmdarg\-\_\-fetch\-\_\-int} (\hyperlink{cmdargs_8h_a8361e99de714f71fad62f8aa83210f85}{C\-M\-D\-\_\-\-A\-R\-G} $\ast$argp, char $\ast$opt\-\_\-name)
+\item 
+char $\ast$ \hyperlink{cmdargs_8c_a4c1692b71c3989b974ec3eadd672e16b}{cmdarg\-\_\-fetch\-\_\-string} (\hyperlink{cmdargs_8h_a8361e99de714f71fad62f8aa83210f85}{C\-M\-D\-\_\-\-A\-R\-G} $\ast$argp, char $\ast$opt\-\_\-name)
+\item 
+int \hyperlink{cmdargs_8c_ab88ff174d41a9fa3cf658bc6f93f22a3}{cmdarg\-\_\-load\-\_\-string} (char $\ast$buffer, size\-\_\-t buffer\-\_\-size, \hyperlink{cmdargs_8h_a8361e99de714f71fad62f8aa83210f85}{C\-M\-D\-\_\-\-A\-R\-G} $\ast$argp, char $\ast$opt\-\_\-name)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{cmdargs_8h_a8361e99de714f71fad62f8aa83210f85}{C\-M\-D\-\_\-\-A\-R\-G} \hyperlink{cmdargs_8c_ac64fc0d9cd0011e65930293685454b09}{root}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Command argument parsing and access functions. cmadargs provides methods for defining command line option syntax, parsing command line options, and retrieving their values. The mechanism also provides for error reporting and command line help features in a convenient fashion.
+
+The file \hyperlink{cmdargs_8h}{cmdargs.\-h} contains some useful top level commentary. 
+
+Definition in file \hyperlink{cmdargs_8c_source}{cmdargs.\-c}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{cmdargs_8c_ac3189d3e64436a0612a261c49ce651dc}{\index{cmdargs.\-c@{cmdargs.\-c}!R\-O\-O\-T\-\_\-\-D\-E\-S\-C\-R\-I\-P\-T\-I\-O\-N@{R\-O\-O\-T\-\_\-\-D\-E\-S\-C\-R\-I\-P\-T\-I\-O\-N}}
+\index{R\-O\-O\-T\-\_\-\-D\-E\-S\-C\-R\-I\-P\-T\-I\-O\-N@{R\-O\-O\-T\-\_\-\-D\-E\-S\-C\-R\-I\-P\-T\-I\-O\-N}!cmdargs.c@{cmdargs.\-c}}
+\subsubsection[{R\-O\-O\-T\-\_\-\-D\-E\-S\-C\-R\-I\-P\-T\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-O\-O\-T\-\_\-\-D\-E\-S\-C\-R\-I\-P\-T\-I\-O\-N~\char`\"{}program name\char`\"{}}}\label{cmdargs_8c_ac3189d3e64436a0612a261c49ce651dc}
+
+
+Definition at line 69 of file cmdargs.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{cmdargs_8c_adcc0331bcc412c77df467fc2ab97026c}{\index{cmdargs.\-c@{cmdargs.\-c}!cmdarg\-\_\-fetch@{cmdarg\-\_\-fetch}}
+\index{cmdarg\-\_\-fetch@{cmdarg\-\_\-fetch}!cmdargs.c@{cmdargs.\-c}}
+\subsubsection[{cmdarg\-\_\-fetch}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\-M\-D\-\_\-\-A\-R\-G}$\ast$ cmdarg\-\_\-fetch (
+\begin{DoxyParamCaption}
+\item[{{\bf C\-M\-D\-\_\-\-A\-R\-G} $\ast$}]{argp, }
+\item[{char $\ast$}]{opt\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{cmdargs_8c_adcc0331bcc412c77df467fc2ab97026c}
+Fetch a command argument. Return pointer to C\-M\-D\-\_\-\-A\-R\-G structure.
+
+
+\begin{DoxyParams}{Parameters}
+{\em argp} & Pointer to command line argument node structure. Applications usually pass N\-U\-L\-L so that the display begins with the root argument (program name) \\
+\hline
+{\em opt\-\_\-name} & Short or long name of the option to be fetched. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the matching option node, or N\-U\-L\-L if not found. 
+\end{DoxyReturn}
+
+
+Definition at line 376 of file cmdargs.\-c.
+
+\hypertarget{cmdargs_8c_ac909cb1061dcbca5a31657bd277a2775}{\index{cmdargs.\-c@{cmdargs.\-c}!cmdarg\-\_\-fetch\-\_\-int@{cmdarg\-\_\-fetch\-\_\-int}}
+\index{cmdarg\-\_\-fetch\-\_\-int@{cmdarg\-\_\-fetch\-\_\-int}!cmdargs.c@{cmdargs.\-c}}
+\subsubsection[{cmdarg\-\_\-fetch\-\_\-int}]{\setlength{\rightskip}{0pt plus 5cm}int cmdarg\-\_\-fetch\-\_\-int (
+\begin{DoxyParamCaption}
+\item[{{\bf C\-M\-D\-\_\-\-A\-R\-G} $\ast$}]{argp, }
+\item[{char $\ast$}]{opt\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{cmdargs_8c_ac909cb1061dcbca5a31657bd277a2775}
+Fetch a command argument. Parse the value string as an integer.
+
+This function will abort the application on various error conditions\-: 
+\begin{DoxyItemize}
+\item Null or zero length value when expecting a numeric string 
+\item String found but could not be parsed as an integer 
+\end{DoxyItemize}
+\begin{DoxyParams}{Parameters}
+{\em argp} & Pointer to command line argument node structure. Applications usually pass N\-U\-L\-L so that the display begins with the root argument (program name) \\
+\hline
+{\em opt\-\_\-name} & Short or long name of the option to be fetched. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+integer value of the option. 
+\end{DoxyReturn}
+
+
+Definition at line 474 of file cmdargs.\-c.
+
+\hypertarget{cmdargs_8c_a44e9226541904994eba05eb2362c1145}{\index{cmdargs.\-c@{cmdargs.\-c}!cmdarg\-\_\-fetch\-\_\-long@{cmdarg\-\_\-fetch\-\_\-long}}
+\index{cmdarg\-\_\-fetch\-\_\-long@{cmdarg\-\_\-fetch\-\_\-long}!cmdargs.c@{cmdargs.\-c}}
+\subsubsection[{cmdarg\-\_\-fetch\-\_\-long}]{\setlength{\rightskip}{0pt plus 5cm}long cmdarg\-\_\-fetch\-\_\-long (
+\begin{DoxyParamCaption}
+\item[{{\bf C\-M\-D\-\_\-\-A\-R\-G} $\ast$}]{argp, }
+\item[{char $\ast$}]{opt\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{cmdargs_8c_a44e9226541904994eba05eb2362c1145}
+Fetch a command argument. Parse the value string as a long integer.
+
+This function will abort the application on various error conditions\-: 
+\begin{DoxyItemize}
+\item Null or zero length value when expecting a numeric string 
+\item String found but could not be parsed as an integer 
+\end{DoxyItemize}
+\begin{DoxyParams}{Parameters}
+{\em argp} & Pointer to command line argument node structure. Applications usually pass N\-U\-L\-L so that the display begins with the root argument (program name) \\
+\hline
+{\em opt\-\_\-name} & Short or long name of the option to be fetched. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+long integer value of the option. 
+\end{DoxyReturn}
+
+
+Definition at line 421 of file cmdargs.\-c.
+
+\hypertarget{cmdargs_8c_a4c1692b71c3989b974ec3eadd672e16b}{\index{cmdargs.\-c@{cmdargs.\-c}!cmdarg\-\_\-fetch\-\_\-string@{cmdarg\-\_\-fetch\-\_\-string}}
+\index{cmdarg\-\_\-fetch\-\_\-string@{cmdarg\-\_\-fetch\-\_\-string}!cmdargs.c@{cmdargs.\-c}}
+\subsubsection[{cmdarg\-\_\-fetch\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ cmdarg\-\_\-fetch\-\_\-string (
+\begin{DoxyParamCaption}
+\item[{{\bf C\-M\-D\-\_\-\-A\-R\-G} $\ast$}]{argp, }
+\item[{char $\ast$}]{opt\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{cmdargs_8c_a4c1692b71c3989b974ec3eadd672e16b}
+Fetch a command argument. Return the value string
+
+This function will abort the application on various error conditions\-: 
+\begin{DoxyItemize}
+\item Null or zero length value when expecting a numeric string 
+\item String found but could not be parsed as an integer 
+\end{DoxyItemize}
+\begin{DoxyParams}{Parameters}
+{\em argp} & Pointer to command line argument node structure. Applications usually pass N\-U\-L\-L so that the display begins with the root argument (program name) \\
+\hline
+{\em opt\-\_\-name} & Short or long name of the option to be fetched. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the value string, or N\-U\-L\-L if not found. 
+\end{DoxyReturn}
+
+
+Definition at line 492 of file cmdargs.\-c.
+
+\hypertarget{cmdargs_8c_a6c2ace059cc10387aa3a03123e452568}{\index{cmdargs.\-c@{cmdargs.\-c}!cmdarg\-\_\-fetch\-\_\-switch@{cmdarg\-\_\-fetch\-\_\-switch}}
+\index{cmdarg\-\_\-fetch\-\_\-switch@{cmdarg\-\_\-fetch\-\_\-switch}!cmdargs.c@{cmdargs.\-c}}
+\subsubsection[{cmdarg\-\_\-fetch\-\_\-switch}]{\setlength{\rightskip}{0pt plus 5cm}int cmdarg\-\_\-fetch\-\_\-switch (
+\begin{DoxyParamCaption}
+\item[{{\bf C\-M\-D\-\_\-\-A\-R\-G} $\ast$}]{argp, }
+\item[{char $\ast$}]{opt\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{cmdargs_8c_a6c2ace059cc10387aa3a03123e452568}
+Determine if a switch is present in the command line arguments. 
+\begin{DoxyParams}{Parameters}
+{\em argp} & Pointer to command line argument node structure. Applications usually pass N\-U\-L\-L so that the display begins with the root argument (program name) \\
+\hline
+{\em opt\-\_\-name} & Short or long name of the option to be fetched. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if switch was provided on command line, 0 if not. 
+\end{DoxyReturn}
+
+
+Definition at line 391 of file cmdargs.\-c.
+
+\hypertarget{cmdargs_8c_a9e94c18b7ab30b1852b73e7dc763223b}{\index{cmdargs.\-c@{cmdargs.\-c}!cmdarg\-\_\-init@{cmdarg\-\_\-init}}
+\index{cmdarg\-\_\-init@{cmdarg\-\_\-init}!cmdargs.c@{cmdargs.\-c}}
+\subsubsection[{cmdarg\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void cmdarg\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{cmdargs_8c_a9e94c18b7ab30b1852b73e7dc763223b}
+Initializes the command line argument data structures.
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Command line argument count (as given to the main function) \\
+\hline
+{\em argv\mbox{[}$\,$\mbox{]}} & Command line argument array of strings (as given to the main function) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 77 of file cmdargs.\-c.
+
+\hypertarget{cmdargs_8c_ab88ff174d41a9fa3cf658bc6f93f22a3}{\index{cmdargs.\-c@{cmdargs.\-c}!cmdarg\-\_\-load\-\_\-string@{cmdarg\-\_\-load\-\_\-string}}
+\index{cmdarg\-\_\-load\-\_\-string@{cmdarg\-\_\-load\-\_\-string}!cmdargs.c@{cmdargs.\-c}}
+\subsubsection[{cmdarg\-\_\-load\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}int cmdarg\-\_\-load\-\_\-string (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buffer, }
+\item[{size\-\_\-t}]{buffer\-\_\-size, }
+\item[{{\bf C\-M\-D\-\_\-\-A\-R\-G} $\ast$}]{argp, }
+\item[{char $\ast$}]{opt\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{cmdargs_8c_ab88ff174d41a9fa3cf658bc6f93f22a3}
+Convenience function. Buffer is a char array of size buffer\-\_\-size. It will receive the command argument value string. Returns size of loaded string or $<$ 0 if error.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Buffer to receive an option value string \\
+\hline
+{\em buffer\-\_\-size} & Max number of characters to copy to buffer. \\
+\hline
+{\em argp} & Pointer to command line argument node structure. Applications usually pass N\-U\-L\-L so that the display begins with the root argument (program name) \\
+\hline
+{\em opt\-\_\-name} & Short or long name of the option to be fetched. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+length of the loaded string or $<$ 0 on error. 
+\end{DoxyReturn}
+
+
+Definition at line 523 of file cmdargs.\-c.
+
+\hypertarget{cmdargs_8c_a65e609b04344ac17e17a6deb5f0f4c76}{\index{cmdargs.\-c@{cmdargs.\-c}!cmdarg\-\_\-parse@{cmdarg\-\_\-parse}}
+\index{cmdarg\-\_\-parse@{cmdarg\-\_\-parse}!cmdargs.c@{cmdargs.\-c}}
+\subsubsection[{cmdarg\-\_\-parse}]{\setlength{\rightskip}{0pt plus 5cm}int cmdarg\-\_\-parse (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{cmdargs_8c_a65e609b04344ac17e17a6deb5f0f4c76}
+Once options have been registered, the application calls cmdarg\-\_\-parse to parse the command line arguments provided in this current invocation of the application.
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Argument count as provided to the main function \\
+\hline
+{\em argv\mbox{[}$\,$\mbox{]}} & Array of strings containing command line arguments as provided to the main function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, non-\/zero on failure. 
+\end{DoxyReturn}
+
+
+Definition at line 141 of file cmdargs.\-c.
+
+\hypertarget{cmdargs_8c_aad7fa14f950893d91a72c1c031b9002d}{\index{cmdargs.\-c@{cmdargs.\-c}!cmdarg\-\_\-print\-\_\-args@{cmdarg\-\_\-print\-\_\-args}}
+\index{cmdarg\-\_\-print\-\_\-args@{cmdarg\-\_\-print\-\_\-args}!cmdargs.c@{cmdargs.\-c}}
+\subsubsection[{cmdarg\-\_\-print\-\_\-args}]{\setlength{\rightskip}{0pt plus 5cm}int cmdarg\-\_\-print\-\_\-args (
+\begin{DoxyParamCaption}
+\item[{{\bf C\-M\-D\-\_\-\-A\-R\-G} $\ast$}]{argp}
+\end{DoxyParamCaption}
+)}}\label{cmdargs_8c_aad7fa14f950893d91a72c1c031b9002d}
+Show currently provided arguments, including defaults. (Default values will be shown when no command line argument was provided to override the default. Otherwise, the override value will be shown.)
+
+
+\begin{DoxyParams}{Parameters}
+{\em argp} & Pointer to command line argument node structure. Applications usually pass N\-U\-L\-L so that the display begins with the root argument (program name) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+count of active arguments/options. 
+\end{DoxyReturn}
+
+
+Definition at line 300 of file cmdargs.\-c.
+
+\hypertarget{cmdargs_8c_ab1249b0eb15658adbab140369ca9d9e9}{\index{cmdargs.\-c@{cmdargs.\-c}!cmdarg\-\_\-print\-\_\-option\-\_\-defs@{cmdarg\-\_\-print\-\_\-option\-\_\-defs}}
+\index{cmdarg\-\_\-print\-\_\-option\-\_\-defs@{cmdarg\-\_\-print\-\_\-option\-\_\-defs}!cmdargs.c@{cmdargs.\-c}}
+\subsubsection[{cmdarg\-\_\-print\-\_\-option\-\_\-defs}]{\setlength{\rightskip}{0pt plus 5cm}int cmdarg\-\_\-print\-\_\-option\-\_\-defs (
+\begin{DoxyParamCaption}
+\item[{{\bf C\-M\-D\-\_\-\-A\-R\-G} $\ast$}]{argp}
+\end{DoxyParamCaption}
+)}}\label{cmdargs_8c_ab1249b0eb15658adbab140369ca9d9e9}
+Print the definitions of registered command line options.
+
+
+\begin{DoxyParams}{Parameters}
+{\em argp} & Pointer to command line argument node structure. Applications usually pass N\-U\-L\-L so that the display begins with the root argument (program name) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+count of active arguments/options. 
+\end{DoxyReturn}
+
+
+Definition at line 331 of file cmdargs.\-c.
+
+\hypertarget{cmdargs_8c_a824b138cdb1e560576522551999e699e}{\index{cmdargs.\-c@{cmdargs.\-c}!cmdarg\-\_\-register\-\_\-option@{cmdarg\-\_\-register\-\_\-option}}
+\index{cmdarg\-\_\-register\-\_\-option@{cmdarg\-\_\-register\-\_\-option}!cmdargs.c@{cmdargs.\-c}}
+\subsubsection[{cmdarg\-\_\-register\-\_\-option}]{\setlength{\rightskip}{0pt plus 5cm}int cmdarg\-\_\-register\-\_\-option (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{opt\-\_\-name, }
+\item[{char $\ast$}]{verbose\-\_\-name, }
+\item[{{\bf C\-A\-\_\-\-M\-O\-D\-E}}]{mode, }
+\item[{char $\ast$}]{description, }
+\item[{char $\ast$}]{default\-\_\-value, }
+\item[{char $\ast$}]{parent\-\_\-opt\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{cmdargs_8c_a824b138cdb1e560576522551999e699e}
+Define a command line option and its syntax 
+\begin{DoxyParams}{Parameters}
+{\em opt\-\_\-name} & Short name of the option. (If \char`\"{}x\char`\"{}, then is typed as \char`\"{}-\/x\char`\"{} on the command line) \\
+\hline
+{\em verbose\-\_\-name} & Long name of the option. (If \char`\"{}xray\char`\"{} then is typed as \char`\"{}-\/-\/xray\char`\"{} on the command line) \\
+\hline
+{\em mode} & C\-A\-\_\-\-M\-O\-D\-E value specifying semantics to be enforced on this option. \\
+\hline
+{\em description} & String used to describe the option when using command line help features. \\
+\hline
+{\em default\-\_\-value} & Default value if required, may be N\-U\-L\-L \\
+\hline
+{\em parent\-\_\-opt\-\_\-name} & Name of the parent option. N\-U\-L\-L if this is a top levell option. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, non-\/zero on error. An error indicates that an option of that name has been previously registered. 
+\end{DoxyReturn}
+
+
+Definition at line 102 of file cmdargs.\-c.
+
+\hypertarget{cmdargs_8c_afb18af70ad412a2b9b0cd6322e68df87}{\index{cmdargs.\-c@{cmdargs.\-c}!cmdarg\-\_\-show\-\_\-help@{cmdarg\-\_\-show\-\_\-help}}
+\index{cmdarg\-\_\-show\-\_\-help@{cmdarg\-\_\-show\-\_\-help}!cmdargs.c@{cmdargs.\-c}}
+\subsubsection[{cmdarg\-\_\-show\-\_\-help}]{\setlength{\rightskip}{0pt plus 5cm}int cmdarg\-\_\-show\-\_\-help (
+\begin{DoxyParamCaption}
+\item[{{\bf C\-M\-D\-\_\-\-A\-R\-G} $\ast$}]{argp}
+\end{DoxyParamCaption}
+)}}\label{cmdargs_8c_afb18af70ad412a2b9b0cd6322e68df87}
+Show command line help, using definitions and descriptions provided during command line option syntax registration. (See cmdarg\-\_\-register\-\_\-option.) 
+\begin{DoxyParams}{Parameters}
+{\em argp} & Pointer to command line argument node structure. Applications usually pass N\-U\-L\-L so that the display begins with the root argument (program name) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 359 of file cmdargs.\-c.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{cmdargs_8c_ac64fc0d9cd0011e65930293685454b09}{\index{cmdargs.\-c@{cmdargs.\-c}!root@{root}}
+\index{root@{root}!cmdargs.c@{cmdargs.\-c}}
+\subsubsection[{root}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\-M\-D\-\_\-\-A\-R\-G} root}}\label{cmdargs_8c_ac64fc0d9cd0011e65930293685454b09}
+Root option. The root option will receive the program name 
+
+Definition at line 52 of file cmdargs.\-c.
+

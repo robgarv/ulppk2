@@ -1,0 +1,149 @@
+\hypertarget{urlcoder_8h}{\section{ulppk/urlcoder.h File Reference}
+\label{urlcoder_8h}\index{ulppk/urlcoder.\-h@{ulppk/urlcoder.\-h}}
+}
+{\ttfamily \#include $<$stddef.\-h$>$}\\*
+{\ttfamily \#include $<$llacc.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{urlcoder_8h_acf56e2a6a733e839da2d344eb6b6ffaa}{url\-\_\-from\-\_\-hex} (char ch)
+\item 
+char \hyperlink{urlcoder_8h_ab76db821be328b797dc96405560b24a9}{url\-\_\-to\-\_\-hex} (char code)
+\item 
+char $\ast$ \hyperlink{urlcoder_8h_a8b27af4a03e8ce05aae7cfed09971f99}{url\-\_\-encode} (char $\ast$str)
+\item 
+char $\ast$ \hyperlink{urlcoder_8h_aea3ffe702ce39d26857607be86e6ca83}{url\-\_\-decode} (char $\ast$str)
+\item 
+char $\ast$ \hyperlink{urlcoder_8h_a1b0927ae6a5f709026ed0c5860852577}{url\-\_\-encode2buffer} (char $\ast$buff, size\-\_\-t buffsize, char $\ast$str)
+\item 
+char $\ast$ \hyperlink{urlcoder_8h_a0a48a5d072286e093996fd19227288f3}{url\-\_\-decode2buffer} (char $\ast$buff, size\-\_\-t buffsize, char $\ast$str)
+\item 
+int \hyperlink{urlcoder_8h_a6de1301280b82c38b55247c949656fa4}{url\-\_\-decode\-\_\-arguments} (\hyperlink{llacc_8h_a005ca10a3f0b7dc2bbb95c90bbe14623}{P\-L\-L\-\_\-\-H\-E\-A\-D} listp, char $\ast$urlargs)
+\item 
+char $\ast$ \hyperlink{urlcoder_8h_a9da6ab04bad607d725f1e1591201746a}{url\-\_\-get\-\_\-arg\-\_\-value} (\hyperlink{llacc_8h_a005ca10a3f0b7dc2bbb95c90bbe14623}{P\-L\-L\-\_\-\-H\-E\-A\-D} listp, char $\ast$name)
+\item 
+void \hyperlink{urlcoder_8h_a67eeedfaba6f8e7121f09e254442652d}{url\-\_\-free\-\_\-arguments} (\hyperlink{llacc_8h_a005ca10a3f0b7dc2bbb95c90bbe14623}{P\-L\-L\-\_\-\-H\-E\-A\-D} listp)
+\item 
+char $\ast$ \hyperlink{urlcoder_8h_acc3e01725535b0d9420fe7d1774b1484}{url\-\_\-encode\-\_\-arguments} (char $\ast$args, char $\ast$name, char $\ast$val)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{urlcoder_8h_aea3ffe702ce39d26857607be86e6ca83}{\index{urlcoder.\-h@{urlcoder.\-h}!url\-\_\-decode@{url\-\_\-decode}}
+\index{url\-\_\-decode@{url\-\_\-decode}!urlcoder.h@{urlcoder.\-h}}
+\subsubsection[{url\-\_\-decode}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ url\-\_\-decode (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}}\label{urlcoder_8h_aea3ffe702ce39d26857607be86e6ca83}
+
+
+Definition at line 86 of file urlcoder.\-c.
+
+\hypertarget{urlcoder_8h_a0a48a5d072286e093996fd19227288f3}{\index{urlcoder.\-h@{urlcoder.\-h}!url\-\_\-decode2buffer@{url\-\_\-decode2buffer}}
+\index{url\-\_\-decode2buffer@{url\-\_\-decode2buffer}!urlcoder.h@{urlcoder.\-h}}
+\subsubsection[{url\-\_\-decode2buffer}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ url\-\_\-decode2buffer (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buff, }
+\item[{size\-\_\-t}]{buffsize, }
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}}\label{urlcoder_8h_a0a48a5d072286e093996fd19227288f3}
+
+
+Definition at line 121 of file urlcoder.\-c.
+
+\hypertarget{urlcoder_8h_a6de1301280b82c38b55247c949656fa4}{\index{urlcoder.\-h@{urlcoder.\-h}!url\-\_\-decode\-\_\-arguments@{url\-\_\-decode\-\_\-arguments}}
+\index{url\-\_\-decode\-\_\-arguments@{url\-\_\-decode\-\_\-arguments}!urlcoder.h@{urlcoder.\-h}}
+\subsubsection[{url\-\_\-decode\-\_\-arguments}]{\setlength{\rightskip}{0pt plus 5cm}int url\-\_\-decode\-\_\-arguments (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-L\-L\-\_\-\-H\-E\-A\-D}}]{listp, }
+\item[{char $\ast$}]{urlargs}
+\end{DoxyParamCaption}
+)}}\label{urlcoder_8h_a6de1301280b82c38b55247c949656fa4}
+
+
+Definition at line 223 of file urlcoder.\-c.
+
+\hypertarget{urlcoder_8h_a8b27af4a03e8ce05aae7cfed09971f99}{\index{urlcoder.\-h@{urlcoder.\-h}!url\-\_\-encode@{url\-\_\-encode}}
+\index{url\-\_\-encode@{url\-\_\-encode}!urlcoder.h@{urlcoder.\-h}}
+\subsubsection[{url\-\_\-encode}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ url\-\_\-encode (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}}\label{urlcoder_8h_a8b27af4a03e8ce05aae7cfed09971f99}
+
+
+Definition at line 69 of file urlcoder.\-c.
+
+\hypertarget{urlcoder_8h_a1b0927ae6a5f709026ed0c5860852577}{\index{urlcoder.\-h@{urlcoder.\-h}!url\-\_\-encode2buffer@{url\-\_\-encode2buffer}}
+\index{url\-\_\-encode2buffer@{url\-\_\-encode2buffer}!urlcoder.h@{urlcoder.\-h}}
+\subsubsection[{url\-\_\-encode2buffer}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ url\-\_\-encode2buffer (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{buff, }
+\item[{size\-\_\-t}]{buffsize, }
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}}\label{urlcoder_8h_a1b0927ae6a5f709026ed0c5860852577}
+
+
+Definition at line 108 of file urlcoder.\-c.
+
+\hypertarget{urlcoder_8h_acc3e01725535b0d9420fe7d1774b1484}{\index{urlcoder.\-h@{urlcoder.\-h}!url\-\_\-encode\-\_\-arguments@{url\-\_\-encode\-\_\-arguments}}
+\index{url\-\_\-encode\-\_\-arguments@{url\-\_\-encode\-\_\-arguments}!urlcoder.h@{urlcoder.\-h}}
+\subsubsection[{url\-\_\-encode\-\_\-arguments}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ url\-\_\-encode\-\_\-arguments (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{args, }
+\item[{char $\ast$}]{name, }
+\item[{char $\ast$}]{val}
+\end{DoxyParamCaption}
+)}}\label{urlcoder_8h_acc3e01725535b0d9420fe7d1774b1484}
+
+
+Definition at line 318 of file urlcoder.\-c.
+
+\hypertarget{urlcoder_8h_a67eeedfaba6f8e7121f09e254442652d}{\index{urlcoder.\-h@{urlcoder.\-h}!url\-\_\-free\-\_\-arguments@{url\-\_\-free\-\_\-arguments}}
+\index{url\-\_\-free\-\_\-arguments@{url\-\_\-free\-\_\-arguments}!urlcoder.h@{urlcoder.\-h}}
+\subsubsection[{url\-\_\-free\-\_\-arguments}]{\setlength{\rightskip}{0pt plus 5cm}void url\-\_\-free\-\_\-arguments (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-L\-L\-\_\-\-H\-E\-A\-D}}]{listp}
+\end{DoxyParamCaption}
+)}}\label{urlcoder_8h_a67eeedfaba6f8e7121f09e254442652d}
+
+
+Definition at line 342 of file urlcoder.\-c.
+
+\hypertarget{urlcoder_8h_acf56e2a6a733e839da2d344eb6b6ffaa}{\index{urlcoder.\-h@{urlcoder.\-h}!url\-\_\-from\-\_\-hex@{url\-\_\-from\-\_\-hex}}
+\index{url\-\_\-from\-\_\-hex@{url\-\_\-from\-\_\-hex}!urlcoder.h@{urlcoder.\-h}}
+\subsubsection[{url\-\_\-from\-\_\-hex}]{\setlength{\rightskip}{0pt plus 5cm}char url\-\_\-from\-\_\-hex (
+\begin{DoxyParamCaption}
+\item[{char}]{ch}
+\end{DoxyParamCaption}
+)}}\label{urlcoder_8h_acf56e2a6a733e839da2d344eb6b6ffaa}
+
+
+Definition at line 57 of file urlcoder.\-c.
+
+\hypertarget{urlcoder_8h_a9da6ab04bad607d725f1e1591201746a}{\index{urlcoder.\-h@{urlcoder.\-h}!url\-\_\-get\-\_\-arg\-\_\-value@{url\-\_\-get\-\_\-arg\-\_\-value}}
+\index{url\-\_\-get\-\_\-arg\-\_\-value@{url\-\_\-get\-\_\-arg\-\_\-value}!urlcoder.h@{urlcoder.\-h}}
+\subsubsection[{url\-\_\-get\-\_\-arg\-\_\-value}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ url\-\_\-get\-\_\-arg\-\_\-value (
+\begin{DoxyParamCaption}
+\item[{{\bf P\-L\-L\-\_\-\-H\-E\-A\-D}}]{listp, }
+\item[{char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}}\label{urlcoder_8h_a9da6ab04bad607d725f1e1591201746a}
+
+
+Definition at line 190 of file urlcoder.\-c.
+
+\hypertarget{urlcoder_8h_ab76db821be328b797dc96405560b24a9}{\index{urlcoder.\-h@{urlcoder.\-h}!url\-\_\-to\-\_\-hex@{url\-\_\-to\-\_\-hex}}
+\index{url\-\_\-to\-\_\-hex@{url\-\_\-to\-\_\-hex}!urlcoder.h@{urlcoder.\-h}}
+\subsubsection[{url\-\_\-to\-\_\-hex}]{\setlength{\rightskip}{0pt plus 5cm}char url\-\_\-to\-\_\-hex (
+\begin{DoxyParamCaption}
+\item[{char}]{code}
+\end{DoxyParamCaption}
+)}}\label{urlcoder_8h_ab76db821be328b797dc96405560b24a9}
+
+
+Definition at line 62 of file urlcoder.\-c.
+

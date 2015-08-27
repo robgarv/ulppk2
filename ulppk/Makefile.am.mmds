@@ -1,0 +1,18 @@
+AM_CFLAGS = -g -fPIC @ulppkproc_inc@
+AM_LDFLAGS = -ldl @ulppkproc_libflags@
+lib_LTLIBRARIES=libulppkmmds.la
+libulppkmmds_la_LDFLAGS = -release @PACKAGE_VERSION@ -version-info @LIBVERSION@
+libulppkmmds_la_SOURCES = mmapfile.c \
+mmatom.c \
+mmdeque.c \
+mmfor.c \
+mmpool.c \
+mmrpt_deque.c 
+
+pkginclude_HEADERS = mmapfile.h \
+mmatom.h \
+mmdeque.h \
+mmfor.h \
+mmpool.h \
+mmrpt_deque.h 
+

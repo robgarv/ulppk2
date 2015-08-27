@@ -1,0 +1,105 @@
+\hypertarget{socketio_8c}{\section{ulppk/socketio.c File Reference}
+\label{socketio_8c}\index{ulppk/socketio.\-c@{ulppk/socketio.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include $<$sys/types.\-h$>$}\\*
+{\ttfamily \#include $<$sys/socket.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include $<$netinet/in.\-h$>$}\\*
+{\ttfamily \#include $<$arpa/inet.\-h$>$}\\*
+{\ttfamily \#include $<$netdb.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$ulppk\-\_\-log.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+ssize\-\_\-t \hyperlink{socketio_8c_a95bea73ede0e2e5e28529b5f4e8df3f3}{sio\-\_\-readn} (int fd, void $\ast$vptr, size\-\_\-t n)
+\item 
+ssize\-\_\-t \hyperlink{socketio_8c_a3a0e257bbe6d95b2a6ca66e31118bd99}{sio\-\_\-writen} (int fd, void $\ast$vptr, size\-\_\-t n)
+\item 
+ssize\-\_\-t \hyperlink{socketio_8c_a1707c7d0388665c3c9176fde9c24e41e}{sio\-\_\-readline} (int fd, void $\ast$vptr, size\-\_\-t maxlen)
+\item 
+struct sockaddr\-\_\-in $\ast$ \hyperlink{socketio_8c_ae29d6e1365d20bee9259d38c02b111bd}{sio\-\_\-getpeername} (int fd)
+\item 
+int \hyperlink{socketio_8c_ad08c139c9dcc55cfa497ed42243edb5a}{sio\-\_\-connect} (char $\ast$host, int port)
+\item 
+int \hyperlink{socketio_8c_a4d8522fb373cb679ff739db2f4752d90}{sio\-\_\-connectbyhostname} (char $\ast$hostname, int port)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{socketio_8c_ad08c139c9dcc55cfa497ed42243edb5a}{\index{socketio.\-c@{socketio.\-c}!sio\-\_\-connect@{sio\-\_\-connect}}
+\index{sio\-\_\-connect@{sio\-\_\-connect}!socketio.c@{socketio.\-c}}
+\subsubsection[{sio\-\_\-connect}]{\setlength{\rightskip}{0pt plus 5cm}int sio\-\_\-connect (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{host, }
+\item[{int}]{port}
+\end{DoxyParamCaption}
+)}}\label{socketio_8c_ad08c139c9dcc55cfa497ed42243edb5a}
+
+
+Definition at line 101 of file socketio.\-c.
+
+\hypertarget{socketio_8c_a4d8522fb373cb679ff739db2f4752d90}{\index{socketio.\-c@{socketio.\-c}!sio\-\_\-connectbyhostname@{sio\-\_\-connectbyhostname}}
+\index{sio\-\_\-connectbyhostname@{sio\-\_\-connectbyhostname}!socketio.c@{socketio.\-c}}
+\subsubsection[{sio\-\_\-connectbyhostname}]{\setlength{\rightskip}{0pt plus 5cm}int sio\-\_\-connectbyhostname (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{hostname, }
+\item[{int}]{port}
+\end{DoxyParamCaption}
+)}}\label{socketio_8c_a4d8522fb373cb679ff739db2f4752d90}
+
+
+Definition at line 119 of file socketio.\-c.
+
+\hypertarget{socketio_8c_ae29d6e1365d20bee9259d38c02b111bd}{\index{socketio.\-c@{socketio.\-c}!sio\-\_\-getpeername@{sio\-\_\-getpeername}}
+\index{sio\-\_\-getpeername@{sio\-\_\-getpeername}!socketio.c@{socketio.\-c}}
+\subsubsection[{sio\-\_\-getpeername}]{\setlength{\rightskip}{0pt plus 5cm}struct sockaddr\-\_\-in$\ast$ sio\-\_\-getpeername (
+\begin{DoxyParamCaption}
+\item[{int}]{fd}
+\end{DoxyParamCaption}
+)}}\label{socketio_8c_ae29d6e1365d20bee9259d38c02b111bd}
+
+
+Definition at line 87 of file socketio.\-c.
+
+\hypertarget{socketio_8c_a1707c7d0388665c3c9176fde9c24e41e}{\index{socketio.\-c@{socketio.\-c}!sio\-\_\-readline@{sio\-\_\-readline}}
+\index{sio\-\_\-readline@{sio\-\_\-readline}!socketio.c@{socketio.\-c}}
+\subsubsection[{sio\-\_\-readline}]{\setlength{\rightskip}{0pt plus 5cm}ssize\-\_\-t sio\-\_\-readline (
+\begin{DoxyParamCaption}
+\item[{int}]{fd, }
+\item[{void $\ast$}]{vptr, }
+\item[{size\-\_\-t}]{maxlen}
+\end{DoxyParamCaption}
+)}}\label{socketio_8c_a1707c7d0388665c3c9176fde9c24e41e}
+
+
+Definition at line 60 of file socketio.\-c.
+
+\hypertarget{socketio_8c_a95bea73ede0e2e5e28529b5f4e8df3f3}{\index{socketio.\-c@{socketio.\-c}!sio\-\_\-readn@{sio\-\_\-readn}}
+\index{sio\-\_\-readn@{sio\-\_\-readn}!socketio.c@{socketio.\-c}}
+\subsubsection[{sio\-\_\-readn}]{\setlength{\rightskip}{0pt plus 5cm}ssize\-\_\-t sio\-\_\-readn (
+\begin{DoxyParamCaption}
+\item[{int}]{fd, }
+\item[{void $\ast$}]{vptr, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{socketio_8c_a95bea73ede0e2e5e28529b5f4e8df3f3}
+
+
+Definition at line 13 of file socketio.\-c.
+
+\hypertarget{socketio_8c_a3a0e257bbe6d95b2a6ca66e31118bd99}{\index{socketio.\-c@{socketio.\-c}!sio\-\_\-writen@{sio\-\_\-writen}}
+\index{sio\-\_\-writen@{sio\-\_\-writen}!socketio.c@{socketio.\-c}}
+\subsubsection[{sio\-\_\-writen}]{\setlength{\rightskip}{0pt plus 5cm}ssize\-\_\-t sio\-\_\-writen (
+\begin{DoxyParamCaption}
+\item[{int}]{fd, }
+\item[{void $\ast$}]{vptr, }
+\item[{size\-\_\-t}]{n}
+\end{DoxyParamCaption}
+)}}\label{socketio_8c_a3a0e257bbe6d95b2a6ca66e31118bd99}
+
+
+Definition at line 40 of file socketio.\-c.
+
