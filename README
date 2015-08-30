@@ -14,20 +14,37 @@ aclocal
 autoconf
 automake
 
+Then run configure. There are a few different ways to do that. 
 
-For normal builds:
+
+CONFIGURATION
+
+There are several options for configuring the build system. 
+
+The basic method is the classic configure script ... use
+this for production builds. 
 
 ./configure
 
 For enabling debugging and debug features:
 
-./runconfigure.sh
+./config4debug logging
+
+(Note: runconfigure.sh is deprecated.)
+
+Note this will cause a lot of logging to happen and
+if you haven't set up system logging that will show up
+on your screen. 
+
+./config4debug 
+
+Just enables gdb debugging without all the extra logging
 
 To debug a program built under the src directory:
 
 libtool --mode=execute gdb programname
 
-To build and run tests
+To build and run tests (run from project root directory)
 
 make check
 
@@ -51,4 +68,6 @@ Directory Structure
 
 src -- programs and tests
 ulppk -- library modules
+testdata -- files that support automatic tests
+doc -- Documentation files built by doxygen
 

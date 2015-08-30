@@ -3,7 +3,7 @@
 
 <GPL>
 
-Copyright: © 2001-2012 Robert C Garvey
+Copyright: © 2001-2015 Robert C Garvey
 
  This program is free software; you can redistribute it and/or modify
  it under the terms of the GNU Lesser General Public License as published by
@@ -35,11 +35,20 @@ X-Comment: On Debian systems, the complete text of the GNU General Public
  *
  * @author Rob Garvey
  *
+ * <h1>Introduction</h1>
  * The Unix/Linux Process Programming Kit (ULPPK --- hey I had to call it something)
  * is implemented as a shared library of C functions. These functions provide in
  * memory and memory mapped (persistent) data structure support, logging and
- * diagnostics, process control, socket communications, and other tools.
+ * diagnostics, process control, socket communications, and other tools. These tools
+ * provide a lightweight framework that supports rapid assembly of systems of
+ * communicating processes. 
  *
+ * The package ulppk-demo provides a simple demonstration system consisting of 
+ * a command line client, a socket server, and a state machine process. The client sends
+ * events to the socket server which dispatches them to the state machine process
+ * via memory mapped message queue. 
+ *
+ * <h1>Background</h1>
  * ulppk is a packaging of a collection of re-used functions developed by the author (moi)
  * beginning in 1989. These functions were written to solve programming problems which
  * were recurring in systems development. Many of these functions were originally developed

@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ(2.59)
-AC_INIT(ulppk, 2.0.0, ulppk@garveybz.com, ulppk, http://www.garveybz.com/swdev/ulppk-home.php)
+AC_INIT(ulppk, 2.0.1, ulppk@garveybz.com, ulppk, http://www.garveybz.com/swdev/ulppk-home.php)
 #AC_CONFIG_AUX_DIR([.])
 AC_CONFIG_MACRO_DIR([m4])
 #AM_INIT_AUTOMAKE(ulppk, 2.0.0)
